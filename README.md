@@ -4,12 +4,14 @@
 
 This is a collection of MATLAB utilities for simulating spacecraft navigation scenarios.  It provides the tools for both simulating spacecraft vehicle dynamics, simulating sensor measurements, and provides a suite of filteirng tools for optimal estimation.
 
-**This software is currently in early development.  The goal is to take many of the techniques/tools I've developed over the past few years, and compile them into an easy to use toolbox, as such refactoring the code to fit into that framework will take several weeks.  Expect an Alpha release (0.9.0) by March 2021.
+**This software is currently in early development.  The goal is to take many of the techniques/tools I've developed over the past few years, and compile them into an easy to use toolbox, as such refactoring the code to fit into that framework will take several weeks.  Expect an Alpha release (0.9.0) by March 2021.**
 
 ## How to Install/Use:
 ### Dependencies:
 *Coming Soon*
 <!-- While most 3rd party libraries are included in `lib/`, some functionality of this toolkit also depends on the JPL's SPICE Toolkit.  If you wish to use any SPICE kernels, you will need to install the [Spice Toolkit's MATLAB bindings](https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html). -->
+
+<!-- For the in the loop image processing steps, an installation of python3.7 and bpy2.83 or higher is required. -->
 
 ### Get up and Running:
 *Coming Soon*
