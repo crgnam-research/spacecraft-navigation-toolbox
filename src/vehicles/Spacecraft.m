@@ -9,6 +9,8 @@ classdef Spacecraft < handle
         displayModel % This model is used for visualizations
         simpleModel  % This model is used for computations
         
+        integrator
+        
         % visualization stuff:
         plottedTraj = false;
         trajHandle
@@ -23,6 +25,9 @@ classdef Spacecraft < handle
             validAttitude  = @(x) isa(x,'Attitude');
             validAngRate   = @(x) isnumeric(x) && all(size(x) == [3,1]);
             
+            expectedIntegrators = {'rk4','ode45'};
+            validIntegrator = @(x) any(validatestring(x,expectedIntegrators));
+            
             % Parse the optional inputs:
             p = inputParser;
                 addRequired(p,'r',validPosition);
@@ -31,6 +36,7 @@ classdef Spacecraft < handle
                 addOptional(p,'AngularRate',zeros(3,1),validAngRate);
                 addOptional(p,'DisplayModel',[]);
                 addOptional(p,'SimpleModel',[]);
+                addOptional(p,'Integrator','rk4',validIntegrator);
             parse(p,r,v,varargin{:});
             
             % Store the results:
@@ -39,6 +45,7 @@ classdef Spacecraft < handle
             self.attitude     = p.Results.Attitude;
             self.displayModel = p.Results.DisplayModel;
             self.simpleModel  = p.Results.SimpleModel;
+            self.integrator   = p.Results.Integrator;
         end
     end
     
@@ -46,7 +53,17 @@ classdef Spacecraft < handle
     methods (Access = public)
         % Propagate the spacecraft forward in time:
         function [self] = propagateOrbit(self,dt,varargin)
-            X = rk4(@self.cowell,dt,[self.position;self.velocity],varargin{:});
+            % Integrate using the correct integrator:
+            X = [self.position;self.velocity];
+            switch self.integrator
+                case 'rk4'
+                    X = rk4(@self.cowell,dt,X,varargin{:});
+                case 'ode45'
+                    [~,X] = ode45(@(t,y) self.cowell(t,y,varargin{:}),[0 dt],X);
+                    X = X(end,:)';
+            end
+            
+            % Store the resuts:
             self.position = X(1:3);
             self.velocity = X(4:6);
         end
