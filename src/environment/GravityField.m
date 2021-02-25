@@ -74,11 +74,9 @@ classdef GravityField < handle
             % Inertial acceleration 
             accel = E'*a_bf;
         end
-    end
-    
-    %% Public Visualization Methods:
-    methods (Access = public)
-        function [accel_norm] = draw(self,Cnm,Snm,mu)
+        
+        % Get Acceleration Field:
+        function [latitude,longitude,accel_norm] = accelField(self,mu,Cnm,Snm)
             % Check if alternative gravity field terms have been provided:
             if nargin == 1
                 Cnm_use = self.Cnm_true;
@@ -92,7 +90,7 @@ classdef GravityField < handle
             
             % Setup the latitude and longitude:
             latitude  = linspace(-pi/2,pi/2,180);
-            longitude = linspace(0, 2*pi,360);
+            longitude = linspace(-pi,pi,360);
             
             % Evaluate the field for specified el/az:
             accel = zeros(numel(latitude),numel(longitude),3);
@@ -104,9 +102,19 @@ classdef GravityField < handle
                 end
             end
             
-            % Draw the field:
+            % Calculate the normals:
             [~,accel_norm] = normw(accel);
-            surf(longitude,latitude,accel_norm,'EdgeColor','none')
+        end
+    end
+    
+    %% Public Visualization Methods:
+    methods (Access = public)
+        function [accel_norm] = draw(self,mu,Cnm,Snm)
+            % Calculate the accel field:
+            [lat,long,accel_norm] = self.accelField(mu,Cnm,Snm);
+            
+            % Draw the field:
+            surf(long,lat,accel_norm,'EdgeColor','none')
             colorbar
             axis equal
             view([0 90])
