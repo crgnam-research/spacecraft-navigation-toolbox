@@ -1,0 +1,3 @@
+classdef MagneticField < handle
+    
+end
