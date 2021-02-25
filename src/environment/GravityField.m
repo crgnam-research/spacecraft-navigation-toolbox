@@ -20,7 +20,7 @@ classdef GravityField < handle
     %% Public Methods
     methods (Access = public)
         % Calculate Acceleration:
-        function [accel] = acceleration(self, r, E, Cnm, Snm, mu)
+        function [accel] = acceleration(self, r, rotmat, Cnm, Snm, mu)
             if nargin == 3
                 mu  = self.mu_true;
                 Cnm = self.Cnm_true;
@@ -30,7 +30,7 @@ classdef GravityField < handle
             end
 
             % Body-fixed position 
-            r_bf = E * r;
+            r_bf = rotmat*r;
             
             % Calculate nmax values:
             n_max = size(Cnm,1)-1;
@@ -72,7 +72,7 @@ classdef GravityField < handle
             a_bf = [ax ay az]';
 
             % Inertial acceleration 
-            accel = E'*a_bf;
+            accel = rotmat'*a_bf;
         end
         
         % Get Acceleration Field:
