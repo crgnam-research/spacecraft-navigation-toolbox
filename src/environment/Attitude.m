@@ -1,4 +1,4 @@
-classdef Attitude < double
+classdef Attitude < handle
     properties
         rotmat
     end
