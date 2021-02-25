@@ -1,0 +1,3 @@
+classdef Spacecraft < handle
+    
+end

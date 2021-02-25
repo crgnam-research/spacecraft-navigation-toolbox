@@ -1,0 +1,4 @@
+classdef Attitude < handle
+    
+    
+end

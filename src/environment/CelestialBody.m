@@ -1,0 +1,3 @@
+classdef CelestialBody < handle
+    
+end
