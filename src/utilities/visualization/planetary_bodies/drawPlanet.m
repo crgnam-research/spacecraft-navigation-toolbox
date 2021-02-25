@@ -1,31 +1,5 @@
-function [h] = drawPlanet(planet_name,varargin)
-    hold on
-    switch lower(planet_name)
-        case 'mercury'
-            radius = 2439; %(km)
-            texture_file = 'mercury.jpg';
-        case 'venus'
-            radius = 6052; %(km)
-            texture_file = 'venus.jpg';
-        case 'earth'
-            radius = 6371; %(km)
-            texture_file = 'earth.jpg';
-        case 'mars'
-            radius = 3397; %(km)
-            texture_file = 'mars.jpg';
-        case 'jupiter'
-            radius = 71492; %(km)
-            texture_file = 'jupiter.jpg';
-        case 'saturn'
-            radius = 60268; %(km)
-            texture_file = 'saturn.jpg';
-        case 'uranus'
-            radius = 25559; %(km)
-            texture_file = 'uranus.jpg';
-        case 'neptune'
-            radius = 24766; %(km)
-            texture_file = 'neptune.jpg';
-    end
+function [h] = drawPlanet(radius,planet_name,varargin)
+    
     
     % Read the custom inputs:
     p = inputParser;
@@ -43,7 +17,7 @@ function [h] = drawPlanet(planet_name,varargin)
     R = radius*p.Results.Scale;
     
     % Load in the texture and create the object:
-    EarthTexture = flip(imread(texture_file),1);
+    EarthTexture = flip(imread([planet_name,'.jpg']),1);
     h = surface(R*X,R*Y,R*Z,EarthTexture,...
                 'FaceColor','texturemap','EdgeColor','none');
     hold on
