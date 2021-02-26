@@ -14,19 +14,60 @@ This is a collection of MATLAB utilities for simulating spacecraft navigation sc
 <!-- For the in the loop image processing steps, an installation of python3.7 and bpy2.83 or higher is required. -->
 
 ### Get up and Running:
-*Coming Soon*
+*Pre-release Coming in v0.9, No Later Than March 2021*
 
 ### Demos:
 In order to make this code as accesible and easy to use as possible, several well documented demo files have been included.  These files aim to demonstrate the key functionalities, and also show how to effectively use the code found here.
 
-*Coming Soon*
+*Pre-release Coming in v0.9, No Later Than March 2021*
 
 ***
-## File Structure
-*Coming Soon*
+## Features
+### Orbital Dynamics:
+*Pre-release Coming in v0.9, No Later Than March 2021*
+
+### Optimal Estimation:
+*Pre-release Coming in v0.9, No Later Than March 2021*
+
+### Easy Use of SPICE:
+*Planned Feature Coming in v1.0*
+
+### Visualization:
+*Pre-release Coming in v0.9, No Later Than March 2021*
+
+### Nos3 Interface:
+*Planned Feature Coming in v1.1*
+
+### Rendering via Blender:
+*Planned Feature Coming in v1.0*
+
+
 
 ***
-# Contact
+## File Structure and Organization
+ - `data/`  *Coming Soon*
+- `demos/`  A directory containing several demo projects meant to showcase the functionality of this toolbox.
+- `docs/`  The collection of html documentation for this toolbox.  *Coming Soon*
+- `lib/`  All 3rd party matlab libraries used in this toolbox, with their appropriate licensing.
+- `src/`  All of the source files for this toolbox:
+    - `actuators/` *Coming Soon*
+    - `environment/` 
+    - `filtering/`
+        - `classes/`
+        - `functions/`
+    - `measurement/`
+    - `simple_models/`
+    - `utilities/`
+        - `attitude/`
+        - `earth_utils/`
+        - `math/`
+        - `orbits/`
+        - `time/`
+        - `visualization/`
+    - `vehicles/`
+
+***
+## Contact
 For more information about my research, feel free to checkout my website: [chrisgnam.space](https://www.chrisgnam.space)
 
 For questions on this paper or any other work of mine, please feel free to reach out to my email: [crgnam@buffalo.edu](mailto:crgnam@buffalo.edu)
