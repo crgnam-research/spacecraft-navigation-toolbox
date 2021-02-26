@@ -29,7 +29,7 @@ classdef CelestialBody < handle
             validAttitude  = @(x) isa(x,'Attitude');
             validAngRate   = @(x) isnumeric(x) && all(size(x) == [3,1]);
             
-            % Parse the optional inputs:
+            % Parse the inputs:
             p = inputParser;
                 addRequired(p,'gravityField',validGravField);
                 addOptional(p,'Atmosphere',[],validAtmos);
@@ -47,6 +47,7 @@ classdef CelestialBody < handle
             self.magneticField = p.Results.MagneticField;
             self.attitude      = p.Results.Attitude;
             self.position      = p.Results.Position;
+            self.angularRate   = p.Results.AngularRate;
             self.displayModel  = p.Results.DisplayModel;
             self.simpleModel   = p.Results.SimpleModel;
         end

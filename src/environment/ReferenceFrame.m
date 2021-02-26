@@ -1,3 +1,0 @@
-classdef ReferenceFrame < handle
-    
-end
