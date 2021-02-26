@@ -12,7 +12,7 @@ addpath(genpath('ukf_models')) % include the ukf models
 
 %% Setup The Simulation Time:
 dt = 1*60; %(sec) Time Step Size
-duration = 1*86400; %(sec) Duration of the simulation
+duration = 2*86400; %(sec) Duration of the simulation
 tspan = dt:dt:duration;
 
 jd = 2.4593e+06;
@@ -52,7 +52,7 @@ mean_anom    = deg2rad(0);
 [r,v] = kep2rv(semi_major,eccentricity,inclination,arg_of_peri,right_ascen,mean_anom,mu);
 
 % Create the spacecraft object:
-satellite = Spacecraft(r,v,'Integrator','rk4');
+satellite = Spacecraft(r,v,tspan,'Integrator','rk4');
 
 %% Setup the Measurement Model:
 % Define the 3 locations of the ground stations in an earth fixed frame:
@@ -73,16 +73,16 @@ gs3 = GroundStation(earth,gs_ecef3,'Frequency',frequency,'RangeNoise',range_std,
 
 %% Setup the Filter:
 % Define the UKF tuning parameters:
-alpha = 1e-1;
-beta  = 2;
+alpha = 1e-2;
+beta  = 200;
 kappa = 4;
 
 % Provide initial state estimate:
-x_hat = [satellite.position + 1000*randn(3,1);
-         satellite.velocity + 1000*randn(3,1)];
+x_hat = [satellite.position + 100*randn(3,1);
+         satellite.velocity + 10*randn(3,1)];
      
 % Initial Estimation Covariance:
-P = diag([1e3 1e3 1e3 1e3 1e3 1e3]);
+P = diag([1e3 1e3 1e3 1e2 1e2 1e2]);
 
 % Process Noise Covariance:
 Q = diag([1e-6 1e-6 1e-6 1e-6 1e-6 1e-6]);
@@ -98,7 +98,7 @@ dynamics_args    = {earth.attitude,ukf_gravity};
 measurement_args = {earth.angularRate,gs1,gs2,gs3};
 
 % Create the Orbit Determination (OD) Filter:
-od_filter = UKF(x_hat,P,Q,R, alpha,beta,kappa,...
+od_filter = UKF(x_hat,P,Q,R, alpha,beta,kappa, tspan,...
                 @ukf_orbit_model,dynamics_args,...
                 @ukf_measurement_model,measurement_args);
 
@@ -110,12 +110,15 @@ for ii = 1:length(tspan)
     % Update all of the included celestial bodies: ========================
     new_attitude = earth_rotation_model(time.jd);
     earth.updateAttitude(new_attitude); % Update the Earth's orientation
+    
+    % Update the ground stations now that Earth has been updated:
     gs1.update();
     gs2.update();
     gs3.update();
     
+    
     % Propogate the spacecraft: ===========================================
-    satellite.propagateOrbit(time.dt, earth); 
+    satellite.propagateOrbit(dt, earth); 
     
     
     % Collect the measurements from each ground station: ==================
@@ -141,21 +144,51 @@ for ii = 1:length(tspan)
     od_filter.estimate(dt, measurement, measAvails);
     
 
-    % Custom Logging: =====================================================
+    % Logging: ============================================================
+    od_filter.log(ii);
+    satellite.log(ii); 
     
     
     % Show Visualization: =================================================
-    earth.draw();
-    satellite.draw('.r','MarkerSize',20);
-    satellite.drawTraj('r','LineWidth',1);
-    gs1.draw('.m','MarkerSize',20)
-    gs2.draw('.m','MarkerSize',20)
-    gs3.draw('.m','MarkerSize',20)
-    gs1.drawLink(satellite,'g','LineWidth',1)
-    gs2.drawLink(satellite,'g','LineWidth',1)
-    gs3.drawLink(satellite,'g','LineWidth',1)
-    drawnow
+%     earth.draw();
+%     satellite.draw('.r','MarkerSize',20);
+%     satellite.drawTraj('r','LineWidth',1);
+%     gs1.draw('.m','MarkerSize',20)
+%     gs2.draw('.m','MarkerSize',20)
+%     gs3.draw('.m','MarkerSize',20)
+%     gs1.drawLink(satellite,'g','LineWidth',1)
+%     gs2.drawLink(satellite,'g','LineWidth',1)
+%     gs3.drawLink(satellite,'g','LineWidth',1)
+%     drawnow
 end
 
 %% Display and Save the Results:
-drawResiduals(tspan,x_hat,truth,sig3,dim,YLABELS,XLABELS,TITLE)
+t_plt = tspan/3600;
+
+figure(1)
+h = drawResiduals(3,1,t_plt,...
+                  od_filter.x_hat_log(1:3,:),...
+                  satellite.position_log,...
+                  od_filter.sig3_log(1:3,:),'b','LineWidth',1);
+h{1}.YLim = [-1 1]*mean(od_filter.sig3_log(1,:));
+h{2}.YLim = [-1 1]*mean(od_filter.sig3_log(2,:));
+h{3}.YLim = [-1 1]*mean(od_filter.sig3_log(3,:));
+h{1}.Title.String = 'Position Errors';
+h{1}.YLabel.String = 'r_x (m)';
+h{2}.YLabel.String = 'r_y (m)';
+h{3}.YLabel.String = 'r_z (m)';
+h{3}.XLabel.String = 'Time (hours)';
+              
+figure(2)
+h = drawResiduals(3,1,tspan,...
+                  od_filter.x_hat_log(4:6,:),...
+                  satellite.velocity_log,...
+                  od_filter.sig3_log(4:6,:),'b','LineWidth',1);
+h{1}.YLim = [-1 1]*mean(od_filter.sig3_log(4,:));
+h{2}.YLim = [-1 1]*mean(od_filter.sig3_log(5,:));
+h{3}.YLim = [-1 1]*mean(od_filter.sig3_log(6,:));
+h{1}.Title.String = 'Velocity Errors';
+h{1}.YLabel.String = 'v_x (m/s)';
+h{2}.YLabel.String = 'v_y (m/s)';
+h{3}.YLabel.String = 'v_z (m/s)';
+h{3}.XLabel.String = 'Time (hours)';
