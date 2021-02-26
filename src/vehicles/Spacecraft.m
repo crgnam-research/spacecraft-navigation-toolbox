@@ -13,7 +13,9 @@ classdef Spacecraft < handle
         
         % visualization stuff:
         plottedTraj = false;
+        plotted = false;
         trajHandle
+        plotHandle
     end
     
     %% Constructor
@@ -28,7 +30,7 @@ classdef Spacecraft < handle
             expectedIntegrators = {'rk4','ode45'};
             validIntegrator = @(x) any(validatestring(x,expectedIntegrators));
             
-            % Parse the optional inputs:
+            % Parse the inputs:
             p = inputParser;
                 addRequired(p,'r',validPosition);
                 addRequired(p,'v',validVelocity);
@@ -80,6 +82,25 @@ classdef Spacecraft < handle
     
     %% Public Methods for Visualizations
     methods (Access = public)       
+        function [self] = draw(self,varargin)
+            if ~self.plotted
+                self.plotHandle = plot3(self.position(1),...
+                                        self.position(2),...
+                                        self.position(3), varargin{:});
+                self.plotted = true;
+            else
+                try
+                    set(self.plotHandle,'XData',self.position(1),...
+                                        'YData',self.position(2),...
+                                        'ZData',self.position(3))
+                catch
+                    self.plotHandle = plot3(self.position(1),...
+                                            self.position(2),...
+                                            self.position(3), varargin{:});
+                end
+            end
+        end
+        
         % Draw the trajectory history of the spacecraft:
         function [self] = drawTraj(self,varargin)
             if ~self.plottedTraj
@@ -89,9 +110,16 @@ classdef Spacecraft < handle
                                         varargin{:}); hold on
                 self.plottedTraj = true;
             else
-                set(self.trajHandle,'XDAta',[self.trajHandle.XData,self.position(1)],...
-                                    'YData',[self.trajHandle.YData,self.position(2)],...
-                                    'ZData',[self.trajHandle.ZData,self.position(3)])
+                try
+                    set(self.trajHandle,'XDAta',[self.trajHandle.XData,self.position(1)],...
+                                        'YData',[self.trajHandle.YData,self.position(2)],...
+                                        'ZData',[self.trajHandle.ZData,self.position(3)])
+                catch
+                    self.trajHandle = plot3(self.position(1),...
+                                            self.position(2),....
+                                            self.position(3),...
+                                            varargin{:}); hold on
+                end
             end
         end
     end

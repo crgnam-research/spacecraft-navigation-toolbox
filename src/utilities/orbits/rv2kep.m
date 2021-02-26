@@ -1,12 +1,9 @@
-function [OE] = rv2kep(r,v)
+function [OE] = rv2kep(r,v,mu)
 % This function calculates the orbital elements for a given a set of state
 % vectors.
 %
 % This algorithm comes directly from "Fundamentals of Astrodynamics and
 % Applications" by Vallado.
-
-% Define standard gravitaitonal parameter:
-mu = 398600.64;
 
 % Calculate Angular Momentum:
 H = cross(r,v);
