@@ -5,8 +5,8 @@ function [predicted_measurement] = ukf_measurement_model(~,X,earth_angularRate,g
     
     % Calculate predicted range measurements:
     [ray1,range1] = normc(r-gs1.position_frame);
-    [ray2,range2] = normc(r-gs3.position_frame);
-    [ray3,range3] = normc(r-gs2.position_frame);
+    [ray2,range2] = normc(r-gs2.position_frame);
+    [ray3,range3] = normc(r-gs3.position_frame);
     
     % Calculate the doppler measurements:
     v_rel = v - cross(earth_angularRate,gs1.position_frame);

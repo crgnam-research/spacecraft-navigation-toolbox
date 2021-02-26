@@ -16,11 +16,17 @@ classdef Spacecraft < handle
         plotted = false;
         trajHandle
         plotHandle
+        
+        % Logs:
+        position_log
+        velocity_log
+        attitude_log
+        angularRate_log
     end
     
     %% Constructor
     methods (Access = public)
-        function [self] = Spacecraft(r,v,varargin)
+        function [self] = Spacecraft(r,v,tspan,varargin)
             % Setup checks for inputs:
             validPosition  = @(x) isnumeric(x) && all(size(x) == [3,1]);
             validVelocity  = @(x) isnumeric(x) && all(size(x) == [3,1]);
@@ -45,9 +51,23 @@ classdef Spacecraft < handle
             self.position     = p.Results.r;
             self.velocity     = p.Results.v;
             self.attitude     = p.Results.Attitude;
+            self.angularRate  = p.Results.AngularRate;
             self.displayModel = p.Results.DisplayModel;
             self.simpleModel  = p.Results.SimpleModel;
             self.integrator   = p.Results.Integrator;
+            
+            % Preallocate Logs:
+            L = length(tspan);
+            self.position_log = zeros(3,L);
+            self.velocity_log = zeros(3,L);
+            self.attitude_log = zeros(4,L);
+            self.angularRate_log = zeros(3,L);
+            
+            % Initial log values:
+            self.position_log(:,1) = self.position;
+            self.velocity_log(:,1) = self.velocity;
+            self.attitude_log(:,1) = self.attitude.quat;
+            self.angularRate_log(:,1) = self.angularRate;
         end
     end
     
@@ -77,6 +97,14 @@ classdef Spacecraft < handle
                 accel = accel + varargin{ii}.getAccel(X,self.attitude,self.simpleModel);
             end
             dX = [X(4:6); accel];
+        end
+        
+        % Log data for a given timestep:
+        function [] = log(self,ii)
+            self.position_log(:,ii) = self.position;
+            self.velocity_log(:,ii) = self.velocity;
+            self.attitude_log(:,ii) = self.attitude.quat;
+            self.angularRate_log(:,ii) = self.angularRate;
         end
     end
     

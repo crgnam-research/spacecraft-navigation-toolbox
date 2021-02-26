@@ -73,9 +73,10 @@ function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
         K = Pxy*Pyy^-1;
         
         % State and Covariance Update (3.249):
-        disp(['Measurement RMS Error: ', num2str(norm(meas-y_hat))])
         X_hat = X_hat + K*(meas - y_hat);
         P = P - K*Pxy';
+    else
+        y_hat = nan;
     end
     
     % Make sure covariance is positive semidefinite.
