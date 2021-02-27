@@ -1,5 +1,7 @@
 # Spacecraft Navigation Toolbox (SNT)
 
+Documentation is not yet available, but is underway!  All modules should be fully documented by the end of March.
+
 ***
 ## Documentation
 ### Demos
