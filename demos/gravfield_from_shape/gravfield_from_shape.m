@@ -2,7 +2,7 @@
 % Chris Gnam - 2021
 
 %% Include all Packages:
-clear; matlabrc; clc; close all; rng(1);
+rng(1);
 addpath(genpath('../../src')); % Include all source code
 addpath(genpath('../../lib')); % Include all 3rd party libraries
 addpath(genpath('data'));  % include the data specific to this project
