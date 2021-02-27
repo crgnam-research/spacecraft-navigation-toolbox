@@ -1,7 +1,7 @@
 # Spacecraft Navigation Toolbox (SNT)
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
-[![Release](https://img.shields.io/github/v/release/crgnam-research/spacecraft-navigation-toolbox?include_prereleases)]
+![Release](https://img.shields.io/github/v/release/crgnam-research/spacecraft-navigation-toolbox?include_prereleases)
 
 This is a collection of MATLAB utilities for simulating spacecraft navigation scenarios.  It provides the tools for both simulating spacecraft vehicle dynamics, simulating sensor measurements, and provides a suite of filteirng tools for optimal estimation.
 
