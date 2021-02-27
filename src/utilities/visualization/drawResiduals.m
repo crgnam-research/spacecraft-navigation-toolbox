@@ -11,6 +11,6 @@ function [h] = drawResiduals(dim1,dim2,tspan,x_hat,truth,sig3,varargin)
         h{ii} = subplot(dim1,dim2,ii);
                     plot(tspan,x_hat(ii,:) - truth(ii,:),varargin{:}); hold on
                     drawBounds(tspan,sig3(ii,:)/3)
-                    xlim([0 inf]);
+                    xlim([0 inf]); grid on
     end
 end

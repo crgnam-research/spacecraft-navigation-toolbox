@@ -8,7 +8,7 @@ function [] = drawBounds(t,sig,num)
     FA = 0.2;
     
     % Draw the 3-sigma bounds above:
-    a = area(t,[sig; 2*sig; 3*sig]'); hold on
+    a = area(t,[sig; sig; sig]'); hold on
     a(1).FaceColor = 'g';
     a(1).FaceAlpha = FA;
     a(1).EdgeColor = 'none';
@@ -20,7 +20,7 @@ function [] = drawBounds(t,sig,num)
     a(3).EdgeColor = 'none';
     
     % Draw the 3-sigma bounds below:
-    a = area(t,-[sig; 2*sig; 3*sig]');
+    a = area(t,-[sig; sig; sig]');
     a(1).FaceColor = 'g';
     a(1).FaceAlpha = FA;
     a(1).EdgeColor = 'none';
