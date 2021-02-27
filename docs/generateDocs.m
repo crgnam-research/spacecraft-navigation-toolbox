@@ -1,25 +1,34 @@
 clear; matlabrc; clc; close all;
 addpath(genpath('../'))
 
-% Get all of the matlab files to publish:
-docsdir = pwd;
-rootdir = docsdir(1:end-4);
-filelist = dir(fullfile(rootdir, '**\*.m'));
+mat_rootdirStruct = dir('..');
+mat_rootdir = mat_rootdirStruct.folder;
 
-% Loop through all MATLAB documents and publish:
-for ii = 2:length(filelist)
-    % Publish the current .m file to html:
-    mat_name = filelist(ii).name;
-    html_name = [mat_name(1:end-2),'.html'];
-    md_name = [mat_name(1:end-2),'.md'];
-    doc_dir_path = erase(filelist(ii).folder,rootdir);
-    html_path = [doc_dir_path,'\',html_name];
-    md_path = [doc_dir_path,'\',md_name];
-    publish(filelist(ii).name,'outputDir',doc_dir_path);
+% Get all of the matlab files to publish:
+d = dir('../src/**');
+matfolders  = d([d(:).isdir]);
+matfolders  = matfolders(~ismember({matfolders(:).name},{'.','..'}));
+
+% Run m2html to autogenerate documentation:
+m2html('mfiles','../src','htmldir','m2html_out','recursive','on');
+
+% Create a new markdown document for documentation index:
+fid = fopen('documentation.md', 'wt');
+fprintf(fid, '## Documentation\n\n -src/\n');
     
-    % Convert the html to markdown via pandoc:
+% Convert all html files to markdown:
+html_files = dir('src/**/*.html');
+for ii = 1:length(html_files)
+    html_path = fullfile(html_files(ii).folder,html_files(ii).name);
+    md_path   = [html_path(1:end-5),'.md'];
     cmd = sprintf('pandoc %s -f html -t markdown -o %s',html_path,md_path);
     system(cmd);
     delete(html_path)
-    break
+    
+    % Write to markdown file:
+    rel_path = relativepath(md_path,pwd);
+    rel_path = rel_path(3:end-1);
+    fprintf(fid, '%s- [%s](%s)\n', blanks(2*(length(strfind(rel_path,'\'))-1)),...
+                                   html_files(ii).name(1:end-5), strrep(rel_path,'\','/'));
 end
+fclose(fid);
