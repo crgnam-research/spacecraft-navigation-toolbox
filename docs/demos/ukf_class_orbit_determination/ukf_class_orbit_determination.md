@@ -1,28 +1,59 @@
-%% Performing Orbit Determination with a UKF:
-% Chris Gnam - 2021
+::: {.content}
+# Performing Orbit Determination with a UKF:
 
-%% Include all Packages:
+Chris Gnam - 2021
+
+## Contents
+
+<div>
+
+-   [Include all Packages:](#1)
+-   [Setup The Simulation Time:](#2)
+-   [DO STUFF WITH ME:](#3)
+-   [Create the Earth Model:](#4)
+-   [Setup the Spacecraft:](#5)
+-   [Setup the Measurement Model:](#6)
+-   [Setup the Filter:](#7)
+-   [Simulate:](#8)
+-   [Display and Save the Results:](#9)
+
+</div>
+
+## Include all Packages: {#1}
+
+``` {.codeinput}
 rng(1);
 addpath(genpath('../../src')); % Include all source code
 addpath(genpath('../../lib')); % Include all 3rd party libraries
 addpath(genpath('data'));  % include the data specific to this project
 addpath(genpath('ukf_models')) % include the ukf models
+```
 
-%% Setup The Simulation Time:
+## Setup The Simulation Time: {#2}
+
+``` {.codeinput}
 dt = 1*60; %(sec) Time Step Size
 duration = 1*86400; %(sec) Duration of the simulation
 tspan = dt:dt:duration;
 
 % Make now the current start time:
 time = Time('datetime',datetime,dt);
+```
 
-%% DO STUFF WITH ME:
-% Define the rotation model of the earth:
+## DO STUFF WITH ME: {#3}
+
+Define the rotation model of the earth:
+
+``` {.codeinput}
 load('CIP2006.mat')
 earth_rotation_model = @(x) Attitude('rotmat',eci2ecef(x,CIP2006));
+```
 
-%% Create the Earth Model:
-% Define the gravity field of the earth: (use only 20x20 of egm96):
+## Create the Earth Model: {#4}
+
+Define the gravity field of the earth: (use only 20x20 of egm96):
+
+``` {.codeinput}
 load('egm')
 radius = 6371000;
 earth_gravity  = GravityField('SphHarm',radius,mu,Cnm(1:20,1:20),Snm(1:20,1:20));
@@ -38,9 +69,13 @@ simple_model = Sphere([0;0;0],radius);
 
 % Create the earth object:
 earth = CelestialBody(earth_gravity,'AngularRate',w_earth,'DisplayModel',display_model,'SimpleModel',simple_model);
+```
 
-%% Setup the Spacecraft:
-% Define the spacecraft orbit:
+## Setup the Spacecraft: {#5}
+
+Define the spacecraft orbit:
+
+``` {.codeinput}
 semi_major   = 20000000;
 eccentricity = 0.3;
 inclination  = deg2rad(56);
@@ -51,9 +86,13 @@ mean_anom    = deg2rad(0);
 
 % Create the spacecraft object:
 satellite = Spacecraft(r,v,tspan,'Integrator','rk4');
+```
 
-%% Setup the Measurement Model:
-% Define the 3 locations of the ground stations in an earth fixed frame:
+## Setup the Measurement Model: {#6}
+
+Define the 3 locations of the ground stations in an earth fixed frame:
+
+``` {.codeinput}
 gs_ecef1 = 1000*wgs842ecef([ 35.2824, -116.7846, 1]);
 gs_ecef2 = 1000*wgs842ecef([ 40.4294,   -4.2488, 2]);
 gs_ecef3 = 1000*wgs842ecef([-35.4025,  148.9829, 1]);
@@ -67,9 +106,13 @@ frequency = 400e6; %(Hz) Frequency of the communications link
 gs1 = GroundStation(earth,gs_ecef1,'Frequency',frequency,'RangeNoise',range_std,'DopplerNoise',doppler_std);
 gs2 = GroundStation(earth,gs_ecef2,'Frequency',frequency,'RangeNoise',range_std,'DopplerNoise',doppler_std);
 gs3 = GroundStation(earth,gs_ecef3,'Frequency',frequency,'RangeNoise',range_std,'DopplerNoise',doppler_std);
+```
 
-%% Setup the Filter:
-% Define the UKF tuning parameters:
+## Setup the Filter: {#7}
+
+Define the UKF tuning parameters:
+
+``` {.codeinput}
 alpha = 1e-2;
 beta  = 200;
 kappa = 4;
@@ -77,7 +120,7 @@ kappa = 4;
 % Provide initial state estimate:
 x_hat = [satellite.position + 100*randn(3,1);
          satellite.velocity + 10*randn(3,1)];
-     
+
 % Initial Estimation Covariance:
 P = diag([1e3 1e3 1e3 1e2 1e2 1e2]);
 
@@ -98,26 +141,29 @@ measurement_args = {earth.angularRate,gs1,gs2,gs3};
 od_filter = UKF(x_hat,P,Q,R, alpha,beta,kappa, tspan,...
                 @ukf_orbit_model,dynamics_args,...
                 @ukf_measurement_model,measurement_args);
+```
 
-%% Simulate:
+## Simulate: {#8}
+
+``` {.codeinput}
 for ii = 1:length(tspan)
     % Update the time:
     time.update(dt);
-    
+
     % Update all of the included celestial bodies: ========================
     new_attitude = earth_rotation_model(time.jd);
     earth.updateAttitude(new_attitude); % Update the Earth's orientation
-    
+
     % Update the ground stations now that Earth has been updated:
     gs1.update();
     gs2.update();
     gs3.update();
-    
-    
+
+
     % Propogate the spacecraft: ===========================================
-    satellite.propagateOrbit(dt, earth); 
-    
-    
+    satellite.propagateOrbit(dt, earth);
+
+
     % Collect the measurements from each ground station: ==================
     [range1,range_avail1] = gs1.range(satellite);
     [range2,range_avail2] = gs2.range(satellite);
@@ -125,27 +171,27 @@ for ii = 1:length(tspan)
     [doppler1,doppler_avail1] = gs1.doppler(satellite);
     [doppler2,doppler_avail2] = gs2.doppler(satellite);
     [doppler3,doppler_avail3] = gs3.doppler(satellite);
-    
+
 
     % Format measurements and availabilities for the filter: ==============
     measurement = [range1; range2; range3; doppler1; doppler2; doppler3];
     measAvails  = [range_avail1; range_avail2; range_avail3;
                    doppler_avail1; doppler_avail2; doppler_avail3];
     measurement = measurement(measAvails);
-    
+
 
     % Get updated estimate: ===============================================
     dynamics_args    = {earth.attitude,ukf_gravity};
     measurement_args = {earth.angularRate,gs1,gs2,gs3};
     od_filter.update_args(dynamics_args,measurement_args);
     od_filter.estimate(dt, measurement, measAvails);
-    
+
 
     % Logging: ============================================================
     od_filter.log(ii);
-    satellite.log(ii); 
-    
-    
+    satellite.log(ii);
+
+
     % Show Visualization: =================================================
 %     earth.draw();
 %     satellite.draw('.r','MarkerSize',20);
@@ -158,8 +204,11 @@ for ii = 1:length(tspan)
 %     gs3.drawLink(satellite,'g','LineWidth',1)
 %     drawnow
 end
+```
 
-%% Display and Save the Results:
+## Display and Save the Results: {#9}
+
+``` {.codeinput}
 t_plt = tspan/3600;
 
 figure(1)
@@ -224,3 +273,14 @@ figure(4)
     h{3}.YLabel.String = 'Station-3 (Hz)';
     h{3}.XLabel.String = 'Time (hours)';
     legend('Error','1\sigma_R','2\sigma_R','3\sigma_R')
+```
+
+![](ukf_class_orbit_determination_01.png)
+![](ukf_class_orbit_determination_02.png)
+![](ukf_class_orbit_determination_03.png)
+![](ukf_class_orbit_determination_04.png)
+
+\
+[Published with MATLAB®
+R2020a](https://www.mathworks.com/products/matlab/)\
+:::
