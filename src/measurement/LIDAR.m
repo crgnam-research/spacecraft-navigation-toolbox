@@ -1,0 +1,3 @@
+classdef LIDAR < handle
+    
+end

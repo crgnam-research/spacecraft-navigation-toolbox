@@ -1,0 +1,3 @@
+classdef ReactionWheel < handle
+    
+end
