@@ -4,3 +4,5 @@
 ## Documentation
 ### Demos
 [Demo 1](demos/gravfield_from_shape.md)
+
+[Demo 2]
