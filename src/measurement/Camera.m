@@ -1,0 +1,3 @@
+classdef Camera < handle
+    
+end
