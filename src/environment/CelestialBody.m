@@ -22,12 +22,12 @@ classdef CelestialBody < handle
     methods
         function [self] = CelestialBody(gravityField,varargin)
             % Setup checks for inputs:
-            validGravField = @(x) isa(x,'GravityField');
-            validAtmos     = @(x) isa(x,'Atmosphere');
-            validMagField  = @(x) isa(x,'MagneticField');
-            validPosition  = @(x) isnumeric(x) && all(size(x) == [3,1]);
-            validAttitude  = @(x) isa(x,'Attitude');
-            validAngRate   = @(x) isnumeric(x) && all(size(x) == [3,1]);
+            validGravField  = @(x) isa(x,'GravityField');
+            validAtmos      = @(x) isa(x,'Atmosphere');
+            validMagField   = @(x) isa(x,'MagneticField');
+            validPosition   = @(x) isnumeric(x) && all(size(x) == [3,1]);
+            validAttitude   = @(x) isa(x,'Attitude');
+            validAngRate    = @(x) isnumeric(x) && all(size(x) == [3,1]);
             
             % Parse the inputs:
             p = inputParser;
@@ -57,12 +57,12 @@ classdef CelestialBody < handle
     methods (Access = public)
         % Function to get the acceleration this object imparts on a
         % spacecraft:
-        function [accel] = getAccel(self,X,attitude,simpleModel)
+        function [accel] = getAccel(self,X,attitude,simpleModel,varargin)            
             % Calculate the relative position:
             r_rel = X(1:3) - self.position;
             
             % Get acceleration due to the gravity:
-            accel = self.gravityField.acceleration(r_rel,self.attitude.rotmat);
+            accel = self.gravityField.acceleration(r_rel,self.attitude.rotmat,varargin{:});
             
             % Get acceleration due to atmospheric drag:
             if ~isempty(simpleModel) && ~isempty(self.atmosphere)
