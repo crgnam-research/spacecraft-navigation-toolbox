@@ -1,43 +1,97 @@
 classdef GravityField < handle
     properties
-        Cnm_true %
-        Snm_true %
+        % Sphere harmonic model:
+        mu  %(m^3/s^2)
+        Cnm %
+        Snm %
+        ref_radius % (m)
         
-        mu_true  %(m^3/s^2)
-        radius % (m)
+        defaultMethod
+        
+        % Gravitational Constant:
+        G = 6.67430*10^-11;
+        
+        % Finite sphere model:
+        spheres
+        
+        % Finite cube model:
+        cubes
+        
+        % Polygon model:
+        polygons
     end
     
     %% Constructor 
     methods
-        function [self] = GravityField(radius, mu, Cnm, Snm)
-            self.radius = radius;
-            self.mu_true = mu;
-            self.Cnm_true = Cnm;
-            self.Snm_true = Snm;
+        function [self] = GravityField(fieldType,varargin)
+            switch lower(fieldType)
+                case 'sphharm'
+                    self.ref_radius   = varargin{1};
+                    self.mu  = varargin{2};
+                    self.Cnm = varargin{3};
+                    self.Snm = varargin{4};
+                    self.defaultMethod = 'SphHarm';
+                case 'finitesphere'
+                    self.spheres = varargin{1};
+                    self.mu = self.G*sum(self.spheres(:,end));
+                    self.defaultMethod = 'FiniteSphere';
+                case 'finitecube'
+                    error('NOT YET IMPLEMENTED')
+                case 'polygon'
+                    error('NOT YET IMPLEMENTED')
+                otherwise
+                    error(['No valid field type was provided.  Must be one of:\n',...
+                           'SphHarm | FiniteSphere | FiniteCube | Polygon'])
+            end
         end
     end
     
     %% Public Methods
     methods (Access = public)
-        % Calculate Acceleration:
-        function [accel] = acceleration(self, r, rotmat, Cnm, Snm, mu)
+        % Calculate the acceleration:
+        function [accel] = acceleration(self,r,rotmat,method)
             if nargin == 3
-                mu  = self.mu_true;
-                Cnm = self.Cnm_true;
-                Snm = self.Snm_true;
-            elseif nargin == 5
-                mu = self.mu_true;
+                method = self.defaultMethod;
             end
+            
+            switch lower(method)
+                case 'sphharm'
+                    accel = accelSphHarm(self,r,rotmat);
+                case 'finitesphere'
+                    accel = accelFiniteSphere(self,r,rotmat);
+                case 'finitecube'
+                    error('NOT YET IMPLEMENTED')
+                case 'polygon'
+                    error('NOT YET IMPLEMENTED')
+                otherwise
+                    error(['Invalid Option for Gravity Model.  Must be one of:\n',...
+                           '    SphHarm | FiniteSphere | FiniteCube | Polygon'])
+            end
+        end
+        
+        % Calculate acceleration for a finite sphere model:
+        function [accel_vec,accel_mag] = accelFiniteSphere(self,r,rotmat)
+            % Calculate relative position to all test masses:
+            r_rel = self.spheres(:,1:3) - (rotmat*r)';
+            m = self.spheres(:,end);
+            [r_rel_u, r_rel_mag] = normr(r_rel);
 
+            % Acceleration due to gravity:
+            accel_vec = rotmat'*(self.G*(sum(m.*r_rel_u./(r_rel_mag.^2),1)))';
+            accel_mag = norm(accel_vec);
+        end
+        
+        % Calculate acceleration for a spherical harmonic model:
+        function [accel_vec,accel_mag] = accelSphHarm(self, r, rotmat)               
             % Body-fixed position 
             r_bf = rotmat*r;
             
             % Calculate nmax values:
-            n_max = size(Cnm,1)-1;
+            n_max = size(self.Cnm,1)-1;
             m_max = n_max-1;
 
             % Auxiliary quantities
-            d = norm(r_bf);                     % distance
+            d = norm(r_bf);
             latgc = asin(r_bf(3)/d);
             lon = atan2(r_bf(2),r_bf(1));
 
@@ -48,13 +102,13 @@ classdef GravityField < handle
             dUdlon = 0;
             q3 = 0; q2 = q3; q1 = q2;
             for n = 0:n_max
-                b1 = (-mu/d^2)*(self.radius/d)^n*(n+1);
-                b2 =  (mu/d)*(self.radius/d)^n;
-                b3 =  (mu/d)*(self.radius/d)^n;
+                b1 = (-self.mu/d^2)*(self.ref_radius/d)^n*(n+1);
+                b2 =  (self.mu/d)*(self.ref_radius/d)^n;
+                b3 =  (self.mu/d)*(self.ref_radius/d)^n;
                 for m = 0:n
-                    q1 = q1 + pnm(n+1,m+1)*(Cnm(n+1,m+1)*cos(m*lon)+Snm(n+1,m+1)*sin(m*lon));
-                    q2 = q2 + dpnm(n+1,m+1)*(Cnm(n+1,m+1)*cos(m*lon)+Snm(n+1,m+1)*sin(m*lon));
-                    q3 = q3 + m*pnm(n+1,m+1)*(Snm(n+1,m+1)*cos(m*lon)-Cnm(n+1,m+1)*sin(m*lon));
+                    q1 = q1 + pnm(n+1,m+1)*(self.Cnm(n+1,m+1)*cos(m*lon)+self.Snm(n+1,m+1)*sin(m*lon));
+                    q2 = q2 + dpnm(n+1,m+1)*(self.Cnm(n+1,m+1)*cos(m*lon)+self.Snm(n+1,m+1)*sin(m*lon));
+                    q3 = q3 + m*pnm(n+1,m+1)*(self.Snm(n+1,m+1)*cos(m*lon)-self.Cnm(n+1,m+1)*sin(m*lon));
                 end
                 dUdr     = dUdr     + q1*b1;
                 dUdlatgc = dUdlatgc + q2*b2;
@@ -72,53 +126,62 @@ classdef GravityField < handle
             a_bf = [ax ay az]';
 
             % Inertial acceleration 
-            accel = rotmat'*a_bf;
+            accel_vec = rotmat'*a_bf;
+            accel_mag = norm(accel_vec);
         end
         
         % Get Acceleration Field:
-        function [latitude,longitude,accel_norm] = accelField(self,mu,Cnm,Snm)
-            % Check if alternative gravity field terms have been provided:
-            if nargin == 1
-                Cnm_use = self.Cnm_true;
-                Snm_use = self.Snm_true;
-                mu_use  = self.mu_true;
+        function [accel,accel_mag] = batchAcceleration(self,r,rotmat,varargin)
+            % Evaluate the field for specified test point:
+            accel = zeros(size(r));
+            if size(r,3) == 3
+                for ii = 1:size(r,1)
+                    for jj = 1:size(r,2)
+                        accel(ii,jj,:) = self.acceleration(squeeze(r(ii,jj,:)), rotmat, varargin{:});
+                    end
+                end
             else
-                Cnm_use = Cnm;
-                Snm_use = Snm;
-                mu_use  = mu;
-            end
-            
-            % Setup the latitude and longitude:
-            latitude  = linspace(-pi/2,pi/2,180);
-            longitude = linspace(-pi,pi,360);
-            
-            % Evaluate the field for specified el/az:
-            accel = zeros(numel(latitude),numel(longitude),3);
-            for ii = 1:length(latitude)
-                for jj = 1:length(longitude)
-                    [x,y,z] = sph2cart(longitude(jj),latitude(ii),self.radius);
-                    r = [x,y,z]';
-                    accel(ii,jj,:) = self.acceleration(r, eye(3), Cnm_use,Snm_use,mu_use);
+                if size(r,2) == 3
+                    r = r';
+                    accel = accel';
+                end
+                for ii = 1:size(r,2)
+                    accel(:,ii) = self.acceleration(r(:,ii), rotmat, varargin{:});
                 end
             end
             
-            % Calculate the normals:
-            [~,accel_norm] = normw(accel);
+            % Calculate the magnitude of each field location:
+            [~,accel_mag] = normw(accel);
+        end
+        
+        % Generate a spherical harmonic model from a provided finite
+        % sphere/cube/polygon model:
+        function [] = generateSphHarm(self,N,M,ref_radius,truthType,options)
+            self.ref_radius = ref_radius;
+                               
+            % Initialize Coefficients based on defined input dimensions:
+            [Cnm_vec, Snm_vec] = coeffs2vec(zeros(N+1),zeros(M+1));
+            num_coeffs = length(Cnm_vec)+length(Snm_vec);
+            x0 = zeros(num_coeffs, 1);
+            
+            % Generate the set of test points:
+            v = icosphere(3); % Icosphere used as it is unbiased
+            scale = 2*max(max(abs(self.spheres(:,1:3))));
+            r = scale*v.Vertices;
+
+            % Obtain the truth field to be fit:
+            accel_truth = self.batchAcceleration(r,eye(3),truthType);
+            
+            % Run optimization for whichever model was provided:
+            x_out = fmincon(@(x) self.cost(x,accel_truth,r), x0,...
+                            [],[],[],[],[],[],[],options);
+            [self.Cnm, self.Snm] = vec2coeffs(x_out);
         end
     end
     
     %% Public Visualization Methods:
     methods (Access = public)
-        function [accel_norm] = draw(self,mu,Cnm,Snm)
-            % Calculate the accel field:
-            [lat,long,accel_norm] = self.accelField(mu,Cnm,Snm);
-            
-            % Draw the field:
-            surf(long,lat,accel_norm,'EdgeColor','none')
-            colorbar
-            axis equal
-            view([0 90])
-        end
+
     end
     
     %% Private Methods:
@@ -174,5 +237,29 @@ classdef GravityField < handle
                 end
             end
         end
+        
+        % Cost function for fitting spherical harmonic field:
+        function [eval] = cost(self,x,accel_ref,r)
+            % Unpack spherical harmonic components and store:
+            [self.Cnm, self.Snm] = vec2coeffs(x);
+
+            % Evaluate the current field:
+            [accel,~] = self.batchAcceleration(r,eye(3),'SphHarm');
+            
+            % Remove nans (numerical issues) TODO: Fix whatever is causing
+            % them
+            remove = sum(isnan(accel),1) > 0;
+            accel_ref(:,remove) = [];
+            accel(:,remove) = [];
+
+            % Calculate cost:
+            max_accel = max(max(accel));
+            max_accel_ref = max(max(accel_ref));
+            [~,n] = normc(accel/max_accel - accel_ref/max_accel_ref);
+            eval = norm(n(:));
+            
+%             disp(Cnm_est)
+%             disp(eval)
+        end 
     end
 end
