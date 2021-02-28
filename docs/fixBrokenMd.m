@@ -15,8 +15,8 @@ function [] = fixBrokenMd(md_path)
     markdown = erase(markdown,'```');
     
     % Modify sub-index headers:
-    doc_home_link  = '[![\<](../../../left.png) Master documentation index](../../../../documentation.md)';
-    doc_home_link2 = '[![\<](../../../../left.png) Master documentation index](../../../../../documentation.md)';
+    doc_home_link  = '[![\<](../../../left.png) Master documentation index](../../../../documentation.html)';
+    doc_home_link2 = '[![\<](../../../../left.png) Master documentation index](../../../../../documentation.html)';
     markdown = strrep(markdown,'[Index for ..\\src\\actuators ![\>](../../../right.png)](index.md)',...
                                doc_home_link);
     markdown = strrep(markdown,'..\\src\\actuators','Actuators Module');
