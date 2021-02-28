@@ -44,7 +44,7 @@ for ii = 1:length(index_md_files)
     mod_name = erase(index_md_path(11:end),'\index.md');
     fprintf(fid, '%s- [%s](%s)\n', blanks(2*(length(strfind(index_md_path,'\'))-3)),...
                                    [upper(mod_name(1)), mod_name(2:end)],...
-                                   strrep(index_md_path,'\','/'));
+                                   ['m2html_out/',strrep(index_md_path,'\','/')]);
 end
     
 fclose(fid);
