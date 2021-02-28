@@ -111,12 +111,22 @@ function [] = fixBrokenMd(md_path)
     markdown = strrep(markdown,'[]{#_name}PURPOSE','Purpose');
     markdown = strrep(markdown,'[]{#_synopsis}SYNOPSIS','Overview');
     markdown = strrep(markdown,'[]{#_description}DESCRIPTION','Description');
-    markdown = strrep(markdown,'[]{#_cross}CROSS-REFERENCE INFORMATION','Cross-Reference Information');
+    markdown = strrep(markdown,'[]{#_cross}CROSSREFERENCE INFORMATION','Cross-Reference Information');
     markdown = strrep(markdown,'[]{#_subfunctions}SUBFUNCTIONS','Sub-functions');
     markdown = strrep(markdown,'[]{#_source}SOURCE CODE','Source Code');
    
     % Remove leading and trailing whitespace:
     markdown = strip(markdown);
+    
+    % Final adjustments to the header:
+    markdown = strrep(markdown,'[Home](../../../../index.md) \> [..](#) \> [src](#) \>',...
+                               '[Home](../../../../index.md) \> [..](#) \> [src](../../../../documentation.md) \>');
+    markdown = strrep(markdown,'[Home](../../../../../index.md) \> [..](#) \> [src](#) \>',...
+                               '[Home](../../../../../index.md) \> [..](#) \> [src](../../../../../documentation.md) \>');
+    markdown = strrep(markdown,'[Home](../../../../../../index.md) \> [..](#) \> [src](#) \>',...
+                               '[Home](../../../../../../index.md) \> [..](#) \> [src](../../../../../../documentation.md) \>');
+    markdown = strrep(markdown,'[Home](../../../../../../../index.md) \> [..](#) \> [src](#) \>',...
+                               '[Home](../../../../../../../index.md) \> [..](#) \> [src](../../../../../../../documentation.md) \>');
     
     % Save the fixed markdown string back to the markdown file:
     fid = fopen(md_path,'w');
