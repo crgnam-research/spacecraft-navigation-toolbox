@@ -8,6 +8,8 @@ This is a collection of MATLAB utilities for simulating spacecraft navigation sc
 
 **This software is currently in early development.  The goal is to take many of the techniques/tools I've developed over the past few years, and compile them into an easy to use toolbox, as such refactoring the code to fit into that framework will take several weeks.  Expect an Alpha release (0.9.0) by March 2021.**
 
+**All Documentation for this project can be found at [sntoolbox.com](sntoolbox.com)**
+
 ## How to Install/Use:
 ### Dependencies:
 *Coming Soon*
@@ -16,6 +18,12 @@ This is a collection of MATLAB utilities for simulating spacecraft navigation sc
 <!-- For the in the loop image processing steps, an installation of python3.7 and bpy2.83 or higher is required. -->
 
 ### Get up and Running:
+- To clone for the first time (including all submodules):
+  - `git clone --recurse-submodules -j8 git@github.com:crgnam-research/spacecraft-navigation-toolbox.git
+
+- To get updataes for each submodule down the line:
+  - `git submodule foreach git pull origin main`
+
 *Pre-release Coming in v0.9, No Later Than March 2021*
 
 ### Demos:
