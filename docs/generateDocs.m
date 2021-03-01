@@ -1,17 +1,10 @@
 clear; matlabrc; clc; close all;
 addpath(genpath('../'))
 
-mat_rootdirStruct = dir('..');
-mat_rootdir = mat_rootdirStruct.folder;
-
-% Get all of the matlab files to publish:
-d = dir('../src/**');
-matfolders  = d([d(:).isdir]);
-matfolders  = matfolders(~ismember({matfolders(:).name},{'.','..'}));
-
 % Run m2html to autogenerate documentation:
-m2html('mfiles','../src','htmldir','m2html_out','recursive','on');
+m2html('mfiles',{'../src','../demos/'},'htmldir','m2html_out','recursive','on','source','off');
 movefile('src*','m2html_out/docs')
+movefile('demos*','m2html_out/docs')
     
 %% Convert all html files to markdown:
 html_files = dir('m2html_out/docs/src/**/*.html');
@@ -28,7 +21,7 @@ for ii = 1:length(html_files)
     fixBrokenMd(md_path);
 end
 
-%%
+%% Create the documentation home:
 index_md_files = dir('m2html_out/docs/src/**/index.md');
 % Create a new markdown document for documentation index:
 fid = fopen('documentation.md', 'wt');
