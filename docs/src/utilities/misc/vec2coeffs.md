@@ -5,9 +5,9 @@
 
 
 
-**Inputs:**: Cnm_Snm_vec
+**Inputs:** Cnm_Snm_vec
 
-**Outputs:**: Cnm, Snm
+**Outputs:** Cnm, Snm
 
  ***
 
@@ -36,6 +36,8 @@
 
 DESCRIPTION: 
 
+
+
 ***
 
-*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

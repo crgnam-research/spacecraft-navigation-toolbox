@@ -5,18 +5,15 @@
 
 
 
-**Inputs:**: lla
+**Inputs:** lla
 
-**Outputs:**: r
+**Outputs:** r
 
  ***
 
 ## Sub-Functions
 
-| Function | Inputs | Outputs | Brief Description |
-| -------- | ------ | ------- | ----------------- |
-| [](#) |  |  |  |
-
+*No Sub-Functions*
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
@@ -30,12 +27,9 @@
 
 ## Sub-Function Descriptions
 
-### 
+*No Sub-Functions*
 
-**[] = ()**
-
-DESCRIPTION: 
 
 ***
 
-*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
