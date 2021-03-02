@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 classdef Time < handle
     properties
         % Tracked for the simulation:

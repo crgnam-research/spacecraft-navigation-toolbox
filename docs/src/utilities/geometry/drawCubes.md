@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [geometry](geometry_index.md)  
 
-
-# function: drawCubes
+ 
+ # function: drawCubes
 
 
 
@@ -29,7 +29,26 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function [h] = drawCubes(cubes,varargin)
+    % Extract locations and dimensions of each sphere:
+    h = gobjects(sum(cubes(:,5)),1);
+    iter = 1;
+    for ii = 1: size(cubes,1)
+        if cubes(ii,5)
+            h(iter) = drawCube(cubes(ii,1:4),varargin{:}); hold on
+            iter = iter+1;
+        end
+    end
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:50 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

@@ -1,10 +1,4 @@
-% A = dcmeci2ecef_codegen(JD,coefs)
-% By Benjamin Reifler
-% Implements the IAU-2000/2006 reduction, partially adapted from MATLAB aero toolbox
-% Inputs:   JD (Julian date)
-%           params
-% Outputs:  A (DCM)
-
+% INCLUDECODE>{true}
 function rotmat = eci2ecef(jd,coefs)
     % convert JD to modified JD
     jd = jd - 2400000.5;

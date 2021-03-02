@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 classdef GroundStation < handle
     properties
         celestialBody % The celestial body the station is location on

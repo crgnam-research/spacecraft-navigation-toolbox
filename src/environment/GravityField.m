@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 classdef GravityField < handle
     properties
         % Sphere harmonic model:

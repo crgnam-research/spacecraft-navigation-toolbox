@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [cubes] = cubePack(faces,vertices,dimension)
     % Get a padded range of x,y,z values to use:
     xyz_max = max(vertices)+dimension;
@@ -11,7 +12,6 @@ function [cubes] = cubePack(faces,vertices,dimension)
     X = X(:);
     Y = Y(:);
     Z = Z(:);
-%     plot3(X,Y,Z,'.r'); axis equasl;
     
     % Check which cubes are inside the defined polygon:
     in = inpolyhedron(faces,vertices, [X,Y,Z]);

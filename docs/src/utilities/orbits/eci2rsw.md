@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [orbits](orbits_index.md)  
 
-
-# function: eci2rsw
+ 
+ # function: eci2rsw
 
 
 
@@ -29,7 +29,27 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function [T, rRSW, vRSW] = eci2rsw(rECI, vECI)
+    rvec = rECI/norm(rECI);
+    wvec = cross(rECI, vECI)/norm(cross(rECI, vECI));
+    svec = cross(wvec, rvec)/norm(cross(wvec, rvec));
+
+    T = [rvec'; svec'; wvec'];
+
+    rRSW = T*rECI;
+    vRSW = T*vECI;
+end
+
+ 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:51 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

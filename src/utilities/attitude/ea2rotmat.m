@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [rotmat] = ea2rotmat(rot1,rot2,rot3,sequence)
     % INPUT IN DEGREES!!!
     

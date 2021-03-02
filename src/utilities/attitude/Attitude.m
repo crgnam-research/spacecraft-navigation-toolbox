@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 classdef Attitude < handle
     properties
         rotmat

@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [h] = drawCubes(cubes,varargin)
     % Extract locations and dimensions of each sphere:
     h = gobjects(sum(cubes(:,5)),1);

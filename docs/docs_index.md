@@ -2,8 +2,10 @@
 
 ## Contents of docs/
 
+- [_layouts/](_layouts/_layouts_index.md)
+- [assets/](assets/assets_index.md)
 - [src/](src/src_index.md)
 
 ***
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 02-Mar-2021 00:52:51 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

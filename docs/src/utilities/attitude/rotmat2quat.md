@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [attitude](attitude_index.md)  
 
-
-# function: rotmat2quat
+ 
+ # function: rotmat2quat
 
 
 
@@ -29,7 +29,24 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function q = rotmat2quat(rotmat)
+    q4 = 0.5*sqrt(1+trace(rotmat));
+    q1 = 1/(4*q4)*(rotmat(2,3)-rotmat(3,2));
+    q2 = 1/(4*q4)*(rotmat(3,1)-rotmat(1,3));
+    q3 = 1/(4*q4)*(rotmat(1,2)-rotmat(2,1));
+    q = [q1;q2;q3;q4];
+end
+
+ 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:50 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

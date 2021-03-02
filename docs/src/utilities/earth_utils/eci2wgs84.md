@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [earth_utils](earth_utils_index.md)  
 
-
-# function: eci2wgs84
+ 
+ # function: eci2wgs84
 
 
 
@@ -29,7 +29,21 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function lla = eci2wgs84(r, eci2ecef)
+    p = eci2ecef*r;
+
+    % convert ECEF to geodetic
+    lla = ecef2wgs84(p);
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:50 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

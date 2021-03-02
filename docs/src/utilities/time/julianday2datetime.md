@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [time](time_index.md)  
 
-
-# function: julianday2datetime
+ 
+ # function: julianday2datetime
 
 
 
@@ -29,7 +29,19 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function [matlab_datetime] = julianday2datetime(jd)
+    greg = julianday2gregorian(jd);
+    matlab_datetime = datetime(greg(1),greg(2),greg(3),greg(4),greg(5),greg(6));
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:51 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

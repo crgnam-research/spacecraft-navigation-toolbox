@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [geometry](geometry_index.md)  
 
-
-# function: generateGridMap
+ 
+ # function: generateGridMap
 
 
 
@@ -29,7 +29,27 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function [longitude,latitude,r] = generateGridMap(num_long,num_lat,rho)
+    longitude = linspace(-pi,pi,num_long)';
+    latitude = linspace(-pi/2,pi/2,num_lat)';
+    r = zeros(length(longitude),length(latitude),3);
+    for ii = 1:length(longitude)
+        for jj = 1:length(latitude)
+            [x,y,z] = sph2cart(longitude(ii),latitude(jj),rho);
+            r(ii,jj,:) = [x;y;z];
+        end
+    end
+    [latitude,longitude] = meshgrid(latitude,longitude);
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:50 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

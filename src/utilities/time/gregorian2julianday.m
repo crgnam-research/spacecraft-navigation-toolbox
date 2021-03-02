@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [jd] = gregorian2julianday(gregorian)
     % First unpack the time array into its components for the sake of clarity
     year   = gregorian(1);

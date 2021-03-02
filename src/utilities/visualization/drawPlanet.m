@@ -1,6 +1,5 @@
+% INCLUDECODE>{true}
 function [h] = drawPlanet(radius,planet_name,varargin)
-    
-    
     % Read the custom inputs:
     p = inputParser;
         addOptional(p,'Scale',1);

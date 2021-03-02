@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 classdef CelestialBody < handle
     properties
         displayModel % This model is used for visualizations
