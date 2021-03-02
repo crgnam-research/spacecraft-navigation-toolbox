@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [spheres] = spherePack(faces,vertices,radius)
     % Get a padded range of x,y,z values to use:
     xyz_max = max(vertices)+radius;

@@ -1,9 +1,4 @@
-% pcov_pos = posSemiDefCov(pcov)
-%
-% This function reads in a covariance matrix and checks if it is positive
-% definite.  If it is not, but non-positive eigenvalues are very small in
-% magnitude, those eigenvalues are set to a small positive number.
-
+% INCLUDECODE>{true}
 function pcov_pos = posSemiDefCov(pcov)
 
     [~, err] = cholcov(pcov);

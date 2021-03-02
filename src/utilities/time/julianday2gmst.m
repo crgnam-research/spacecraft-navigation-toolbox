@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [gmst] = julianday2gmst(jd)
     t_ut1 = (jd - 2451545.0)/36525.0;
 

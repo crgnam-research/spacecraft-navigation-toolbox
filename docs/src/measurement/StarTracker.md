@@ -1,7 +1,7 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [measurement](measurement_index.md)  
 
-
-# classdef: StarTracker
+ 
+ # classdef: StarTracker
 
 **SuperClass:** handle
 
@@ -54,7 +54,18 @@ default
 
 *No Methods*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:28 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+classdef StarTracker < handle
+    
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:50 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

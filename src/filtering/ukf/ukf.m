@@ -1,39 +1,4 @@
-%% Unscented Kalman Filter:
-% This is a simple implementation of a general purpose Unscented Kalman
-% Filter (UKF).  It is meant to be a simple tool for quick and easy
-% filtering of a wide range of systems.
-%
-% Improvement may be made, including adding the ability to handle different
-% types of measurements, or varying numbers of measurements per time step
-%
-% Inputs:
-%   dynamics   - function handle to the system dynamics
-%   measModel  - function handle to the measurement model
-%   X_hat      - current state estimate
-%   dt         - time step size
-%   P, Q, R    - vovariance, Process Noise, and Measurement Covariances
-%   measAvail  - is a measurement available
-%   meas       - measurement vector
-%   alpha,beta,kappa - UKF tunable parameters
-%   model_args - cell array containing dynamics_args, and measurement_args,
-%               both of which are also cell arrays, and correspond to the
-%               necessary inputs for the respective function handles
-%
-% Outputs:
-%   X_hat - Updated state estimate
-%   P     - Updated covariance
-%
-% Requirements:
-%     ut() - Unscented Transform function
-%     u_sigmas() - Generate sigma points
-%     posSemiDefCov() - forces positive definite
-%     cholcov_codegen
-%
-% For reference, see:
-%    Optimal Estimation of Dynamic Systems - Crassidis
-%
-% Chris Gnam - 2019
-
+% INCLUDECODE>{true}
 function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
                                  P, Q, R, measAvails, meas,...
                                  alpha, beta, kappa, model_args)

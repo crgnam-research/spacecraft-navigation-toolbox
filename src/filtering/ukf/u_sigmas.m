@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [SIGMAS,Wm,Wc,L] = u_sigmas(X_hat,P,alpha,beta,kappa)
     L = size(X_hat,1);
 

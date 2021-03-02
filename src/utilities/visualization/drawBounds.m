@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [] = drawBounds(t,sig,num)
     if nargin == 2
         t = t(1,:);

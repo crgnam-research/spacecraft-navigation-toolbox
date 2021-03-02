@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function [gregorian] = julianday2gregorian(jd)
     t_1900 = (jd - 2415019.5)/365.25;
     year = 1900 + floor(t_1900);

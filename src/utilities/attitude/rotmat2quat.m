@@ -1,3 +1,4 @@
+% INCLUDECODE>{true}
 function q = rotmat2quat(rotmat)
     q4 = 0.5*sqrt(1+trace(rotmat));
     q1 = 1/(4*q4)*(rotmat(2,3)-rotmat(3,2));

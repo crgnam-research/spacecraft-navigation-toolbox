@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [time](time_index.md)  
 
-
-# function: datetime2julianday
+ 
+ # function: datetime2julianday
 
 
 
@@ -29,7 +29,25 @@
 
 *No Sub-Functions*
 
+ 
+ *** 
 
-***
+ # Source Code:
 
-*Generated on 01-Mar-2021 22:23:29 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+ ```matlab 
+ % INCLUDECODE>{true}
+function [jd] = datetime2julianday(matlab_datetime)
+    % Assumes that the matlab datetime is on UTC time
+    gregorian = [year(matlab_datetime),...
+                 month(matlab_datetime),...
+                 day(matlab_datetime),...
+                 hour(matlab_datetime),...
+                 minute(matlab_datetime),...
+                 second(datetime)];
+    jd = gregorian2julianday(gregorian);
+end 
+ ``` 
+  
+ ***
+
+*Generated on 02-Mar-2021 00:52:51 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

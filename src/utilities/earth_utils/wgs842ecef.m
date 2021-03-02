@@ -1,7 +1,4 @@
-% Adapted From Fundamentals of Spacecraft Attitude Determination and
-%   Control by J. L. Crassidis and F. L. Markley
-% Inputs:   lla = [lam phi h]' (deg & km geodetic)
-% Outputs:  r (km ECEF)
+% INCLUDECODE>{true}
 function r = wgs842ecef(lla)
     a = 6378.1370;          % Radius at the Equator
     b = 6356.7523142;       % Radius at the Pole
