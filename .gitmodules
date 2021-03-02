@@ -1,0 +1,3 @@
+[submodule "lib/m2md"]
+	path = lib/m2md
+	url = git@github.com:crgnam-research/m2md.git
