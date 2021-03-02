@@ -9,7 +9,9 @@ $$
 
 Some regular test now?
 
-'''matlab
+Now test some MATLAB syntax highlighting:
+
+```matlab
 classdef GravityField < handle
   properties (Access = public)
     prop1
@@ -22,4 +24,4 @@ classdef GravityField < handle
     end
   end
 end
-'''
+```
