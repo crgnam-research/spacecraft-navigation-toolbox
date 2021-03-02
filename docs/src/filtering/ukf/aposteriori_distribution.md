@@ -1,10 +1,13 @@
-# function: ukf
+[Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [filtering](../filtering_index.md) > [ukf](ukf_index.md)  
 
-****: 
 
-**Inputs:**: dynamics, measModel, X_hat, dt, ...P, Q, R, measAvails, meas, ...alpha, beta, kappa, model_args
+# function: aposteriori_distribution
 
-**Outputs:**: X_hat, P, y_hat
+
+
+**Inputs:**: sigmas,  mu,  n,  Wc,  R
+
+**Outputs:**: P,  deviations
 
  ***
 
@@ -32,3 +35,7 @@
 **[] = ()**
 
 DESCRIPTION: 
+
+***
+
+*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

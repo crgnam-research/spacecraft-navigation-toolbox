@@ -1,8 +1,11 @@
+[Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [geometry](geometry_index.md)  
+
+
 # classdef: ShapeModel
 
 **SuperClass:** handle
 
-****: 
+
 
  ***
 
@@ -82,3 +85,7 @@ DESCRIPTION:
 **[h] = draw(self, varargin)**
 
 DESCRIPTION: 
+
+***
+
+*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

@@ -1,6 +1,9 @@
+[Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [attitude](attitude_index.md)  
+
+
 # function: rotmat2quat
 
-****: 
+
 
 **Inputs:**: rotmat
 
@@ -25,3 +28,6 @@
 ## Sub-Function Descriptions
 
 *No Sub-Functions*
+***
+
+*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*

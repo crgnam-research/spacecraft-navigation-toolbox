@@ -10,6 +10,6 @@
 
 ***
 ## Documentation
-All documentation can be found at [Documentation](documentation.md)
+All documentation can be found at [Documentation](docs_index.md)
 
 *Documentation is not yet available, but is underway!  All modules should be fully documented by the end of March.  Currently the documentation is available but may not be properly formatted or may be incomplete*
