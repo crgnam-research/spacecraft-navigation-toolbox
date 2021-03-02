@@ -15,7 +15,7 @@ Now test some MATLAB syntax highlighting:
 classdef GravityField < handle
   properties (Access = public)
     prop1
-    prop2
+    prop2 % Hello
   end
   
   methods (Access = public)
