@@ -5,9 +5,9 @@
 
 
 
-**Inputs:**: rot1, rot2, rot3, sequence
+**Inputs:** rot1, rot2, rot3, sequence
 
-**Outputs:**: rotmat
+**Outputs:** rotmat
 
  ***
 
@@ -28,6 +28,8 @@
 ## Sub-Function Descriptions
 
 *No Sub-Functions*
+
+
 ***
 
-*Generated on 01-Mar-2021 17:26:17 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 01-Mar-2021 22:23:28 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
