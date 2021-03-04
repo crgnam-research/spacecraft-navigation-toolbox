@@ -75,31 +75,31 @@
 
 ## Method Descriptions
 
- ### UKF
+### UKF
 
 ```matlab
 function [self] = UKF(x_hat, P, Q, R, alpha, beta, kappa, tspan, dynamics_model, dynamics_args, measurement_model, measurement_args)
 ```
 
- ### log
+### log
 
 ```matlab
 function [] = log(self, ii)
 ```
 
- ### update_args
+### update_args
 
 ```matlab
 function [] = update_args(self, dynamics_args, measurement_args)
 ```
 
- ### estimate
+### estimate
 
 ```matlab
 function [] = estimate(self, dt, measurement, measAvails)
 ```
 
- ### UKF_class
+### UKF_class
 
 ```matlab
 function [obj] = UKF_class()
@@ -224,4 +224,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:12 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

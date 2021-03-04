@@ -58,31 +58,31 @@
 
 ## Method Descriptions
 
- ### Time
+### Time
 
 ```matlab
 function [self] = Time(time_system, start_time, dt)
 ```
 
- ### gregorian
+### gregorian
 
 ```matlab
 function [greg] = gregorian(self)
 ```
 
- ### unix
+### unix
 
 ```matlab
 function [u] = unix(self)
 ```
 
- ### datetime
+### datetime
 
 ```matlab
 function [matlab_datetime] = datetime(self)
 ```
 
- ### update
+### update
 
 ```matlab
 function [] = update(self, dt)
@@ -158,4 +158,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:13 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

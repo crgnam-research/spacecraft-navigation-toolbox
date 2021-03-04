@@ -72,37 +72,37 @@
 
 ## Method Descriptions
 
- ### Spacecraft
+### Spacecraft
 
 ```matlab
 function [self] = Spacecraft(r, v, tspan, varargin)
 ```
 
- ### log
+### log
 
 ```matlab
 function [] = log(self, ii)
 ```
 
- ### cowell
+### cowell
 
 ```matlab
 function [dX] = cowell(self, ~, X, varargin)
 ```
 
- ### propagateOrbit
+### propagateOrbit
 
 ```matlab
 function [self] = propagateOrbit(self, dt, varargin)
 ```
 
- ### drawTraj
+### drawTraj
 
 ```matlab
 function [self] = drawTraj(self, varargin)
 ```
 
- ### draw
+### draw
 
 ```matlab
 function [self] = draw(self, varargin)
@@ -275,4 +275,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:13 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

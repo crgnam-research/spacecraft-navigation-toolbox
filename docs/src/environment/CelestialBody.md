@@ -67,37 +67,37 @@
 
 ## Method Descriptions
 
- ### CelestialBody
+### CelestialBody
 
 ```matlab
 function [self] = CelestialBody(gravityField, varargin)
 ```
 
- ### updatePosition
+### updatePosition
 
 ```matlab
 function [] = updatePosition(self, new_position)
 ```
 
- ### updateAngularRate
+### updateAngularRate
 
 ```matlab
 function [] = updateAngularRate(self, new_angRate)
 ```
 
- ### updateAttitude
+### updateAttitude
 
 ```matlab
 function [] = updateAttitude(self, new_attitude)
 ```
 
- ### getAccel
+### getAccel
 
 ```matlab
 function [accel] = getAccel(self, X, attitude, simpleModel, varargin)
 ```
 
- ### draw
+### draw
 
 ```matlab
 function [] = draw(self)
@@ -231,4 +231,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:12 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

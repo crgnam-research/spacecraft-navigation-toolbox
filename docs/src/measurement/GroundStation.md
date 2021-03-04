@@ -66,43 +66,43 @@
 
 ## Method Descriptions
 
- ### GroundStation
+### GroundStation
 
 ```matlab
 function [self] = GroundStation(celestialBody, position, varargin)
 ```
 
- ### angleOfArrival
+### angleOfArrival
 
 ```matlab
 function [] = angleOfArrival(self, vehicle)
 ```
 
- ### doppler
+### doppler
 
 ```matlab
 function [frequency_meas, avail] = doppler(self, vehicle)
 ```
 
- ### range
+### range
 
 ```matlab
 function [range_meas, avail] = range(self, vehicle)
 ```
 
- ### update
+### update
 
 ```matlab
 function [] = update(self)
 ```
 
- ### drawLink
+### drawLink
 
 ```matlab
 function [] = drawLink(self, vehicle, varargin)
 ```
 
- ### draw
+### draw
 
 ```matlab
 function [] = draw(self, varargin)
@@ -262,4 +262,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:13 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

@@ -68,49 +68,49 @@
 
 ## Method Descriptions
 
- ### GravityField
+### GravityField
 
 ```matlab
 function [self] = GravityField(fieldType, varargin)
 ```
 
- ### generateSphHarm
+### generateSphHarm
 
 ```matlab
 function [] = generateSphHarm(self, N, M, ref_radius, truthType, options)
 ```
 
- ### batchAcceleration
+### batchAcceleration
 
 ```matlab
 function [accel, accel_mag] = batchAcceleration(self, r, rotmat, varargin)
 ```
 
- ### accelSphHarm
+### accelSphHarm
 
 ```matlab
 function [accel_vec, accel_mag] = accelSphHarm(self, r, rotmat)
 ```
 
- ### accelFiniteSphere
+### accelFiniteSphere
 
 ```matlab
 function [accel_vec, accel_mag] = accelFiniteSphere(self, r, rotmat)
 ```
 
- ### acceleration
+### acceleration
 
 ```matlab
 function [accel] = acceleration(self, r, rotmat, method)
 ```
 
- ### cost
+### cost
 
 ```matlab
 function [eval] = cost(self, x, accel_ref, r)
 ```
 
- ### Legendre
+### Legendre
 
 ```matlab
 function [pnm, dpnm] = Legendre(~, n, m, fi)
@@ -394,4 +394,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:02:12 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
