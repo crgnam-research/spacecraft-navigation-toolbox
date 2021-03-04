@@ -50,7 +50,7 @@
 
 ## Method Descriptions
 
- ### Thruster
+### Thruster
 
 ```matlab
 function [obj] = Thruster()
@@ -61,4 +61,4 @@ function [obj] = Thruster()
 
 ***
 
-*Generated on 04-Mar-2021 00:02:12 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 00:18:22 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
