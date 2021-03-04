@@ -1,3 +1,9 @@
 [submodule "lib/m2md"]
 	path = lib/m2md
 	url = git@github.com:crgnam-research/m2md.git
+[submodule "m2docs"]
+	path = m2docs
+	url = git@github.com:crgnam-research/m2docs.git
+[submodule "lib/m2docs"]
+	path = lib/m2docs
+	url = git@github.com:crgnam-research/m2docs.git
