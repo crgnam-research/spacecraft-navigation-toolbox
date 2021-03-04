@@ -1,7 +1,5 @@
 clear; matlabrc; clc; close all;
-addpath(genpath('lib/m2md'))
+addpath(genpath('lib/m2docs'))
 
-% First test:
-% output1 = m2md({'src/'},'docs','Template',@defaultTemplate,...
-%                 'MakeIndex',true,'IndexTemplate',@defaultIndexTemplate);
+% Generate all documentation:
 data = GenerateDocumentation({'src/'});
