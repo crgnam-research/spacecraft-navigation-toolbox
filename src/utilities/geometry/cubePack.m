@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [cubes] = cubePack(faces,vertices,dimension)
+    %@code{true}
     % Get a padded range of x,y,z values to use:
     xyz_max = max(vertices)+dimension;
     xyz_min = min(vertices)-dimension;

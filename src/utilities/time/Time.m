@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef Time < handle
+    %@code{true}
     properties
         % Tracked for the simulation:
         dt %(sec)

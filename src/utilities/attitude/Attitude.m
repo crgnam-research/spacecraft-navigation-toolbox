@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef Attitude < handle
+    %@code{true}
     properties
         rotmat
     end

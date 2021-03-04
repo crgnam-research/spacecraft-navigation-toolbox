@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef Spacecraft < handle
+    %@code{true}
     properties
         % States of the spacecraft:
         position

@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [gmst] = julianday2gmst(jd)
+    %@code{true}
     t_ut1 = (jd - 2451545.0)/36525.0;
 
     gmst = -6.2e-6*t_ut1^3 + 0.093104*t_ut1^2 +...

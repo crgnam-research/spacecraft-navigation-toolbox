@@ -1,4 +1,4 @@
-% INCLUDECODE>{true}
 classdef Magnetometer < handle 
+    %@code{true}
     
 end

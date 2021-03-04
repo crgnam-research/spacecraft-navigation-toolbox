@@ -1,9 +1,9 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [environment](environment_index.md)  
 
- 
- # classdef: CelestialBody
 
-**SuperClass:** handle
+# classdef: CelestialBody
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,29 +26,20 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| displayModel | default | This model is used for visualizations |
-| simpleModel | default | This model is used for computations |
-| position | default | Position of the celestial body with respect to the reference frame origin |
-| attitude | default | Rotation from the reference frame to this celestial body frame |
-| angularRate | default | Rotation rate about the body axes |
-| gravityField | default |  |
-| atmosphere | default |  |
-| magneticField | default |  |
-| vis_handle = []; | default |  |
-| body_pts | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| displayModel |   |  |  | This model is used for visualizations |
+| simpleModel |   |  |  | This model is used for computations |
+| position |   |  |  | Position of the celestial body with respect to the reference frame origin |
+| attitude |   |  |  | Rotation from the reference frame to this celestial body frame |
+| angularRate |   |  |  | Rotation rate about the body axes |
+| gravityField |   |  |  |  |
+| atmosphere |   |  |  |  |
+| magneticField |   |  |  |  |
+| vis_handle |   |  |  |  |
+| body_pts |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [CelestialBody](#celestialbody) | default | gravityField, varargin | self |  |
-
 
  ***
 
@@ -49,11 +47,12 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [getAccel](#getaccel) | default | self, X, attitude, simpleModel, varargin | accel |  |
-| [updateAttitude](#updateattitude) | default | self, new_attitude |  |  |
-| [updateAngularRate](#updateangularrate) | default | self, new_angRate |  |  |
-| [updatePosition](#updateposition) | default | self, new_position |  |  |
-| [draw](#draw) | default | self |  |  |
+| [CelestialBody](#celestialbody) |   | gravityField, varargin | self |  |
+| [updatePosition](#updateposition) |   | self, new_position |  |  |
+| [updateAngularRate](#updateangularrate) |   | self, new_angRate |  |  |
+| [updateAttitude](#updateattitude) |   | self, new_attitude |  |  |
+| [getAccel](#getaccel) |   | self, X, attitude, simpleModel, varargin | accel |  |
+| [draw](#draw) |   | self |  |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -66,43 +65,44 @@ default
 
  ***
 
-## Constructor Description
-
-### CelestialBody
-
-**[self] = CelestialBody(gravityField, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### getAccel
+ ### CelestialBody
 
-**[accel] = getAccel(self, X, attitude, simpleModel, varargin)**
+```matlab
+function [self] = CelestialBody(gravityField, varargin)
+```
 
-DESCRIPTION: 
-### updateAttitude
+ ### updatePosition
 
-**[] = updateAttitude(self, new_attitude)**
+```matlab
+function [] = updatePosition(self, new_position)
+```
 
-DESCRIPTION: 
-### updateAngularRate
+ ### updateAngularRate
 
-**[] = updateAngularRate(self, new_angRate)**
+```matlab
+function [] = updateAngularRate(self, new_angRate)
+```
 
-DESCRIPTION: 
-### updatePosition
+ ### updateAttitude
 
-**[] = updatePosition(self, new_position)**
+```matlab
+function [] = updateAttitude(self, new_attitude)
+```
 
-DESCRIPTION: 
-### draw
+ ### getAccel
 
-**[] = draw(self)**
+```matlab
+function [accel] = getAccel(self, X, attitude, simpleModel, varargin)
+```
 
-DESCRIPTION: 
+ ### draw
+
+```matlab
+function [] = draw(self)
+```
+
 
 
  
@@ -111,8 +111,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef CelestialBody < handle
+ classdef CelestialBody < handle
+    %@code{true}
     properties
         displayModel % This model is used for visualizations
         simpleModel  % This model is used for computations
@@ -227,8 +227,8 @@ classdef CelestialBody < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

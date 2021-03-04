@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [visualization](visualization_index.md)  
 
- 
- # function: drawResiduals
+
+# function: drawResiduals
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [h] = drawResiduals(dim1,dim2,tspan,x_hat,truth,sig3,varargin)
+ function [h] = drawResiduals(dim1,dim2,tspan,x_hat,truth,sig3,varargin)
+    %@code{true}
     % Validate inputs:
     assert(size(x_hat,2) == size(tspan,2),'The length of tspan must be equal to length of x_hat')
     assert(all(size(x_hat) == size(truth)),'The inputs x_hat and truth must be the same size')
@@ -52,8 +50,8 @@ function [h] = drawResiduals(dim1,dim2,tspan,x_hat,truth,sig3,varargin)
                     xlim([0 inf]); grid on
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:27 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

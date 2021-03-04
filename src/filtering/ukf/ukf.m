@@ -1,8 +1,7 @@
-% INCLUDECODE>{true}
 function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
                                  P, Q, R, measAvails, meas,...
                                  alpha, beta, kappa, model_args)
-                      
+    %@code{true}
     % Process the variable inputs:
     dynamics_args    = model_args{1};
     measurement_args = model_args{2};

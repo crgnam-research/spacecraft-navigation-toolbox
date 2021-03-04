@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
-function r = wgs842eci(lla, eci2ecef) %# codegen
+function r = wgs842eci(lla, eci2ecef)
+    %@code{true}
     % convert geodetic to ECEF
     p = geodetic2ecef(lla);
 

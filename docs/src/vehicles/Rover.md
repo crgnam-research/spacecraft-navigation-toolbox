@@ -1,9 +1,9 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [vehicles](vehicles_index.md)  
 
- 
- # classdef: Rover
 
-**SuperClass:** handle
+# classdef: Rover
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -24,15 +31,12 @@ default
 
  ***
 
-## Constructor
-
-*No Constructor*
-
- ***
-
 ## Methods
 
-*No Methods*
+| Method | Attributes | Inputs | Outputs | Brief Description |
+| ------ | ---------- | ------ | ------- | ----------------- |
+| [Rover](#rover) |   |  | obj |  |
+
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
@@ -44,15 +48,15 @@ default
 
  ***
 
-## Constructor Description
-
-*No Methods*
-
- ***
-
 ## Method Descriptions
 
-*No Methods*
+ ### Rover
+
+```matlab
+function [obj] = Rover()
+```
+
+
 
  
  *** 
@@ -60,12 +64,11 @@ default
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef Rover < handle
-    
+ classdef Rover < handle
+    %@code{true}
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:27 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

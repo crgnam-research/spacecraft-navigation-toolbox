@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [earth_utils](earth_utils_index.md)  
 
- 
- # function: eci2ecef
+
+# function: eci2ecef
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function rotmat = eci2ecef(jd,coefs)
+ function rotmat = eci2ecef(jd,coefs)
+    %@code{true}
     % convert JD to modified JD
     jd = jd - 2400000.5;
     jd = jd - 51544.5;
@@ -138,10 +136,9 @@ function rotmat = eci2ecef(jd,coefs)
     
     % Full Attitude Matrix:
     rotmat = W(:,:,1)*R(:,:,1)*Q(:,:,1);
-end
+end 
+``` 
  
- ``` 
-  
- ***
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

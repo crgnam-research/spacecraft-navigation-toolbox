@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [orbits](orbits_index.md)  
 
- 
- # function: kep2rv
+
+# function: kep2rv
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [R_eci,V_eci] = kep2rv(a,e,i,omega,Omega,theta,mu)
+ function [R_eci,V_eci] = kep2rv(a,e,i,omega,Omega,theta,mu)
+    %@code{true}
     %Created 7/11/2014 by Chris Shelton
     %Given the orbital elements this function will find the positition and
     %velocity in ECI
@@ -66,11 +64,9 @@ function [R_eci,V_eci] = kep2rv(a,e,i,omega,Omega,theta,mu)
     % Transform the vectors from PQW into ECI
     R_eci = [(a1.*R_pqw(:,1))+(a2.*R_pqw(:,2));(a4.*R_pqw(:,1)+a5.*R_pqw(:,2));(a7.*R_pqw(:,1) + a8.*R_pqw(:,2))];
     V_eci = [(a1.*V_pqw(:,1))+(a2.*V_pqw(:,2));(a4.*V_pqw(:,1)+a5.*V_pqw(:,2));(a7.*V_pqw(:,1) + a8.*V_pqw(:,2))];
-end
-
+end 
+``` 
  
- ``` 
-  
- ***
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

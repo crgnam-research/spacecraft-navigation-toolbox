@@ -1,21 +1,19 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [misc](misc_index.md)  
 
- 
- # function: coeffs2vec
+
+# function: coeffs2vec
 
 
 
 **Inputs:** Cnm, Snm
 
-**Outputs:** Cnm_vec,  Snm_vec
+**Outputs:** Cnm_vec, Snm_vec
 
  ***
 
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [Cnm_vec, Snm_vec] = coeffs2vec(Cnm,Snm)
+ function [Cnm_vec, Snm_vec] = coeffs2vec(Cnm,Snm)
+    %@code{true}
     % Ignore first two rows of Cnm, and Snm.  Also, ignore first column of
     % Snm.  Finally, only consider lower triangular form of both (with
     % above restrictions)
@@ -59,8 +57,8 @@ function [Cnm_vec, Snm_vec] = coeffs2vec(Cnm,Snm)
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

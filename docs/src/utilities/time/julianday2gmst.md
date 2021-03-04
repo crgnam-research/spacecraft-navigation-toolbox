@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [time](time_index.md)  
 
- 
- # function: julianday2gmst
+
+# function: julianday2gmst
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [gmst] = julianday2gmst(jd)
+ function [gmst] = julianday2gmst(jd)
+    %@code{true}
     t_ut1 = (jd - 2451545.0)/36525.0;
 
     gmst = -6.2e-6*t_ut1^3 + 0.093104*t_ut1^2 +...
@@ -47,11 +45,9 @@ function [gmst] = julianday2gmst(jd)
     if (gmst < 0)
         gmst = gmst + 2*pi;
     end
-end
-
+end 
+``` 
  
- ``` 
-  
- ***
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:27 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

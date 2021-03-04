@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function rotmat = eci2ecef(jd,coefs)
+    %@code{true}
     % convert JD to modified JD
     jd = jd - 2400000.5;
     jd = jd - 51544.5;

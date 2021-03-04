@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [R_eci,V_eci] = kep2rv(a,e,i,omega,Omega,theta,mu)
+    %@code{true}
     %Created 7/11/2014 by Chris Shelton
     %Given the orbital elements this function will find the positition and
     %velocity in ECI

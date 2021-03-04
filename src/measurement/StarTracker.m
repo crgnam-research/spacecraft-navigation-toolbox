@@ -1,4 +1,4 @@
-% INCLUDECODE>{true}
 classdef StarTracker < handle
+    %@code{true}
     
 end

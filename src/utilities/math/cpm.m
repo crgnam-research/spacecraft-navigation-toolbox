@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function outmat = cpm(invec)
+    %@code{true}
     % Function cpm computes the standard cross-product matrix for a given
     % 3-vector.
 

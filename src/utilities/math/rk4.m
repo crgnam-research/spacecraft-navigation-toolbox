@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [X] = rk4(dynamics, dt, X, varargin)
+    %@code{true}
     % Solve for Coefficients:
     k1 = dt*dynamics(0,      X,          varargin{:});
     k2 = dt*dynamics(0.5*dt, X + 0.5*k1, varargin{:});

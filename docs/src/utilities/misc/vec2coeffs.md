@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [misc](misc_index.md)  
 
- 
- # function: vec2coeffs
+
+# function: vec2coeffs
 
 
 
@@ -18,8 +18,6 @@
 | [eval](#eval) | n | val |  |
 
 
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
-
  ***
 
 ## Detailed Description
@@ -30,11 +28,13 @@
 
 ## Sub-Function Descriptions
 
-### eval
+ ### eval
 
-**[val] = eval(n)**
+```matlab
+function [val] = eval(n)
+```
 
-DESCRIPTION: 
+ 
 
 
  
@@ -43,8 +43,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [Cnm,Snm] = vec2coeffs(Cnm_Snm_vec)
+ function [Cnm,Snm] = vec2coeffs(Cnm_Snm_vec)
+    %@code{true}
     % Calculate size of the Cnm coefficient matrix:
     L = size(Cnm_Snm_vec,1);
     for ii = 1:2000
@@ -91,8 +91,8 @@ function [val] = eval(n)
         step = step+2;
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

@@ -1,11 +1,11 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [filtering](../filtering_index.md) > [ukf](ukf_index.md)  
 
- 
- # function: ukf
+
+# function: ukf
 
 
 
-**Inputs:** dynamics, measModel, X_hat, dt, ...P, Q, R, measAvails, meas, ...alpha, beta, kappa, model_args
+**Inputs:** dynamics, measModel, X_hat, dt, P, Q, R, measAvails, meas, alpha, beta, kappa, model_args
 
 **Outputs:** X_hat, P, y_hat
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,11 +33,10 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
+ function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
                                  P, Q, R, measAvails, meas,...
                                  alpha, beta, kappa, model_args)
-                      
+    %@code{true}
     % Process the variable inputs:
     dynamics_args    = model_args{1};
     measurement_args = model_args{2};
@@ -83,9 +80,9 @@ function [X_hat, P, y_hat] = ukf(dynamics, measModel, X_hat, dt,...
     
     % Make sure covariance is positive semidefinite.
     P = posSemiDefCov(P);
-end  
- ``` 
-  
- ***
+end 
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

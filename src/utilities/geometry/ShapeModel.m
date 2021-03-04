@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef ShapeModel < handle
+    %@code{true}
     properties
         faces
         vertices

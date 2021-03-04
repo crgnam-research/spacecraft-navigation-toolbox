@@ -1,9 +1,9 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [geometry](geometry_index.md)  
 
- 
- # classdef: ShapeModel
 
-**SuperClass:** handle
+# classdef: ShapeModel
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,23 +26,14 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| faces | default |  |
-| vertices | default |  |
-| mass | default |  |
-| inertia | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| faces |   |  |  |  |
+| vertices |   |  |  |  |
+| mass |   |  |  |  |
+| inertia |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [ShapeModel](#shapemodel) | default | filename, varargin | self |  |
-
 
  ***
 
@@ -43,9 +41,10 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [packSpheres](#packspheres) | default | self, radius | spheres |  |
-| [packCubes](#packcubes) | default | self, dimension | cubes |  |
-| [draw](#draw) | default | self, varargin | h |  |
+| [ShapeModel](#shapemodel) |   | filename, varargin | self |  |
+| [packCubes](#packcubes) |   | self, dimension | cubes |  |
+| [packSpheres](#packspheres) |   | self, radius | spheres |  |
+| [draw](#draw) |   | self, varargin | h |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -58,33 +57,32 @@ default
 
  ***
 
-## Constructor Description
-
-### ShapeModel
-
-**[self] = ShapeModel(filename, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### packSpheres
+ ### ShapeModel
 
-**[spheres] = packSpheres(self, radius)**
+```matlab
+function [self] = ShapeModel(filename, varargin)
+```
 
-DESCRIPTION: 
-### packCubes
+ ### packCubes
 
-**[cubes] = packCubes(self, dimension)**
+```matlab
+function [cubes] = packCubes(self, dimension)
+```
 
-DESCRIPTION: 
-### draw
+ ### packSpheres
 
-**[h] = draw(self, varargin)**
+```matlab
+function [spheres] = packSpheres(self, radius)
+```
 
-DESCRIPTION: 
+ ### draw
+
+```matlab
+function [h] = draw(self, varargin)
+```
+
 
 
  
@@ -93,8 +91,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef ShapeModel < handle
+ classdef ShapeModel < handle
+    %@code{true}
     properties
         faces
         vertices
@@ -163,8 +161,8 @@ classdef ShapeModel < handle
     end
     
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

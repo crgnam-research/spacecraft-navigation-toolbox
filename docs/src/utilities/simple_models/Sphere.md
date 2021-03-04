@@ -1,9 +1,9 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [simple_models](simple_models_index.md)  
 
- 
- # classdef: Sphere
 
-**SuperClass:** handle
+# classdef: Sphere
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,21 +26,12 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| position | default |  |
-| radius | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| position |   |  |  |  |
+| radius |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [Sphere](#sphere) | default | position, radius | self |  |
-
 
  ***
 
@@ -41,7 +39,8 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [rayCast](#raycast) | default | self, origins, rays | intersects |  |
+| [Sphere](#sphere) |   | position, radius | self |  |
+| [rayCast](#raycast) |   | self, origins, rays | intersects |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -54,23 +53,20 @@ default
 
  ***
 
-## Constructor Description
-
-### Sphere
-
-**[self] = Sphere(position, radius)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### rayCast
+ ### Sphere
 
-**[intersects] = rayCast(self, origins, rays)**
+```matlab
+function [self] = Sphere(position, radius)
+```
 
-DESCRIPTION: 
+ ### rayCast
+
+```matlab
+function [intersects] = rayCast(self, origins, rays)
+```
+
 
 
  
@@ -79,8 +75,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef Sphere < handle
+ classdef Sphere < handle
+    %@code{true}
     properties
         position
         radius
@@ -109,8 +105,8 @@ classdef Sphere < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

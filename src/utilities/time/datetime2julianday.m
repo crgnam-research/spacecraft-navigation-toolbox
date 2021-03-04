@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [jd] = datetime2julianday(matlab_datetime)
+    %@code{true}
     % Assumes that the matlab datetime is on UTC time
     gregorian = [year(matlab_datetime),...
                  month(matlab_datetime),...
