@@ -11,13 +11,18 @@
 
 ## Class Attributes
 
-| Attribute         | Status   | 
-| ----------------- | -------- | 
+<div class="table-wrapper" markdown="block">
+
+| Attribute         | Status   |
+| ----------------- | -------- |
 | Abstract | false | 
 | ConstructOnLoad | false | 
 | HandleCompatible | true | 
 | Hidden | false | 
 | Sealed | false | 
+
+
+</div>
 
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
@@ -26,9 +31,14 @@
 
 ## Properties
 
+<div class="table-wrapper" markdown="block">
+
 | Property | Attributes  | Type | Default Value | Description |
 | -------- | ----------- | ---- | ------------- | ----------- |
 | rotmat |   |  |  |  |
+
+
+</div>
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
 
@@ -36,11 +46,16 @@
 
 ## Methods
 
+<div class="table-wrapper" markdown="block">
+
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
 | [Attitude](#attitude) |   | format, varargin | self |  |
 | [quaternion](#quaternion) |   | self | quat |  |
 | [quat](#quat) |   | self | quat |  |
+
+
+</div>
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -121,4 +136,4 @@ end
  
 ***
 
-*Generated on 04-Mar-2021 00:23:48 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 04-Mar-2021 12:32:24 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
