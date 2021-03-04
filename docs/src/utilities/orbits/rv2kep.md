@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [orbits](orbits_index.md)  
 
- 
- # function: rv2kep
+
+# function: rv2kep
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [OE] = rv2kep(r,v,mu)
+ function [OE] = rv2kep(r,v,mu)
+    %@code{true}
     % This function calculates the orbital elements for a given a set of state
     % vectors.
     %
@@ -92,8 +90,8 @@ function [OE] = rv2kep(r,v,mu)
     OE(5) = deg2rad(RAAN);
     OE(6) = deg2rad(M0);
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

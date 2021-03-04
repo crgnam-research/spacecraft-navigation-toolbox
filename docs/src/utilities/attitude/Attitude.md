@@ -1,9 +1,9 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [attitude](attitude_index.md)  
 
- 
- # classdef: Attitude
 
-**SuperClass:** handle
+# classdef: Attitude
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,20 +26,11 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| rotmat | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| rotmat |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [Attitude](#attitude) | default | format, varargin | self |  |
-
 
  ***
 
@@ -40,8 +38,9 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [quat](#quat) | default | self | quat |  |
-| [quaternion](#quaternion) | default | self | quat |  |
+| [Attitude](#attitude) |   | format, varargin | self |  |
+| [quaternion](#quaternion) |   | self | quat |  |
+| [quat](#quat) |   | self | quat |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -54,28 +53,26 @@ default
 
  ***
 
-## Constructor Description
-
-### Attitude
-
-**[self] = Attitude(format, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### quat
+ ### Attitude
 
-**[quat] = quat(self)**
+```matlab
+function [self] = Attitude(format, varargin)
+```
 
-DESCRIPTION: 
-### quaternion
+ ### quaternion
 
-**[quat] = quaternion(self)**
+```matlab
+function [quat] = quaternion(self)
+```
 
-DESCRIPTION: 
+ ### quat
+
+```matlab
+function [quat] = quat(self)
+```
+
 
 
  
@@ -84,8 +81,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef Attitude < handle
+ classdef Attitude < handle
+    %@code{true}
     properties
         rotmat
     end
@@ -120,8 +117,8 @@ classdef Attitude < handle
     end
     
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

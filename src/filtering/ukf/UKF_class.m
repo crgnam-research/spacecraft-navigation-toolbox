@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
-classdef UKF < handle
+classdef UKF_class < handle
+    %@code{true}
     properties (Access = public)
         % Estimator:
         x_hat % Estimate

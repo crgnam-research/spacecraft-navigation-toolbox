@@ -1,9 +1,9 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [measurement](measurement_index.md)  
 
- 
- # classdef: GroundStation
 
-**SuperClass:** handle
+# classdef: GroundStation
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,27 +26,18 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| celestialBody | default | The celestial body the station is location on |
-| position_body | default | (m) The locaiton of the station in the celestial body frame |
-| position_frame | default | (m) The location of the station in the overall frame |
-| frequency | default | (Hz) The center frequency that the station is communicating at |
-| rangeNoise | default | (m) Standard deviation of a range measurement |
-| dopplerNoise | default | (Hz) Standard deviation of a doppler measurement |
-| posHandle   = []; | default |  |
-| rangeHandle = []; | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| celestialBody |   |  |  | The celestial body the station is location on |
+| position_body |   |  |  | (m) The locaiton of the station in the celestial body frame |
+| position_frame |   |  |  | (m) The location of the station in the overall frame |
+| frequency |   |  |  | (Hz) The center frequency that the station is communicating at |
+| rangeNoise |   |  |  | (m) Standard deviation of a range measurement |
+| dopplerNoise |   |  |  | (Hz) Standard deviation of a doppler measurement |
+| posHandle |   |  |  |  |
+| rangeHandle |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [GroundStation](#groundstation) | default | celestialBody, position, varargin | self |  |
-
 
  ***
 
@@ -47,12 +45,13 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [update](#update) | default | self |  |  |
-| [range](#range) | default | self, vehicle | range_meas, avail |  |
-| [doppler](#doppler) | default | self, vehicle | frequency_meas, avail |  |
-| [angleOfArrival](#angleofarrival) | default | self, vehicle |  |  |
-| [draw](#draw) | default | self, varargin |  |  |
-| [drawLink](#drawlink) | default | self, vehicle, varargin |  |  |
+| [GroundStation](#groundstation) |   | celestialBody, position, varargin | self |  |
+| [angleOfArrival](#angleofarrival) |   | self, vehicle |  |  |
+| [doppler](#doppler) |   | self, vehicle | frequency_meas, avail |  |
+| [range](#range) |   | self, vehicle | range_meas, avail |  |
+| [update](#update) |   | self |  |  |
+| [drawLink](#drawlink) |   | self, vehicle, varargin |  |  |
+| [draw](#draw) |   | self, varargin |  |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -65,48 +64,50 @@ default
 
  ***
 
-## Constructor Description
-
-### GroundStation
-
-**[self] = GroundStation(celestialBody, position, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### update
+ ### GroundStation
 
-**[] = update(self)**
+```matlab
+function [self] = GroundStation(celestialBody, position, varargin)
+```
 
-DESCRIPTION: 
-### range
+ ### angleOfArrival
 
-**[range_meas, avail] = range(self, vehicle)**
+```matlab
+function [] = angleOfArrival(self, vehicle)
+```
 
-DESCRIPTION: 
-### doppler
+ ### doppler
 
-**[frequency_meas, avail] = doppler(self, vehicle)**
+```matlab
+function [frequency_meas, avail] = doppler(self, vehicle)
+```
 
-DESCRIPTION: 
-### angleOfArrival
+ ### range
 
-**[] = angleOfArrival(self, vehicle)**
+```matlab
+function [range_meas, avail] = range(self, vehicle)
+```
 
-DESCRIPTION: 
-### draw
+ ### update
 
-**[] = draw(self, varargin)**
+```matlab
+function [] = update(self)
+```
 
-DESCRIPTION: 
-### drawLink
+ ### drawLink
 
-**[] = drawLink(self, vehicle, varargin)**
+```matlab
+function [] = drawLink(self, vehicle, varargin)
+```
 
-DESCRIPTION: 
+ ### draw
+
+```matlab
+function [] = draw(self, varargin)
+```
+
 
 
  
@@ -115,8 +116,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef GroundStation < handle
+ classdef GroundStation < handle
+    %@code{true}
     properties
         celestialBody % The celestial body the station is location on
         
@@ -257,8 +258,8 @@ classdef GroundStation < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

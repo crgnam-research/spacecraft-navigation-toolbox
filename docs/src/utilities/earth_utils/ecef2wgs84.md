@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [earth_utils](earth_utils_index.md)  
 
- 
- # function: ecef2wgs84
+
+# function: ecef2wgs84
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function lla = ecef2wgs84(r) %#codegen
+ function lla = ecef2wgs84(r)
+    %@code{true}
     % preallocate
     lla = zeros(3,1);
 
@@ -64,10 +62,9 @@ function lla = ecef2wgs84(r) %#codegen
     lla(1) = asind((eps^2 + 1)*d/N);
     lla(2) = atan2(r(2), r(1))*180/pi;
     lla(3) = rho*cosd(lla(1)) + r(3)*sind(lla(1)) - a^2/N;
-end
+end 
+``` 
  
- ``` 
-  
- ***
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

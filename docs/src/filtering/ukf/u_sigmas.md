@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [filtering](../filtering_index.md) > [ukf](ukf_index.md)  
 
- 
- # function: u_sigmas
+
+# function: u_sigmas
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [SIGMAS,Wm,Wc,L] = u_sigmas(X_hat,P,alpha,beta,kappa)
+ function [SIGMAS,Wm,Wc,L] = u_sigmas(X_hat,P,alpha,beta,kappa)
+    %@code{true}
     L = size(X_hat,1);
 
     % Initial calculations:
@@ -54,8 +52,8 @@ function [SIGMAS,Wm,Wc,L] = u_sigmas(X_hat,P,alpha,beta,kappa)
     % Generate set of sigma points, with estimate as mean (3.253):
     SIGMAS = [X_hat, X_hat(:, ones(1,L))+sig, X_hat(:, ones(1,L))-sig];
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

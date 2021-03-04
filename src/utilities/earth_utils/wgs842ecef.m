@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function r = wgs842ecef(lla)
+    %@code{true}
     a = 6378.1370;          % Radius at the Equator
     b = 6356.7523142;       % Radius at the Pole
     f = (a - b)/a;

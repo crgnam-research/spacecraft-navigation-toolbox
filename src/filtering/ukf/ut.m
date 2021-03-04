@@ -1,6 +1,5 @@
-% INCLUDECODE>{true}
 function [mu, P, deviations, sigmas_out] = ut(systemModel, dt, sigmas, Wm, Wc, R, n_out, varargin)
-    
+    %@code{true}
     num_sigmas = size(sigmas,2);
     sigmas_out = zeros(n_out, num_sigmas);
     

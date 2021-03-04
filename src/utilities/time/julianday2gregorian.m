@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [gregorian] = julianday2gregorian(jd)
+    %@code{true}
     t_1900 = (jd - 2415019.5)/365.25;
     year = 1900 + floor(t_1900);
     leapYears = floor((year-1900-1)/4);

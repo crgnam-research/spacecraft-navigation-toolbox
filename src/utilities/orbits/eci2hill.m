@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [rHill,vHill] = eci2hill(rTgt, vTgt, rChase, vChase)
+    %@code{true}
     rTgtMag   = sqrt(sum(rTgt.^2,1));
     rChaseMag = sqrt(sum(rChase.^2,1));
     vTgtMag   = sqrt(sum(vTgt.^2,1));

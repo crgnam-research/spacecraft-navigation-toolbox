@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [Cnm_vec, Snm_vec] = coeffs2vec(Cnm,Snm)
+    %@code{true}
     % Ignore first two rows of Cnm, and Snm.  Also, ignore first column of
     % Snm.  Finally, only consider lower triangular form of both (with
     % above restrictions)

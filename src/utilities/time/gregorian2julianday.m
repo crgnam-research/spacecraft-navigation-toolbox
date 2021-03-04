@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [jd] = gregorian2julianday(gregorian)
+    %@code{true}
     % First unpack the time array into its components for the sake of clarity
     year   = gregorian(1);
     month  = gregorian(2);

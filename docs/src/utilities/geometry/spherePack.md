@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [geometry](geometry_index.md)  
 
- 
- # function: spherePack
+
+# function: spherePack
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [spheres] = spherePack(faces,vertices,radius)
+ function [spheres] = spherePack(faces,vertices,radius)
+    %@code{true}
     % Get a padded range of x,y,z values to use:
     xyz_max = max(vertices)+radius;
     xyz_min = min(vertices)-radius;
@@ -65,8 +63,8 @@ function [spheres] = spherePack(faces,vertices,radius)
     
     spheres = [X(in),Y(in),Z(in),radius*ones(sum(in),1), shell(in)];
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

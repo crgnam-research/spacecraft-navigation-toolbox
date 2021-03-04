@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [h] = drawResiduals(dim1,dim2,tspan,x_hat,truth,sig3,varargin)
+    %@code{true}
     % Validate inputs:
     assert(size(x_hat,2) == size(tspan,2),'The length of tspan must be equal to length of x_hat')
     assert(all(size(x_hat) == size(truth)),'The inputs x_hat and truth must be the same size')

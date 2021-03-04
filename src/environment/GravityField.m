@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef GravityField < handle
+    %@code{true}
     properties
         % Sphere harmonic model:
         mu  %(m^3/s^2)

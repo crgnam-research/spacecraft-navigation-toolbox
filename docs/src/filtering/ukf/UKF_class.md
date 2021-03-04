@@ -1,18 +1,66 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [filtering](../filtering_index.md) > [ukf](ukf_index.md)  
 
- 
- # script: UKF_class
+
+# classdef: UKF_class
+
+**SuperClasses:** handle
 
 
 
-## Sub-Functions
+ ***
 
-| Function | Inputs | Outputs | Brief Description |
-| -------- | ------ | ------- | ----------------- |
-| [UKF](#ukf) | x_hat, P, Q, R, alpha, beta, kappa, tspan, ...dynamics_model, dynamics_args, ...measurement_model, measurement_args | self |  |
-| [estimate](#estimate) | self,  dt,  measurement,  measAvails |  |  |
-| [update_args](#update_args) | self, dynamics_args, measurement_args |  |  |
-| [log](#log) | self, ii |  |  |
+## Class Attributes
+
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
+
+[*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
+
+ ***
+
+## Properties
+
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| x_hat |   |  |  | Estimate |
+| P |   |  |  | Estimate Covariance Matrix |
+| Q |   |  |  | Process Noise Covariance Matrix |
+| R |   |  |  | Measurement Noise Covariance Matrix |
+| measurement |   |  |  | The actual measurement |
+| predicted_measurement |   |  |  | The filter's predicted measurement |
+| measAvails |   |  |  |  |
+| dynamics_model |   |  |  |  |
+| measurement_model |   |  |  |  |
+| model_args |   |  |  |  |
+| alpha |   |  |  |  |
+| beta |   |  |  |  |
+| kappa |   |  |  |  |
+| x_hat_log |   |  |  |  |
+| P_log |   |  |  |  |
+| sig3_log |   |  |  |  |
+| measurement_log |   |  |  |  |
+| predicted_log |   |  |  |  |
+| measAvail_log |   |  |  |  |
+
+[*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
+
+ ***
+
+## Methods
+
+| Method | Attributes | Inputs | Outputs | Brief Description |
+| ------ | ---------- | ------ | ------- | ----------------- |
+| [UKF](#ukf) |   | x_hat, P, Q, R, alpha, beta, kappa, tspan, dynamics_model, dynamics_args, measurement_model, measurement_args | self |  |
+| [log](#log) |   | self, ii |  |  |
+| [update_args](#update_args) |   | self, dynamics_args, measurement_args |  |  |
+| [estimate](#estimate) |   | self, dt, measurement, measAvails |  |  |
+| [UKF_class](#ukf_class) |   |  | obj |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -25,28 +73,38 @@
 
  ***
 
-## Sub-Function Descriptions
+## Method Descriptions
 
-### UKF
+ ### UKF
 
-**[self] = UKF(x_hat, P, Q, R, alpha, beta, kappa, tspan, ...dynamics_model, dynamics_args, ...measurement_model, measurement_args)**
+```matlab
+function [self] = UKF(x_hat, P, Q, R, alpha, beta, kappa, tspan, dynamics_model, dynamics_args, measurement_model, measurement_args)
+```
 
-DESCRIPTION: 
-### estimate
+ ### log
 
-**[] = estimate(self,  dt,  measurement,  measAvails)**
+```matlab
+function [] = log(self, ii)
+```
 
-DESCRIPTION: 
-### update_args
+ ### update_args
 
-**[] = update_args(self, dynamics_args, measurement_args)**
+```matlab
+function [] = update_args(self, dynamics_args, measurement_args)
+```
 
-DESCRIPTION: 
-### log
+ ### estimate
 
-**[] = log(self, ii)**
+```matlab
+function [] = estimate(self, dt, measurement, measAvails)
+```
 
-DESCRIPTION: 
+ ### UKF_class
+
+```matlab
+function [obj] = UKF_class()
+```
+
 
 
  
@@ -55,8 +113,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef UKF < handle
+ classdef UKF_class < handle
+    %@code{true}
     properties (Access = public)
         % Estimator:
         x_hat % Estimate
@@ -162,8 +220,8 @@ classdef UKF < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

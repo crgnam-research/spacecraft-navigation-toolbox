@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [Cnm,Snm] = vec2coeffs(Cnm_Snm_vec)
+    %@code{true}
     % Calculate size of the Cnm coefficient matrix:
     L = size(Cnm_Snm_vec,1);
     for ii = 1:2000

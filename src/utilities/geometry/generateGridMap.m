@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [longitude,latitude,r] = generateGridMap(num_long,num_lat,rho)
+    %@code{true}
     longitude = linspace(-pi,pi,num_long)';
     latitude = linspace(-pi/2,pi/2,num_lat)';
     r = zeros(length(longitude),length(latitude),3);

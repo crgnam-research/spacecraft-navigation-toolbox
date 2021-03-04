@@ -1,21 +1,19 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [filtering](../filtering_index.md) > [ukf](ukf_index.md)  
 
- 
- # function: ut
+
+# function: ut
 
 
 
-**Inputs:** systemModel,  dt,  sigmas,  Wm,  Wc,  R,  n_out,  varargin
+**Inputs:** systemModel, dt, sigmas, Wm, Wc, R, n_out, varargin
 
-**Outputs:** mu,  P,  deviations,  sigmas_out
+**Outputs:** mu, P, deviations, sigmas_out
 
  ***
 
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,9 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [mu, P, deviations, sigmas_out] = ut(systemModel, dt, sigmas, Wm, Wc, R, n_out, varargin)
-    
+ function [mu, P, deviations, sigmas_out] = ut(systemModel, dt, sigmas, Wm, Wc, R, n_out, varargin)
+    %@code{true}
     num_sigmas = size(sigmas,2);
     sigmas_out = zeros(n_out, num_sigmas);
     
@@ -52,8 +49,8 @@ function [mu, P, deviations, sigmas_out] = ut(systemModel, dt, sigmas, Wm, Wc, R
     % Recover a posteriori distribution:
     [P, deviations] = aposteriori_distribution(sigmas_out, mu, num_sigmas, Wc, R);
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

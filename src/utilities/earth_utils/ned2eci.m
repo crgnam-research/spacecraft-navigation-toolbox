@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
-function [v_eci] = ned2eci(v_ned, lat, lon, eci2ecef) %# codegen
+function [v_eci] = ned2eci(v_ned, lat, lon, eci2ecef)
+    %@code{true}
     % NED -> ECEF rotation matrix
     cosl = cosd(lon);
     sinl = sind(lon);

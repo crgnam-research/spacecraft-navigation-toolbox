@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [rotmat] = ea2rotmat(rot1,rot2,rot3,sequence)
+    %@code{true}
     % INPUT IN DEGREES!!!
     
     % Parse input:

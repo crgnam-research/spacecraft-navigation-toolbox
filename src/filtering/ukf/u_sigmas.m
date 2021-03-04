@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [SIGMAS,Wm,Wc,L] = u_sigmas(X_hat,P,alpha,beta,kappa)
+    %@code{true}
     L = size(X_hat,1);
 
     % Initial calculations:

@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function y = atan3 (a, b)
+    %@code{true}
     % four quadrant inverse tangent
 
     % input

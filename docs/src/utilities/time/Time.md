@@ -1,9 +1,9 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [time](time_index.md)  
 
- 
- # classdef: Time
 
-**SuperClass:** handle
+# classdef: Time
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,21 +26,12 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| dt | default | (sec) |
-| jd | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| dt |   |  |  | (sec) |
+| jd |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [Time](#time) | default | time_system, start_time, dt | self |  |
-
 
  ***
 
@@ -41,10 +39,11 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [update](#update) | default | self, dt |  |  |
-| [datetime](#datetime) | default | self | matlab_datetime |  |
-| [unix](#unix) | default | self | u |  |
-| [gregorian](#gregorian) | default | self | greg |  |
+| [Time](#time) |   | time_system, start_time, dt | self |  |
+| [gregorian](#gregorian) |   | self | greg |  |
+| [unix](#unix) |   | self | u |  |
+| [datetime](#datetime) |   | self | matlab_datetime |  |
+| [update](#update) |   | self, dt |  |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -57,38 +56,38 @@ default
 
  ***
 
-## Constructor Description
-
-### Time
-
-**[self] = Time(time_system, start_time, dt)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### update
+ ### Time
 
-**[] = update(self, dt)**
+```matlab
+function [self] = Time(time_system, start_time, dt)
+```
 
-DESCRIPTION: 
-### datetime
+ ### gregorian
 
-**[matlab_datetime] = datetime(self)**
+```matlab
+function [greg] = gregorian(self)
+```
 
-DESCRIPTION: 
-### unix
+ ### unix
 
-**[u] = unix(self)**
+```matlab
+function [u] = unix(self)
+```
 
-DESCRIPTION: 
-### gregorian
+ ### datetime
 
-**[greg] = gregorian(self)**
+```matlab
+function [matlab_datetime] = datetime(self)
+```
 
-DESCRIPTION: 
+ ### update
+
+```matlab
+function [] = update(self, dt)
+```
+
 
 
  
@@ -97,8 +96,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef Time < handle
+ classdef Time < handle
+    %@code{true}
     properties
         % Tracked for the simulation:
         dt %(sec)
@@ -155,8 +154,8 @@ classdef Time < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

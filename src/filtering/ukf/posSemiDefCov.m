@@ -1,6 +1,5 @@
-% INCLUDECODE>{true}
 function pcov_pos = posSemiDefCov(pcov)
-
+    %@code{true}
     [~, err] = cholcov(pcov);
 
     if err ~= 0 %the covariance matrix is not positive semidefinite

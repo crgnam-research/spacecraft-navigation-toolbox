@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [h] = drawSpheres(spheres,varargin)
+    %@code{true}
     h = gobjects(sum(spheres(:,5)),1);
     iter = 1;
     for ii = 1: size(spheres,1)

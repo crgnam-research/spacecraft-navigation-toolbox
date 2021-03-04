@@ -1,9 +1,9 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [vehicles](vehicles_index.md)  
 
- 
- # classdef: Spacecraft
 
-**SuperClass:** handle
+# classdef: Spacecraft
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,34 +26,25 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| position | default |  |
-| velocity | default |  |
-| attitude | default |  |
-| angularRate | default |  |
-| displayModel | default | This model is used for visualizations |
-| simpleModel | default | This model is used for computations |
-| integrator | default |  |
-| plottedTraj = false; | default |  |
-| plotted = false; | default |  |
-| trajHandle | default |  |
-| plotHandle | default |  |
-| position_log | default |  |
-| velocity_log | default |  |
-| attitude_log | default |  |
-| angularRate_log | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| position |   |  |  |  |
+| velocity |   |  |  |  |
+| attitude |   |  |  |  |
+| angularRate |   |  |  |  |
+| displayModel |   |  |  | This model is used for visualizations |
+| simpleModel |   |  |  | This model is used for computations |
+| integrator |   |  |  |  |
+| plottedTraj |   |  | false |  |
+| plotted |   |  | false |  |
+| trajHandle |   |  |  |  |
+| plotHandle |   |  |  |  |
+| position_log |   |  |  |  |
+| velocity_log |   |  |  |  |
+| attitude_log |   |  |  |  |
+| angularRate_log |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [Spacecraft](#spacecraft) | default | r, v, tspan, varargin | self |  |
-
 
  ***
 
@@ -54,11 +52,12 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [propagateOrbit](#propagateorbit) | default | self, dt, varargin | self |  |
-| [cowell](#cowell) | default | self, ~, X, varargin | dX |  |
-| [log](#log) | default | self, ii |  |  |
-| [draw](#draw) | default | self, varargin | self |  |
-| [drawTraj](#drawtraj) | default | self, varargin | self |  |
+| [Spacecraft](#spacecraft) |   | r, v, tspan, varargin | self |  |
+| [log](#log) |   | self, ii |  |  |
+| [cowell](#cowell) |   | self, ~, X, varargin | dX |  |
+| [propagateOrbit](#propagateorbit) |   | self, dt, varargin | self |  |
+| [drawTraj](#drawtraj) |   | self, varargin | self |  |
+| [draw](#draw) |   | self, varargin | self |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -71,43 +70,44 @@ default
 
  ***
 
-## Constructor Description
-
-### Spacecraft
-
-**[self] = Spacecraft(r, v, tspan, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### propagateOrbit
+ ### Spacecraft
 
-**[self] = propagateOrbit(self, dt, varargin)**
+```matlab
+function [self] = Spacecraft(r, v, tspan, varargin)
+```
 
-DESCRIPTION: 
-### cowell
+ ### log
 
-**[dX] = cowell(self, ~, X, varargin)**
+```matlab
+function [] = log(self, ii)
+```
 
-DESCRIPTION: 
-### log
+ ### cowell
 
-**[] = log(self, ii)**
+```matlab
+function [dX] = cowell(self, ~, X, varargin)
+```
 
-DESCRIPTION: 
-### draw
+ ### propagateOrbit
 
-**[self] = draw(self, varargin)**
+```matlab
+function [self] = propagateOrbit(self, dt, varargin)
+```
 
-DESCRIPTION: 
-### drawTraj
+ ### drawTraj
 
-**[self] = drawTraj(self, varargin)**
+```matlab
+function [self] = drawTraj(self, varargin)
+```
 
-DESCRIPTION: 
+ ### draw
+
+```matlab
+function [self] = draw(self, varargin)
+```
+
 
 
  
@@ -116,8 +116,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef Spacecraft < handle
+ classdef Spacecraft < handle
+    %@code{true}
     properties
         % States of the spacecraft:
         position
@@ -271,8 +271,8 @@ classdef Spacecraft < handle
         end
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:24 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:27 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

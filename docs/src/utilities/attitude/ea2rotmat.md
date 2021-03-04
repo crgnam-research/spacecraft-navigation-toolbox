@@ -1,7 +1,7 @@
 [Home](../../../index.md) > [docs](../../../docs_index.md) > [src](../../src_index.md) > [utilities](../utilities_index.md) > [attitude](attitude_index.md)  
 
- 
- # function: ea2rotmat
+
+# function: ea2rotmat
 
 
 
@@ -14,8 +14,6 @@
 ## Sub-Functions
 
 *No Sub-Functions*
-
-[*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
 
  ***
 
@@ -35,8 +33,8 @@
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-function [rotmat] = ea2rotmat(rot1,rot2,rot3,sequence)
+ function [rotmat] = ea2rotmat(rot1,rot2,rot3,sequence)
+    %@code{true}
     % INPUT IN DEGREES!!!
     
     % Parse input:
@@ -60,8 +58,8 @@ function [rotmat] = ea2rotmat(rot1,rot2,rot3,sequence)
              T{str2double(sequence(2))}(rot2)*...
              T{str2double(sequence(1))}(rot1);
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 function [] = drawBounds(t,sig,num)
+    %@code{true}
     if nargin == 2
         t = t(1,:);
     else

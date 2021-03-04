@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef GroundStation < handle
+    %@code{true}
     properties
         celestialBody % The celestial body the station is location on
         

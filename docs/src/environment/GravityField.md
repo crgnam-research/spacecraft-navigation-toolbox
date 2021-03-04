@@ -1,9 +1,9 @@
 [Home](../../index.md) > [docs](../../docs_index.md) > [src](../src_index.md) > [environment](environment_index.md)  
 
- 
- # classdef: GravityField
 
-**SuperClass:** handle
+# classdef: GravityField
+
+**SuperClasses:** handle
 
 
 
@@ -11,7 +11,14 @@
 
 ## Class Attributes
 
-default
+| Attribute         | Status   | 
+| ----------------- | -------- | 
+| Abstract | false | 
+| ConstructOnLoad | false | 
+| HandleCompatible | true | 
+| Hidden | false | 
+| Sealed | false | 
+
 
 [*Default Class Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/class-attributes.html)
 
@@ -19,28 +26,19 @@ default
 
 ## Properties
 
-| Property | Attributes  | Comment |
-| -------- | ----------- | ------- |
-| mu | default | (m^3/s^2) |
-| Cnm | default |  |
-| Snm | default |  |
-| ref_radius | default | (m) |
-| defaultMethod | default |  |
-| G = 6.67430*10^-11; | default |  |
-| spheres | default |  |
-| cubes | default |  |
-| polygons | default |  |
+| Property | Attributes  | Type | Default Value | Description |
+| -------- | ----------- | ---- | ------------- | ----------- |
+| mu |   |  |  | (m^3/s^2) |
+| Cnm |   |  |  |  |
+| Snm |   |  |  |  |
+| ref_radius |   |  |  | (m) |
+| defaultMethod |   |  |  |  |
+| G |   |  | 6.6743e-11 |  |
+| spheres |   |  |  |  |
+| cubes |   |  |  |  |
+| polygons |   |  |  |  |
 
 [*Default Property Attributes*](https://www.mathworks.com/help/matlab/matlab_oop/property-attributes.html)
-
- ***
-
-## Constructor
-
-| Constructor | Attributes | Inputs | Outputs | Brief Description |
-| ----------- | ---------- | ------ | ------- | ----------------- |
-| [GravityField](#gravityfield) | default | fieldType, varargin | self |  |
-
 
  ***
 
@@ -48,13 +46,14 @@ default
 
 | Method | Attributes | Inputs | Outputs | Brief Description |
 | ------ | ---------- | ------ | ------- | ----------------- |
-| [acceleration](#acceleration) | default | self, r, rotmat, method | accel |  |
-| [accelFiniteSphere](#accelfinitesphere) | default | self, r, rotmat | accel_vec, accel_mag |  |
-| [accelSphHarm](#accelsphharm) | default | self,  r,  rotmat | accel_vec, accel_mag |  |
-| [batchAcceleration](#batchacceleration) | default | self, r, rotmat, varargin | accel, accel_mag |  |
-| [generateSphHarm](#generatesphharm) | default | self, N, M, ref_radius, truthType, options |  |  |
-| [Legendre](#legendre) | (Access = *private*) | ~, n, m, fi | pnm,  dpnm |  |
-| [cost](#cost) | (Access = *private*) | self, x, accel_ref, r | eval |  |
+| [GravityField](#gravityfield) |   | fieldType, varargin | self |  |
+| [generateSphHarm](#generatesphharm) |   | self, N, M, ref_radius, truthType, options |  |  |
+| [batchAcceleration](#batchacceleration) |   | self, r, rotmat, varargin | accel, accel_mag |  |
+| [accelSphHarm](#accelsphharm) |   | self, r, rotmat | accel_vec, accel_mag |  |
+| [accelFiniteSphere](#accelfinitesphere) |   | self, r, rotmat | accel_vec, accel_mag |  |
+| [acceleration](#acceleration) |   | self, r, rotmat, method | accel |  |
+| [cost](#cost) | Access = private | self, x, accel_ref, r | eval |  |
+| [Legendre](#legendre) | Access = private | ~, n, m, fi | pnm, dpnm |  |
 
 
 [*Default Method Attributs*](https://www.mathworks.com/help/matlab/matlab_oop/method-attributes.html)
@@ -67,53 +66,56 @@ default
 
  ***
 
-## Constructor Description
-
-### GravityField
-
-**[self] = GravityField(fieldType, varargin)**
-
-DESCRIPTION: 
-
- ***
-
 ## Method Descriptions
 
-### acceleration
+ ### GravityField
 
-**[accel] = acceleration(self, r, rotmat, method)**
+```matlab
+function [self] = GravityField(fieldType, varargin)
+```
 
-DESCRIPTION: 
-### accelFiniteSphere
+ ### generateSphHarm
 
-**[accel_vec, accel_mag] = accelFiniteSphere(self, r, rotmat)**
+```matlab
+function [] = generateSphHarm(self, N, M, ref_radius, truthType, options)
+```
 
-DESCRIPTION: 
-### accelSphHarm
+ ### batchAcceleration
 
-**[accel_vec, accel_mag] = accelSphHarm(self,  r,  rotmat)**
+```matlab
+function [accel, accel_mag] = batchAcceleration(self, r, rotmat, varargin)
+```
 
-DESCRIPTION: 
-### batchAcceleration
+ ### accelSphHarm
 
-**[accel, accel_mag] = batchAcceleration(self, r, rotmat, varargin)**
+```matlab
+function [accel_vec, accel_mag] = accelSphHarm(self, r, rotmat)
+```
 
-DESCRIPTION: 
-### generateSphHarm
+ ### accelFiniteSphere
 
-**[] = generateSphHarm(self, N, M, ref_radius, truthType, options)**
+```matlab
+function [accel_vec, accel_mag] = accelFiniteSphere(self, r, rotmat)
+```
 
-DESCRIPTION: 
-### Legendre
+ ### acceleration
 
-**[pnm,  dpnm] = Legendre(~, n, m, fi)**
+```matlab
+function [accel] = acceleration(self, r, rotmat, method)
+```
 
-DESCRIPTION: 
-### cost
+ ### cost
 
-**[eval] = cost(self, x, accel_ref, r)**
+```matlab
+function [eval] = cost(self, x, accel_ref, r)
+```
 
-DESCRIPTION: 
+ ### Legendre
+
+```matlab
+function [pnm, dpnm] = Legendre(~, n, m, fi)
+```
+
 
 
  
@@ -122,8 +124,8 @@ DESCRIPTION:
 # Source Code:
 
  ```matlab 
- % INCLUDECODE>{true}
-classdef GravityField < handle
+ classdef GravityField < handle
+    %@code{true}
     properties
         % Sphere harmonic model:
         mu  %(m^3/s^2)
@@ -388,8 +390,8 @@ classdef GravityField < handle
         end 
     end
 end 
- ``` 
-  
- ***
+``` 
+ 
+***
 
-*Generated on 02-Mar-2021 01:01:23 by [m2md](https://github.com/crgnam-research/m2md) © 2021*
+*Generated on 03-Mar-2021 23:38:26 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

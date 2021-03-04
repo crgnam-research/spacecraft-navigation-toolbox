@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
-function lla = ecef2wgs84(r) %#codegen
+function lla = ecef2wgs84(r)
+    %@code{true}
     % preallocate
     lla = zeros(3,1);
 

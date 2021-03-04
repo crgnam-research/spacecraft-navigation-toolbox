@@ -1,5 +1,5 @@
-% INCLUDECODE>{true}
 classdef Sphere < handle
+    %@code{true}
     properties
         position
         radius
