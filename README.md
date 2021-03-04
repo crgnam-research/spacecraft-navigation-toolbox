@@ -19,7 +19,7 @@ This is a collection of MATLAB utilities for simulating spacecraft navigation sc
 
 ### Get up and Running:
 - To clone for the first time (including all submodules):
-  - `git clone --recurse-submodules -j8 git@github.com:crgnam-research/spacecraft-navigation-toolbox.git
+  - `git clone --recurse-submodules -j8 git@github.com:crgnam-research/spacecraft-navigation-toolbox.git`
 
 - To get updataes for each submodule down the line:
   - `git submodule foreach git pull origin main`
