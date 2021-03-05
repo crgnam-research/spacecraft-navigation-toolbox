@@ -1,3 +1,0 @@
-classdef CMG < handle
-    
-end

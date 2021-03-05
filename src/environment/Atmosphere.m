@@ -1,3 +1,0 @@
-classdef Atmosphere < handle
-    
-end

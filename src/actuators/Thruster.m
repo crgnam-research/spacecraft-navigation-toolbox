@@ -1,3 +1,0 @@
-classdef Thruster < handle
-    
-end
