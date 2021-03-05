@@ -2,7 +2,6 @@
 
 ## Contents of docs/src/
 
-- [actuators/](actuators/actuators_index.md)
 - [environment/](environment/environment_index.md)
 - [filtering/](filtering/filtering_index.md)
 - [measurement/](measurement/measurement_index.md)
@@ -11,4 +10,4 @@
 
 ***
 
-*Generated on 04-Mar-2021 12:32:25 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 05-Mar-2021 16:40:51 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

@@ -2,14 +2,8 @@
 
 ## Measurement Module
 
-- [Camera.md](Camera.md)
 - [GroundStation.md](GroundStation.md)
-- [Gyroscope.md](Gyroscope.md)
-- [LIDAR.md](LIDAR.md)
-- [Magnetometer.md](Magnetometer.md)
-- [StarTracker.md](StarTracker.md)
-- [UWB.md](UWB.md)
 
 ***
 
-*Generated on 04-Mar-2021 12:32:25 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 05-Mar-2021 16:40:51 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*

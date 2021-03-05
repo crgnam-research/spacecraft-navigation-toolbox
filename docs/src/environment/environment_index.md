@@ -2,11 +2,9 @@
 
 ## Environment Module
 
-- [Atmosphere.md](Atmosphere.md)
 - [CelestialBody.md](CelestialBody.md)
 - [GravityField.md](GravityField.md)
-- [MagneticField.md](MagneticField.md)
 
 ***
 
-*Generated on 04-Mar-2021 12:32:25 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
+*Generated on 05-Mar-2021 16:40:51 by [m2docs](https://github.com/crgnam-research/m2docs) © 2021*
