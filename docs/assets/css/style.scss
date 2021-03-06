@@ -10,4 +10,9 @@
   overflow-x: scroll;
 }
 
+table, td, th {
+  border: 1px solid;
+  border-color: #808080;
+}
+
 tr:nth-child(even) {background-color: #cccccc;}
