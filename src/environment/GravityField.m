@@ -27,7 +27,7 @@ classdef GravityField < handle
         function [self] = GravityField(fieldType,varargin)
             switch lower(fieldType)
                 case 'sphharm'
-                    self.ref_radius   = varargin{1};
+                    self.ref_radius = varargin{1};
                     self.mu  = varargin{2};
                     self.Cnm = varargin{3};
                     self.Snm = varargin{4};

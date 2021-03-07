@@ -4,7 +4,7 @@ classdef Spacecraft < handle
         % States of the spacecraft:
         position
         velocity
-        attitude
+        inert2self Attitude % Rotation from inertial space to the body frame
         angularRate
         
         displayModel % This model is used for visualizations
@@ -51,7 +51,7 @@ classdef Spacecraft < handle
             % Store the results:
             self.position     = p.Results.r;
             self.velocity     = p.Results.v;
-            self.attitude     = p.Results.Attitude;
+            self.inert2self   = p.Results.Attitude;
             self.angularRate  = p.Results.AngularRate;
             self.displayModel = p.Results.DisplayModel;
             self.simpleModel  = p.Results.SimpleModel;
@@ -67,7 +67,7 @@ classdef Spacecraft < handle
             % Initial log values:
             self.position_log(:,1) = self.position;
             self.velocity_log(:,1) = self.velocity;
-            self.attitude_log(:,1) = self.attitude.quat;
+            self.attitude_log(:,1) = self.inert2self.quat;
             self.angularRate_log(:,1) = self.angularRate;
         end
     end
@@ -104,7 +104,7 @@ classdef Spacecraft < handle
         function [] = log(self,ii)
             self.position_log(:,ii) = self.position;
             self.velocity_log(:,ii) = self.velocity;
-            self.attitude_log(:,ii) = self.attitude.quat;
+            self.attitude_log(:,ii) = self.inert2self.quat;
             self.angularRate_log(:,ii) = self.angularRate;
         end
     end

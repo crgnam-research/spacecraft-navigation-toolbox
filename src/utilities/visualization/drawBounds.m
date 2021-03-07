@@ -1,11 +1,5 @@
-function [] = drawBounds(t,sig,num)
+function [] = drawBounds(t,sig)
     %@code{true}
-    if nargin == 2
-        t = t(1,:);
-    else
-        t = t(1,1:num:end);
-        sig = sig(1:num:end);
-    end
     FA = 0.2;
     
     % Draw the 3-sigma bounds above:
