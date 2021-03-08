@@ -4,25 +4,32 @@ classdef Camera < handle
         parent_object
 
         parent2self Attitude % Rotation from the parent_object to the camera frame
-        position (3,1) % Position in the parent_object frame
+        position_on_parent (3,1) % Position in the parent_object frame
         
         K (3,4) 
         sensor struct
+        noise double
         
         % Visualizaiton:
         vis
     end
    
     methods 
-        function [self] = Camera(parent_object,parent2camera,position,K,sensor)
+        function [self] = Camera(parent_object,parent2camera,position_on_parent,K,sensor,noise)
             % TODO: Once Lander/Rover are completed, add those:
+            % TODO: Add option to have camera not be attached to an object
             assert(isa(parent_object,'Spacecraft'),...
                   'The input parent_object must be of type Spacecraft');
             self.parent_object = parent_object;
             self.parent2self = parent2camera;
-            self.position    = position;
+            self.position_on_parent = position_on_parent;
             self.K = K;
             self.sensor = sensor;
+            self.noise  = noise;
+            
+            % Initialize empty struct for visualization handles:
+            self.vis.view = [];
+            self.vis.rays = [];
         end
     end
    
@@ -33,8 +40,8 @@ classdef Camera < handle
             end
             
             % Transform world points into camera frame:
-            inert2self = self.parent_object.inert2self*self.parent2self;
-            origin = self.parent_object.position + self.parent_object.inert2self'*self.position;
+            inert2self = self.getAttitude();
+            origin = self.getPosition();
             camera_pts = inert2self'*(world_pts - origin);
 
             % Calculate homogeneous coordinates:
@@ -43,14 +50,13 @@ classdef Camera < handle
             % Normalize the points into focal length coordinates
             image_pts(1,:) = homogeneous(1,:)./homogeneous(3,:);
             image_pts(2,:) = homogeneous(2,:)./homogeneous(3,:);
-         
-            % Convert from focal length coordinates to meters:
-            image_pts(1,:) = image_pts(1,:);
-            image_pts(2,:) = image_pts(2,:);
             
             % Convert from meters to pixel coordinates:
             pixel_pts(1,:) = -image_pts(1,:)*self.sensor.resolution(1)/self.sensor.size(1);
             pixel_pts(2,:) = -image_pts(2,:)*self.sensor.resolution(2)/self.sensor.size(2);
+            
+            % Add in the measurement noise:
+            pixel_pts = pixel_pts + self.noise*randn(size(pixel_pts));
 
             % Reject points which do not fall on the sensor, or which are behind
             % the camera
@@ -63,20 +69,41 @@ classdef Camera < handle
             % Pass out indices of the visible features:
             in_fov = ~remove;
         end
+        
+        % Generate rays which can be traced out from the camera
+        function [rays] = generateRays(self,pixel_pts)
+            % Convert pixels to image points:
+            image_pts(1,:) = pixel_pts(1,:)*self.sensor.size(1)/self.sensor.resolution(1);
+            image_pts(2,:) = pixel_pts(2,:)*self.sensor.size(2)/self.sensor.resolution(2);
+            
+            raysCamFrame = [image_pts; -self.K(1,1)*ones(1,size(image_pts,2))];
+            self2inert = getAttitude(self)';
+            rays = normc(self2inert*raysCamFrame);
+        end
+        
+        % Get the overall position of the camera in inertial space:
+        function [position] = getPosition(self)
+            position = self.parent_object.position + self.parent_object.inert2self'*self.position_on_parent;
+        end
+        
+        % Get the overall attitude of the camera in inertial space:
+        function [inert2self] = getAttitude(self)
+            inert2self = self.parent_object.inert2self*self.parent2self;
+        end
     end
     
     %% Public Methods for visualization:
     methods (Access = public)
         function [] = draw(self,scale,varargin)
-            inert2self = self.parent_object.inert2self*self.parent2self;
-            origin = (self.parent_object.position + self.parent_object.inert2self'*self.position)';
+            self2inert = self.getAttitude()';
+            origin     = self.getPosition()';
             
             hx = (self.sensor.size(1)/2)/self.K(1,1);
             hy = (self.sensor.size(2)/2)/self.K(2,2);
             
-            x = inert2self.rotmat(1,:)*hx;
-            y = inert2self.rotmat(2,:)*hy;
-            z = inert2self.rotmat(3,:);
+            x = self2inert.rotmat(1,:)*hx;
+            y = self2inert.rotmat(2,:)*hy;
+            z = self2inert.rotmat(3,:);
             
             pt2 = scale*(-x + -y + -z) + origin;
             pt3 = scale*(-x +  y + -z) + origin;
@@ -90,16 +117,30 @@ classdef Camera < handle
             faces1 = [1 2 3; 1 3 4; 1 4 5; 1 5 2];
             faces2 = [2 3 4 5];
             faces3 = [6 7 8];
-            if isempty(self.vis)
-                self.vis.h1 = patch('Faces',faces1,'Vertices',verts,varargin{:}); hold on
-                self.vis.h2 = patch('Faces',faces2,'Vertices',verts,varargin{:});
-                self.vis.h3 = patch('Faces',faces3,'Vertices',verts,varargin{:});
+            if isempty(self.vis.view)
+                self.vis.view(1) = patch('Faces',faces1,'Vertices',verts,varargin{:}); hold on
+                self.vis.view(2) = patch('Faces',faces2,'Vertices',verts,varargin{:});
+                self.vis.view(3) = patch('Faces',faces3,'Vertices',verts,varargin{:});
+                axis equal
+                rotate3d on
             else
-                set(self.vis.h1,'Vertices',verts);
-                set(self.vis.h2,'Vertices',verts);
-                set(self.vis.h3,'Vertices',verts);
+                set(self.vis.view(1),'Vertices',verts);
+                set(self.vis.view(2),'Vertices',verts);
+                set(self.vis.view(3),'Vertices',verts);
             end
-            axis equal
+        end
+        
+        function [] = drawRays(self, scale, pixel_pts, varargin)
+            
+            rays   = self.generateRays(pixel_pts);
+            origin = repmat(self.getPosition(),size(rays,2));
+            
+            if isempty(self.vis.rays)
+                self.vis.rays = quiver3(origin(1,:),origin(2,:),origin(3,:),...
+                                        rays(1,:),rays(2,:),rays(3,:),scale,varargin{:});
+            else
+%                 set(vis.rays,
+            end
         end
     end
 end

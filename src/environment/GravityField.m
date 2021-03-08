@@ -26,6 +26,9 @@ classdef GravityField < handle
     methods
         function [self] = GravityField(fieldType,varargin)
             switch lower(fieldType)
+                case 'point'
+                    self.mu = varargin{1};
+                    self.defaultMethod = 'Point';
                 case 'sphharm'
                     self.ref_radius = varargin{1};
                     self.mu  = varargin{2};
@@ -42,7 +45,7 @@ classdef GravityField < handle
                     error('NOT YET IMPLEMENTED')
                 otherwise
                     error(['No valid field type was provided.  Must be one of:\n',...
-                           'SphHarm | FiniteSphere | FiniteCube | Polygon'])
+                           'Point | SphHarm | FiniteSphere | FiniteCube | Polygon'])
             end
         end
     end
@@ -56,10 +59,12 @@ classdef GravityField < handle
             end
             
             switch lower(method)
+                case 'point'
+                    accel = self.accelPoint(r);
                 case 'sphharm'
-                    accel = accelSphHarm(self,r,rotmat);
+                    accel = self.accelSphHarm(r,rotmat);
                 case 'finitesphere'
-                    accel = accelFiniteSphere(self,r,rotmat);
+                    accel = self.accelFiniteSphere(r,rotmat);
                 case 'finitecube'
                     error('NOT YET IMPLEMENTED')
                 case 'polygon'
@@ -68,6 +73,12 @@ classdef GravityField < handle
                     error(['Invalid Option for Gravity Model.  Must be one of:\n',...
                            '    SphHarm | FiniteSphere | FiniteCube | Polygon'])
             end
+        end
+        
+        % Calculate acceleration for a point mass model:
+        function [accel_vec,accel_mag] = accelPoint(self,r)
+            accel_vec = -self.mu*r/(norm(r)^3);
+            accel_mag = norm(accel_vec);
         end
         
         % Calculate acceleration for a finite sphere model:

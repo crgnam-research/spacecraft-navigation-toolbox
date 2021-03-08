@@ -6,7 +6,7 @@ classdef CelestialBody < handle
         
         % States:
         position % Position of the celestial body with respect to the reference frame origin
-        attitude % Rotation from the reference frame to this celestial body frame
+        inert2self % Rotation from the reference frame to this celestial body frame
         angularRate % Rotation rate about the body axes
         
         % Physical Properties:
@@ -36,7 +36,7 @@ classdef CelestialBody < handle
                 addOptional(p,'Atmosphere',[],validAtmos);
                 addOptional(p,'MagneticField',[],validMagField);
                 addOptional(p,'Position',[0;0;0],validPosition);
-                addOptional(p,'Attitude',Attitude('rotmat',eye(3)),validAttitude);
+                addOptional(p,'Inert2self',Attitude('rotmat',eye(3)),validAttitude);
                 addOptional(p,'AngularRate',[0;0;0],validAngRate);
                 addOptional(p,'ShapeModel',[]);
                 addOptional(p,'SimpleModel',[]);
@@ -47,7 +47,7 @@ classdef CelestialBody < handle
             self.mu            = self.gravityField.mu;
             self.atmosphere    = p.Results.Atmosphere;
             self.magneticField = p.Results.MagneticField;
-            self.attitude      = p.Results.Attitude;
+            self.inert2self    = p.Results.Inert2self;
             self.position      = p.Results.Position;
             self.angularRate   = p.Results.AngularRate;
             self.shapeModel    = p.Results.ShapeModel;
@@ -64,7 +64,7 @@ classdef CelestialBody < handle
             r_rel = X(1:3) - self.position;
             
             % Get acceleration due to the gravity:
-            accel = self.gravityField.acceleration(r_rel,self.attitude.rotmat,varargin{:});
+            accel = self.gravityField.acceleration(r_rel,self.inert2self,varargin{:});
             
             % Get acceleration due to atmospheric drag:
             if ~isempty(spacecraftModel) && ~isempty(self.atmosphere)
@@ -74,9 +74,9 @@ classdef CelestialBody < handle
         end
         
         % Function to update the attitude of this body:
-        function [] = updateAttitude(self,new_attitude)
+        function [] = updateInert2self(self,new_attitude)
             assert(isa(new_attitude,'Attitude'),'Input must be a valid Attitude')
-            self.attitude = new_attitude;
+            self.inert2self = new_attitude;
         end
         
         % Function to update the position of this body:
