@@ -37,7 +37,7 @@ classdef GravityField < handle
                     self.defaultMethod = 'SphHarm';
                 case 'finitesphere'
                     self.spheres = varargin{1};
-                    self.mu = self.G*sum(self.spheres(:,end));
+                    self.mu = self.G*sum(self.spheres.mass);
                     self.defaultMethod = 'FiniteSphere';
                 case 'finitecube'
                     error('NOT YET IMPLEMENTED')
@@ -84,8 +84,8 @@ classdef GravityField < handle
         % Calculate acceleration for a finite sphere model:
         function [accel_vec,accel_mag] = accelFiniteSphere(self,r,rotmat)
             % Calculate relative position to all test masses:
-            r_rel = self.spheres(:,1:3) - (rotmat*r)';
-            m = self.spheres(:,end);
+            r_rel = self.spheres.locs - (rotmat*r)';
+            m = self.spheres.mass;
             [r_rel_u, r_rel_mag] = normr(r_rel);
 
             % Acceleration due to gravity:
@@ -178,7 +178,7 @@ classdef GravityField < handle
             
             % Generate the set of test points:
             v = icosphere(3); % Icosphere used as it is unbiased
-            scale = 2*max(max(abs(self.spheres(:,1:3))));
+            scale = 2*max(max(abs(self.spheres.locs)));
             r = scale*v.Vertices;
 
             % Obtain the truth field to be fit:

@@ -26,5 +26,7 @@ function [spheres] = spherePack(faces,vertices,radius)
     in2   = inpolyhedron(faces,scale*vertices, [X,Y,Z]);
     shell = ~(in&in2);
     
-    spheres = [X(in),Y(in),Z(in),radius*ones(sum(in),1), shell(in)];
+    spheres.locs  = [X(in),Y(in),Z(in)];
+    spheres.radii = radius*ones(sum(in),1);
+    spheres.shell = shell(in);
 end

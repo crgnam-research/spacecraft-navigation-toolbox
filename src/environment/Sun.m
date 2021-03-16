@@ -7,6 +7,9 @@ classdef Sun < handle
         
         position
         radius
+        
+        % Visualization:
+        vis
     end
     
     methods
@@ -39,7 +42,9 @@ classdef Sun < handle
     %% Public Visualization Methods
     methods (Access = public)
         function [] = draw(self)
-            light('position',self.position,'style','infinite')
+            if isempty(self.vis)
+                self.vis = light('position',self.position,'style','infinite');
+            end
         end
     end
 end

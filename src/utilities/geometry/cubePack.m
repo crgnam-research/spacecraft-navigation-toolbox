@@ -23,4 +23,7 @@ function [cubes] = cubePack(faces,vertices,dimension)
     
     % Generate the output cubes:
     cubes = [X(in),Y(in),Z(in),dimension*ones(sum(in),1), shell(in)];
+    cubes.locs  = [X(in),Y(in),Z(in)];
+    cubes.dim   = dimension*ones(sum(in),1);
+    cubes.shell = shell(in);
 end

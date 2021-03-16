@@ -35,23 +35,25 @@ classdef Attitude < handle
     
     %% Overloaded Methods
     methods (Access = public)
-        function [output] = mtimes(att1,vec)
-            if isa(vec,'Attitude')
-                rotmat_new = att1.rotmat*vec.rotmat;
+        function [output] = mtimes(mat1,mat2)
+            if isa(mat1,'Attitude') && isa(mat2,'Attitude')
+                rotmat_new = mat1.rotmat*mat2.rotmat;
                 output = Attitude('rotmat',rotmat_new);
-            else
-                output = att1.rotmat*vec;
+            elseif isa(mat1,'Attitude')
+                output = mat1.rotmat*mat2;
+            elseif isa(mat2,'Attitude')
+                output = mat1*mat2.rotmat;
             end
         end
         
         function [att_t] = ctranspose(att)
-            att.rotmat = att.rotmat';
-            att_t = att;
+            att_t = Attitude('rotmat',eye(3));
+            att_t.rotmat = att.rotmat';
         end
         
         function [att_t] = transpose(att)
-            att.rotmat = att.rotmat';
-            att_t = att;
+            att_t = Attitude('rotmat',eye(3));
+            att_t.rotmat = att.rotmat';
         end
     end
     

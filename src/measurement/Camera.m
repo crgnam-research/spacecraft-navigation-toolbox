@@ -77,8 +77,8 @@ classdef Camera < handle
             image_pts(2,:) = pixel_pts(2,:)*self.sensor.size(2)/self.sensor.resolution(2);
             
             raysCamFrame = [image_pts; -self.K(1,1)*ones(1,size(image_pts,2))];
-            self2inert = getAttitude(self)';
-            rays = normc(self2inert*raysCamFrame);
+            inert2self = getAttitude(self);
+            rays = normc(inert2self*raysCamFrame);
         end
         
         % Get the overall position of the camera in inertial space:
@@ -95,15 +95,15 @@ classdef Camera < handle
     %% Public Methods for visualization:
     methods (Access = public)
         function [] = draw(self,scale,varargin)
-            self2inert = self.getAttitude()';
+            inert2self = self.getAttitude();
             origin     = self.getPosition()';
             
             hx = (self.sensor.size(1)/2)/self.K(1,1);
             hy = (self.sensor.size(2)/2)/self.K(2,2);
             
-            x = self2inert.rotmat(1,:)*hx;
-            y = self2inert.rotmat(2,:)*hy;
-            z = self2inert.rotmat(3,:);
+            x = inert2self.rotmat(1,:)*hx;
+            y = inert2self.rotmat(2,:)*hy;
+            z = inert2self.rotmat(3,:);
             
             pt2 = scale*(-x + -y + -z) + origin;
             pt3 = scale*(-x +  y + -z) + origin;

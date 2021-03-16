@@ -13,10 +13,12 @@ classdef Spacecraft < handle
         integrator
         
         % visualization stuff:
+        plottedAttitude = false;
         plottedTraj = false;
         plotted = false;
         trajHandle
         plotHandle
+        attitudeHandles
         
         % Logs:
         position_log
@@ -95,7 +97,7 @@ classdef Spacecraft < handle
         function [dX] = cowell(self,~,X,varargin)
             accel = zeros(3,1);
             for ii = 1:length(varargin)
-                accel = accel + varargin{ii}.getAccel(X,self.attitude,self.simpleModel);
+                accel = accel + varargin{ii}.getAccel(X,self.inert2self,self.simpleModel);
             end
             dX = [X(4:6); accel];
         end
@@ -111,7 +113,14 @@ classdef Spacecraft < handle
     
     %% Public Methods for Visualizations
     methods (Access = public)       
-        function [self] = draw(self,varargin)
+        function [] = reset(self)
+            self.plotted = false;
+            self.plottedTraj = false;
+            self.plottedAttitude = false;
+        end
+        
+        % Draw the current position:
+        function [] = draw(self,varargin)
             if ~self.plotted
                 self.plotHandle = plot3(self.position(1),...
                                         self.position(2),...
@@ -131,7 +140,7 @@ classdef Spacecraft < handle
         end
         
         % Draw the trajectory history of the spacecraft:
-        function [self] = drawTraj(self,varargin)
+        function [] = drawTraj(self,varargin)
             if ~self.plottedTraj
                 self.trajHandle = plot3(self.position(1),...
                                         self.position(2),....
@@ -149,6 +158,16 @@ classdef Spacecraft < handle
                                             self.position(3),...
                                             varargin{:}); hold on
                 end
+            end
+        end
+        
+        % Draw the attitude of the spacecraft:
+        function [] = drawAttitude(self,scale,varargin)
+            if ~self.plottedAttitude
+                rotmat = scale*self.inert2self.rotmat;
+                self.attitudeHandles = drawOrientation(self.position,rotmat,'-',varargin{:});
+            else
+                
             end
         end
     end

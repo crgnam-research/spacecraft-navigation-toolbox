@@ -59,7 +59,7 @@ classdef CelestialBody < handle
     methods (Access = public)
         % Function to get the acceleration this object imparts on a
         % spacecraft:
-        function [accel] = getAccel(self,X,spacecraftModel,varargin)            
+        function [accel] = getAccel(self,X,inert2vehicle,vehicle_model,varargin)            
             % Calculate the relative position:
             r_rel = X(1:3) - self.position;
             
@@ -67,21 +67,10 @@ classdef CelestialBody < handle
             accel = self.gravityField.acceleration(r_rel,self.inert2self,varargin{:});
             
             % Get acceleration due to atmospheric drag:
-            if ~isempty(spacecraftModel) && ~isempty(self.atmosphere)
+            if ~isempty(vehicle_model) && ~isempty(self.atmosphere)
                 % TODO: Calculate drag for this vehicle with attitude
                 % dependence
             end
-        end
-        
-        % Function to update the attitude of this body:
-        function [] = updateInert2self(self,new_attitude)
-            assert(isa(new_attitude,'Attitude'),'Input must be a valid Attitude')
-            self.inert2self = new_attitude;
-        end
-        
-        % Function to update the position of this body:
-        function [] = updatePosition(self,new_position)
-            self.position = new_position;
         end
     end
     

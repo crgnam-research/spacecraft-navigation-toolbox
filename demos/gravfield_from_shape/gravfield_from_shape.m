@@ -9,7 +9,7 @@ addpath(genpath('data'));  % include the data specific to this project
 
 % Load in a bennu shape model:
 mass = 78e9; %(kg) Mass of bennu
-bennu = ShapeModel('bennu.obj','Mass',mass);
+bennu = ShapeModel('bennu.obj',mass);
 
 % Densely pack the shape model with spheres:
 sphere_radius = 20; %(m)
@@ -17,6 +17,25 @@ spheres = bennu.packSpheres(sphere_radius);
 
 % Create a gravity field using finite element method:
 gravField = GravityField('FiniteSphere',spheres);
+
+
+%% Visualization of the packing:
+cubes = bennu.packCubes(sphere_radius);
+subplot(1,3,1)
+    bennu.draw('FaceColor',[0.5 0.5 0.5],'EdgeColor',[0.4 0.4 0.4]);
+    axis equal
+    view([45 20])
+    light()
+subplot(1,3,2)
+    drawSpheres(spheres,'FaceColor',[0.5 0.5 0.5],'EdgeColor',[0.4 0.4 0.4]);
+    axis equal
+    view([45 20])
+    light()
+subplot(1,3,3)
+    drawCubes(cubes,'FaceColor',[0.5 0.5 0.5],'EdgeColor',[0.4 0.4 0.4]);
+    axis equal
+    view([45 20])
+    light()
 
 %% Generate a spherical harmonic model:
 % Define the size of the spherical harmonic potential to be fit:

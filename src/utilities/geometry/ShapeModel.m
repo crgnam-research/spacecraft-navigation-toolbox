@@ -8,7 +8,7 @@ classdef ShapeModel < handle
         
         radii
         
-        attitude
+        attitude Attitude
         
         mass
         CoM % Center of Mass relative to the center of geometry of the initiall provided points
@@ -101,16 +101,16 @@ classdef ShapeModel < handle
         function [spheres] = packSpheres(self,radius)
             spheres = spherePack(self.faces,self.vertices,radius);
             if ~isempty(self.mass)
-                N = size(spheres,1);
-                spheres = [spheres(:,1:4), (self.mass/N)*ones(N,1), spheres(:,5)];
+                N = size(spheres.locs,1);
+                spheres.mass = (self.mass/N)*ones(N,1);
             end
         end
         
         function [cubes] = packCubes(self,dimension)
             cubes = cubePack(self.faces,self.vertices,dimension); 
             if ~isempty(self.mass)
-                N = size(cubes,1);
-                cubes = [cubes(:,1:4), (self.mass/N)*ones(N,1), cubes(:,5)];
+                N = size(cubes.locs,1);
+                cubes.ass = (self.mass/N)*ones(N,1);
             end
         end
         
@@ -131,9 +131,9 @@ classdef ShapeModel < handle
                 assert(~p.Results.CubePacking && ~p.Results.Polygon,['You can only specify one of the following methods to use\n',...
                                                                      'SpherePacking | CubePacking | Polygon'])
                 spheres = self.packSpheres(p.Results.Size);
-                self.CoM(1) = sum(spheres(:,1).*spheres(:,5))./self.mass;
-                self.CoM(2) = sum(spheres(:,2).*spheres(:,5))./self.mass;
-                self.CoM(3) = sum(spheres(:,3).*spheres(:,5))./self.mass;
+                self.CoM(1) = sum(spheres.locs(:,1).*spheres.mass)./self.mass;
+                self.CoM(2) = sum(spheres.locs(:,2).*spheres.mass)./self.mass;
+                self.CoM(3) = sum(spheres.locs(:,3).*spheres.mass)./self.mass;
                 
                 % Apply the provided center of mass to the geometry:
                 self.vertices = self.vertices - self.CoM';
@@ -181,20 +181,20 @@ classdef ShapeModel < handle
                        ['You can only specify one of the following methods to use\n',...
                         'Sphere | SpherePacking | CubePacking | Polygon'])
                 spheres = self.packSpheres(p.Results.Size);
-                r = spheres(:,4);
-                m = spheres(:,5);
-                [~,dz] = normr(spheres(:,1:2)); % distance from z-axis
-                [~,dy] = normr(spheres(:,[1,3])); % distance from y-axis
-                [~,dx] = normr(spheres(:,2:3)); % distance from x-axis
+                r = spheres.radii;
+                m = spheres.mass;
+                [~,dz] = normr(spheres.locs(:,1:2)); % distance from z-axis
+                [~,dy] = normr(spheres.locs(:,[1,3])); % distance from y-axis
+                [~,dx] = normr(spheres.locs(:,2:3)); % distance from x-axis
                 
                 % Calcualte mass moment of inertia tensor:
                 Ic = (2/5)*m.*(r.^2);
                 Ixx = sum(Ic + m.*(dx.^2));
                 Iyy = sum(Ic + m.*(dy.^2));
                 Izz = sum(Ic + m.*(dz.^2));
-                Ixy = sum(Ic - m.*(spheres(:,1).*spheres(:,2)));
-                Ixz = sum(Ic - m.*(spheres(:,1).*spheres(:,3)));
-                Iyz = sum(Ic - m.*(spheres(:,2).*spheres(:,3)));
+                Ixy = sum(Ic - m.*(spheres.locs(:,1).*spheres.locs(:,2)));
+                Ixz = sum(Ic - m.*(spheres.locs(:,1).*spheres.locs(:,3)));
+                Iyz = sum(Ic - m.*(spheres.locs(:,2).*spheres.locs(:,3)));
                 self.inertia = [Ixx Ixy Ixz;
                                 Ixy Iyy Iyz;
                                 Ixz Iyz Izz];
@@ -225,10 +225,22 @@ classdef ShapeModel < handle
             end
             self.vertex_normals = STLVertexNormals(self.faces, self.vertices, self.face_normals);
         end
+        
+        function [] = updateAttitude(self,attitude)
+            self.attitude = attitude;
+            self.vertices = (attitude*self.vertices')';
+            self.vertex_normals = (attitude*self.vertex_normals')';
+            self.face_normals = (attitude*self.face_normals')';
+            self.inertia = attitude*diag(diag(self.inertia))*attitude';
+        end
     end
     
     %% Public Visualization Methods:
     methods (Access = public)
+        function [] = reset(self)
+            self.vis = [];
+        end
+        
         function [] = draw(self,varargin)
             verts = (self.attitude*self.vertices')';
             if isempty(self.vis)

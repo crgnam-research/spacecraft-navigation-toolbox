@@ -49,7 +49,7 @@ classdef Landmarks < handle
             self.inertial_locs    = self.parent_object.inert2self'*self.body_locs;
         end
         
-        function [] = determineVisible(self,sun,camera)       
+        function [] = determineVisible(self,sun,camera,in_fov)       
             % Update:
             self.updateInertial();
             
@@ -67,7 +67,7 @@ classdef Landmarks < handle
             illuminated = dir_sgn>0;
             
             % Select only points that are in FOV, illuminated, and visible:
-            self.visible = inview & angled & illuminated;
+            self.visible = inview & angled & illuminated & in_fov;
             
             % Check if any of the visible targets are a new detection:
             obs_prev = self.observed;
@@ -90,10 +90,15 @@ classdef Landmarks < handle
     %% Public Visualization Methods:
     methods (Access = public)
         function [] = draw(self,varargin)
+            
+            % Update all of the landmark inertial locations:
+            self.updateInertial();
+        
+            % Draw the new plot:
             if isempty(self.vis)
                 self.vis{1} = plot3(self.inertial_locs(1,self.visible),...
                                     self.inertial_locs(2,self.visible),...
-                                    self.inertial_locs(3,self.visible),'.g',varargin{:});
+                                    self.inertial_locs(3,self.visible),'.g',varargin{:}); hold on
                 self.vis{2} = plot3(self.inertial_locs(1,~self.visible & self.observed),...
                                     self.inertial_locs(2,~self.visible & self.observed),...
                                     self.inertial_locs(3,~self.visible & self.observed),'.b',varargin{:});
@@ -101,7 +106,27 @@ classdef Landmarks < handle
                                     self.inertial_locs(2,~self.visible & ~self.observed),...
                                     self.inertial_locs(3,~self.visible & ~self.observed),'.r',varargin{:});
             else
-%                 set(self.vis,
+                if isempty(self.vis{1})
+                    self.vis{1} = plot3(self.inertial_locs(1,self.visible),...
+                                        self.inertial_locs(2,self.visible),...
+                                        self.inertial_locs(3,self.visible),'.g',varargin{:}); hold on
+                else
+                    set(self.vis{1},'XData',self.inertial_locs(1,self.visible),...
+                                    'YData',self.inertial_locs(2,self.visible),...
+                                    'ZData',self.inertial_locs(3,self.visible)); hold on
+                end
+                if isempty(self.vis{2})
+                    self.vis{2} = plot3(self.inertial_locs(1,~self.visible & self.observed),...
+                                        self.inertial_locs(2,~self.visible & self.observed),...
+                                        self.inertial_locs(3,~self.visible & self.observed),'.b',varargin{:});
+                else
+                    set(self.vis{2},'XData',self.inertial_locs(1,~self.visible & self.observed),...
+                                    'YData',self.inertial_locs(2,~self.visible & self.observed),...
+                                    'ZData',self.inertial_locs(3,~self.visible & self.observed));
+                end
+                set(self.vis{3},'XData',self.inertial_locs(1,~self.visible & ~self.observed),...
+                                'YData',self.inertial_locs(2,~self.visible & ~self.observed),...
+                                'ZData',self.inertial_locs(3,~self.visible & ~self.observed));
             end
         end
     end
