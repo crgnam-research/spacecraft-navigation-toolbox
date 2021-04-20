@@ -4,7 +4,7 @@ classdef Spacecraft < handle
         % States of the spacecraft:
         position
         velocity
-        attitude
+        inert2self Attitude % Rotation from inertial space to the body frame
         angularRate
         
         displayModel % This model is used for visualizations
@@ -13,10 +13,12 @@ classdef Spacecraft < handle
         integrator
         
         % visualization stuff:
+        plottedAttitude = false;
         plottedTraj = false;
         plotted = false;
         trajHandle
         plotHandle
+        attitudeHandles
         
         % Logs:
         position_log
@@ -51,7 +53,7 @@ classdef Spacecraft < handle
             % Store the results:
             self.position     = p.Results.r;
             self.velocity     = p.Results.v;
-            self.attitude     = p.Results.Attitude;
+            self.inert2self   = p.Results.Attitude;
             self.angularRate  = p.Results.AngularRate;
             self.displayModel = p.Results.DisplayModel;
             self.simpleModel  = p.Results.SimpleModel;
@@ -67,7 +69,7 @@ classdef Spacecraft < handle
             % Initial log values:
             self.position_log(:,1) = self.position;
             self.velocity_log(:,1) = self.velocity;
-            self.attitude_log(:,1) = self.attitude.quat;
+            self.attitude_log(:,1) = self.inert2self.quat;
             self.angularRate_log(:,1) = self.angularRate;
         end
     end
@@ -95,7 +97,7 @@ classdef Spacecraft < handle
         function [dX] = cowell(self,~,X,varargin)
             accel = zeros(3,1);
             for ii = 1:length(varargin)
-                accel = accel + varargin{ii}.getAccel(X,self.attitude,self.simpleModel);
+                accel = accel + varargin{ii}.getAccel(X,self.inert2self,self.simpleModel);
             end
             dX = [X(4:6); accel];
         end
@@ -104,14 +106,21 @@ classdef Spacecraft < handle
         function [] = log(self,ii)
             self.position_log(:,ii) = self.position;
             self.velocity_log(:,ii) = self.velocity;
-            self.attitude_log(:,ii) = self.attitude.quat;
+            self.attitude_log(:,ii) = self.inert2self.quat;
             self.angularRate_log(:,ii) = self.angularRate;
         end
     end
     
     %% Public Methods for Visualizations
     methods (Access = public)       
-        function [self] = draw(self,varargin)
+        function [] = reset(self)
+            self.plotted = false;
+            self.plottedTraj = false;
+            self.plottedAttitude = false;
+        end
+        
+        % Draw the current position:
+        function [] = draw(self,varargin)
             if ~self.plotted
                 self.plotHandle = plot3(self.position(1),...
                                         self.position(2),...
@@ -131,7 +140,7 @@ classdef Spacecraft < handle
         end
         
         % Draw the trajectory history of the spacecraft:
-        function [self] = drawTraj(self,varargin)
+        function [] = drawTraj(self,varargin)
             if ~self.plottedTraj
                 self.trajHandle = plot3(self.position(1),...
                                         self.position(2),....
@@ -149,6 +158,16 @@ classdef Spacecraft < handle
                                             self.position(3),...
                                             varargin{:}); hold on
                 end
+            end
+        end
+        
+        % Draw the attitude of the spacecraft:
+        function [] = drawAttitude(self,scale,varargin)
+            if ~self.plottedAttitude
+                rotmat = scale*self.inert2self.rotmat;
+                self.attitudeHandles = drawOrientation(self.position,rotmat,'-',varargin{:});
+            else
+                
             end
         end
     end

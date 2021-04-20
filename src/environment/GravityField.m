@@ -26,15 +26,18 @@ classdef GravityField < handle
     methods
         function [self] = GravityField(fieldType,varargin)
             switch lower(fieldType)
+                case 'point'
+                    self.mu = varargin{1};
+                    self.defaultMethod = 'Point';
                 case 'sphharm'
-                    self.ref_radius   = varargin{1};
+                    self.ref_radius = varargin{1};
                     self.mu  = varargin{2};
                     self.Cnm = varargin{3};
                     self.Snm = varargin{4};
                     self.defaultMethod = 'SphHarm';
                 case 'finitesphere'
                     self.spheres = varargin{1};
-                    self.mu = self.G*sum(self.spheres(:,end));
+                    self.mu = self.G*sum(self.spheres.mass);
                     self.defaultMethod = 'FiniteSphere';
                 case 'finitecube'
                     error('NOT YET IMPLEMENTED')
@@ -42,7 +45,7 @@ classdef GravityField < handle
                     error('NOT YET IMPLEMENTED')
                 otherwise
                     error(['No valid field type was provided.  Must be one of:\n',...
-                           'SphHarm | FiniteSphere | FiniteCube | Polygon'])
+                           'Point | SphHarm | FiniteSphere | FiniteCube | Polygon'])
             end
         end
     end
@@ -56,10 +59,12 @@ classdef GravityField < handle
             end
             
             switch lower(method)
+                case 'point'
+                    accel = self.accelPoint(r);
                 case 'sphharm'
-                    accel = accelSphHarm(self,r,rotmat);
+                    accel = self.accelSphHarm(r,rotmat);
                 case 'finitesphere'
-                    accel = accelFiniteSphere(self,r,rotmat);
+                    accel = self.accelFiniteSphere(r,rotmat);
                 case 'finitecube'
                     error('NOT YET IMPLEMENTED')
                 case 'polygon'
@@ -70,11 +75,17 @@ classdef GravityField < handle
             end
         end
         
+        % Calculate acceleration for a point mass model:
+        function [accel_vec,accel_mag] = accelPoint(self,r)
+            accel_vec = -self.mu*r/(norm(r)^3);
+            accel_mag = norm(accel_vec);
+        end
+        
         % Calculate acceleration for a finite sphere model:
         function [accel_vec,accel_mag] = accelFiniteSphere(self,r,rotmat)
             % Calculate relative position to all test masses:
-            r_rel = self.spheres(:,1:3) - (rotmat*r)';
-            m = self.spheres(:,end);
+            r_rel = self.spheres.locs - (rotmat*r)';
+            m = self.spheres.mass;
             [r_rel_u, r_rel_mag] = normr(r_rel);
 
             % Acceleration due to gravity:
@@ -83,9 +94,9 @@ classdef GravityField < handle
         end
         
         % Calculate acceleration for a spherical harmonic model:
-        function [accel_vec,accel_mag] = accelSphHarm(self, r, rotmat)               
+        function [accel_vec,accel_mag] = accelSphHarm(self, r_in, inert2body)               
             % Body-fixed position 
-            r_bf = rotmat*r;
+            r_bf = inert2body*r_in;
             
             % Calculate nmax values:
             n_max = size(self.Cnm,1)-1;
@@ -127,7 +138,7 @@ classdef GravityField < handle
             a_bf = [ax ay az]';
 
             % Inertial acceleration 
-            accel_vec = rotmat'*a_bf;
+            accel_vec = inert2body'*a_bf;
             accel_mag = norm(accel_vec);
         end
         
@@ -167,7 +178,7 @@ classdef GravityField < handle
             
             % Generate the set of test points:
             v = icosphere(3); % Icosphere used as it is unbiased
-            scale = 2*max(max(abs(self.spheres(:,1:3))));
+            scale = 2*max(max(abs(self.spheres.locs)));
             r = scale*v.Vertices;
 
             % Obtain the truth field to be fit:
@@ -177,6 +188,21 @@ classdef GravityField < handle
             x_out = fmincon(@(x) self.cost(x,accel_truth,r), x0,...
                             [],[],[],[],[],[],[],options);
             [self.Cnm, self.Snm] = vec2coeffs(x_out);
+        end
+    end
+    
+    %% Update Settings:
+    methods (Access = public)
+        function [] = updateMu(self,mu)
+            self.mu = mu;
+        end
+        
+        function [] = updateCnm(self,Cnm)
+            self.Cnm = Cnm;
+        end
+        
+        function [] = updateSnm(self,Snm)
+            self.Snm = Snm;
         end
     end
     
