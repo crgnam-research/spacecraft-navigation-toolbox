@@ -1,0 +1,60 @@
+                 Generic Satellite Ephemeris Files
+                     C. Acton    December 11, 2013
+                  
+This folder contains SPICE format (SPK) versions of the most recent natural body satellite 
+ephemeris files produced by JPL's Solar System Dynamics Group. 
+
+The naming schema for these files is usually nnnxxx.bsp, where:
+
+  nnn is the first three letters of the planet's name  (mar, jup, sat, ura, nep, plu)
+  xxx is a unique number, not really of any value to SPICE users
+  
+In some cases there is additional information inlcuded in the file name, such as:
+
+  "rocks"  means the ephemeris is based on an orbital theory and not on an integration
+  "l"  meaning this is a longer version of another file having the same name
+
+For each planetary system having satellites (Mars through Pluto) there may be one or several files. 
+When there is more than one file for a planet, each file contains ephemeris data for a unique set 
+of satellites--there is no duplication of satellites across files.
+
+Each satellite SPK provides the state (position and velocity) of the named satellites relative
+to the barycenter of that planetary system.
+
+Each satellite ephemeris SPK file also contains the ephemeris for the central planet, what is often
+referred to as the location of the planet mass center. In this sense each planet is treated as as
+a satellite of its own barycenter, just as for the "real" satellites.  As an example, the Mars
+satellite ephemeris file (name style is marxxx.bsp) contains ephemeris data for Phobos (ID = 401),
+Deimos (ID = 402) and Mars' mass center (ID = 499). Also included are the locations of the
+earth barycenter (ID = 3), earth itself (ID = 399) and the sun (ID = 10).
+
+NAIF's SPK tutorial provides more information about barycenters, and about how to use (read)
+SPK files.  That tuorial is found here: 
+    
+    http://naif.jpl.nasa.gov/naif/tutorials.html 
+
+and is named 19_spk.
+
+Each of these SPKs contains some meta-data in the comment area. Typically the meta-data are those
+provided by the person who generated the source file from which the SPK was made. (The Solar
+System Dynamics Group uses a local, internal format for their ephemeris files.) You may view those
+meta-data by reading the comment area, using the "commnt" utility available in each Toolkit.
+Those same comments are often available in this folder, in files having a "cmt" extension.
+
+The file named "aa_summaries" provides a convenient summary of the contents (which satellites
+are included) and time coverage for every SPK file available in this folder.
+
+Older versions of satellite SPK files are found one level down, in the "a_old_version" folder.
+
+Be aware of one oddity: the ephemeris for the earth's moon is *NOT* available in a file found in
+this folder.  Instead, the lunar ephemeris is included in each SPICE planetary
+ephemeris (name style dexxx), found in the adjacent planets folder (../planets).
+
+Occasionally (so far only for Mars) NAIF has access to a satellite ephemeris in SPK format that
+was produced by another agency. Such files are not provided under this "generic_kernels"
+collection; rather they are provided only with the operational kernels asociated with the
+foreign flight project that produced the ephemeris. The only current examples are Phobos/Deimos
+ephemeris SPKs produced under the auspices of the Mars Express (MEX) project.
+
+
+

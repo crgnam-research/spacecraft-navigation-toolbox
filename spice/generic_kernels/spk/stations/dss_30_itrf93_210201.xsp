@@ -1,0 +1,158 @@
+DAFETF NAIF DAF ENCODED TRANSFER FILE
+'NAIF/DAF'
+'2'
+'6'
+'LandmarksSPK                                                '
+BEGIN_ARRAY 1 16
+'DSS-30                                  '
+'-5E0C89C^8'
+'5E0C89C^8'
+'616B6'
+'18F'
+'32C8'
+'8'
+16
+'-F0E5F508F9F58^3'
+'D63D6443097038^3'
+'E9DD03DAB44B58^3'
+'-B26358EBFBE7E^-A'
+'-50464E6A315B8C^-A'
+'-475AF05E64C328^-A'
+'-F0E5FD3A20DEF8^3'
+'D63D6093518728^3'
+'E9DD0093D7EDF^3'
+'-B26358EBFBE7E^-A'
+'-50464E6A315B8C^-A'
+'-475AF05E64C328^-A'
+'-5E0C89C^8'
+'BC19138^8'
+'1^1'
+'2^1'
+END_ARRAY 1 16
+TOTAL_ARRAYS 1
+ ~NAIF/SPC BEGIN COMMENTS~
+
+  SPK for DSS-30
+  =====================================================================
+
+  Original file name:                   dss_30_itrf93_210201.bsp
+  Creation date:                        2021-02-02 16:10
+  Created by:                           Nat Bachman  (NAIF/JPL)
+
+  Introduction
+  =====================================================================
+
+  This file provides geocentric states---position and velocity---as a
+  slowly varying function of time for DSS-30, which is the JAXA 54m
+  "Misasa" station located at Usuda, Japan. Note that this station is
+  not located near the city of Misasa, Japan.
+
+  Station position vectors point from the earth's barycenter to the
+  station; the vectors are expressed in the ITRF93 terrestrial
+  reference frame. Station velocities are estimates of the derivative
+  with respect to time of these vectors; in this file, velocity is
+  constant. The station velocity has magnitude on the order of a few
+  cm/year.
+
+  States obtained from this file are given relative to the terrestrial
+  reference frame ITRF93.
+
+  Using this kernel
+  =====================================================================
+
+  Kernel loading
+  --------------
+
+  In order for a SPICE-based program to make use of this kernel, the
+  kernel must be loaded via the SPICE routine FURNSH. If you are
+  running application software created by a third party, see the
+  documentation for that software for instructions on kernel
+  management.
+
+  See also "Associated frame kernels" and "Associated PCK files"
+  below.
+
+  Associated PCK files
+  --------------------
+
+  This kernel should be used together with a binary Earth PCK file.
+
+     NAIF produces these kernels on a regular basis; they can be
+     obtained via anonymous ftp from the NAIF server
+
+        naif.jpl.nasa.gov
+
+     The PCK is located in the path
+
+        pub/naif/generic_kernels/pck
+
+     The file name is of the form
+
+        earth_000101_yymmdd_yymmdd.bpc
+
+     The first two dates are the file's start and stop times; the third
+     is the epoch of the last datum in the EOP file: data from
+     this epoch forward are predicted.
+
+     The file's coverage starts at a fixed date (currently chosen to
+     be 2000 Jan. 1) and extends to the end of the predict region,
+     which has a duration of roughly 3 months.
+
+     NAIF also provides a low-accuracy, long-term predict binary Earth
+     PCK file. See the path cited above for this file and accompanying
+     documentation.
+
+  Associated frame kernels
+  ------------------------
+
+  The frame kernel having (original) file name
+
+     dss_30_itrf93_210201.tf
+
+  defines a topocentric reference frame associated with the station
+  covered by this file. That kernel supports computations such
+  as finding the azimuth and elevation of a target as seen from a
+  specified station.
+
+
+  Data sources
+  =====================================================================
+
+  The data provided here are taken from
+
+     [1] Email communication Connie Dang, containing Excel spreadsheet
+         from Bill Folkner, dated 2021-01-14.
+
+  Coordinates were converted by Bill Folkner to the "JPL ITRF93" frame at
+  epoch 2015 Jan. 1.
+
+ \begindata
+
+   SITES                +=      'DSS-30'
+   DSS-30_FRAME         =       'ITRF93'
+   DSS-30_CENTER        =       399
+   DSS-30_IDCODE        =       399030
+   DSS-30_EPOCH         =       @2015-JAN-01/00:00
+   DSS-30_BOUNDS        =    (  @1950-JAN-01/00:00,  @2050-JAN-01/00:00  )
+   DSS-30_XYZ           =    (  -3854.373623
+                                     3427.836393
+                                     3741.812921 )
+ \begintext
+
+    By convention the topocentric frame epoch is set to a recent date.
+    Compared to use of the epoch of the location, when the two differ, this
+    provides more accurate topocentric frame orientation for computations
+    performed for epochs near the present date, since the topocentric
+    frame orientation relative to the ITRF93 frame is implemented as a fixed
+    offset (TK) frame.
+
+ \begindata
+
+   DSS-30_TOPO_EPOCH    =       @2021-JAN-21/00:00
+   DSS-30_UP            =       'Z'
+   DSS-30_NORTH         =       'X'
+   DSS-30_DXYZ          =    (   -0.02
+                                 -0.009
+                                 -0.008 )
+ \begintext
+ ~NAIF/SPC END COMMENTS~

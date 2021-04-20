@@ -1,0 +1,16 @@
+-rw-r--r-- 1 bsemenov naif 1136581632 Mar 14 08:29 jup365.bsp
+-rw-r--r-- 1 bsemenov naif  311968768 Mar 14 08:29 jup344.bsp
+-rw-rw-r-- 1 cacton   naif 1636228096 Aug  5  2020 nep095.bsp
+-rw-rw-r-- 1 cacton   naif  254218240 Jan 27  2020 sat427.bsp
+-rw-rw-r-- 1 cacton   naif   42371072 Oct 30  2019 sat428.bsp
+-rw-rw-r-- 1 cacton   naif 1531046912 Oct 29  2019 ura115.bsp
+-rw-rw-r-- 1 cacton   naif       7168 Oct 11  2016 sat393-rocks_pan.bsp
+-rw-rw-r-- 1 cacton   naif       9216 Oct 11  2016 sat393_daphnis.bsp
+-rw-rw-r-- 1 cacton   naif  614725632 Oct 11  2016 sat393.bsp
+-rw-rw-r-- 1 cacton   naif   84714496 Nov  6  2015 plu055.bsp
+-rw-rw-r-- 1 cacton   naif   86414336 Aug 11  2014 sat368.bsp
+-rw-rw-r-- 1 cacton   naif   30986240 Jan  8  2014 ura112.bsp
+-rw-rw-r-- 1 cacton   naif  169928704 Jan  8  2014 ura111.bsp
+-rw-rw-r-- 1 cacton   naif   21851136 Dec 12  2013 nep086.bsp
+-rw-rw-r-- 1 cacton   naif  469902336 Sep 28  2012 mar097.bsp
+-rw-rw-r-- 1 cacton   naif   54470656 May  8  2009 sat319.bsp

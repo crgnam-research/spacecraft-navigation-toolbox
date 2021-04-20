@@ -1,0 +1,1 @@
+-rw-rw-r-- 1 bsemenov naif 61864960 Jul 29  2010 codes_300ast_20100725.bsp

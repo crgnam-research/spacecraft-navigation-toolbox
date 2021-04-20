@@ -1,0 +1,13 @@
+; This SPK file was made to merge the ura115 source file with the
+; Uranus barycenter, earth and sun, and Uranus mass center. 
+;
+LEAPSECONDS_KERNEL    = /kernels/gen/lsk/naif0012.tls
+SPK_KERNEL            =  ura115.bsp
+
+  BEGIN_TIME          = 1980 JAN 01 TDB
+  END_TIME            = 2060 JAN 01 TDB
+
+SOURCE_SPK_KERNEL     = ura115-partial.bsp
+SOURCE_SPK_KERNEL     = /ftp/pub/naif/generic_kernels/spk/planets/de438.bsp
+   BODIES             = 3, 7, 10, 399
+

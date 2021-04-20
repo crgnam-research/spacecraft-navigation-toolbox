@@ -1,0 +1,130 @@
+
+  Preliminary SPK for the SRT, DSN ID 69
+  =====================================================================
+
+  Original file name:                   dss_69_prelim_itrf93_201215.bsp
+  Creation date:                        2020-12-17 13:05
+  Created by:                           Nat Bachman  (NAIF/JPL)
+
+  Introduction
+  =====================================================================
+
+  This file provides a preliminary estimated geocentric ephemeris---location
+  and velocity as a function of time, based on a single state vector and
+  epoch---for the Sardinia Radio Telescope (SRT) operated by the Istituto
+  Nazionale di Astrofisica (INAF), and identified by the DSN by the numeric
+  code 69.
+
+  The station (i.e. antenna) position vector points from the earth's
+  barycenter to the station. The station velocity is an estimate of the
+  derivative with respect to time of this vector; in this file, velocity is
+  constant. The station velocity has magnitude on the order of a few cm/year.
+
+  The state vector stored in this file is expressed relative to the
+  terrestrial reference frame ITRF93.
+
+  Using this kernel
+  =====================================================================
+
+  Kernel loading
+  --------------
+
+  In order for a SPICE-based program to make use of this kernel, the
+  kernel must be loaded via the SPICE routine FURNSH.  If you are
+  running application software created by a third party, see the
+  documentation for that software for instructions on kernel
+  management.
+
+  See also "Associated frame kernels" and "Associated PCK files"
+  below.
+
+  Associated PCK files
+  --------------------
+
+  For high-accuracy work, this kernel should be used together with a
+  high-precision, binary earth PCK file.
+
+     NAIF produces these kernels on a regular basis; they can be
+     obtained via anonymous ftp from the NAIF server
+
+        naif.jpl.nasa.gov
+
+     The PCK is located in the path
+
+        pub/naif/generic_kernels/pck
+
+     The file name is of the form
+
+        earth_000101_yymmdd_yymmdd.bpc
+
+     The first two dates are the file's start and stop times; the third
+     is the epoch of the last datum in the EOP file:  data from
+     this epoch forward are predicted.
+
+     The file's coverage starts at a fixed date (currently chosen to
+     be 2000 Jan. 1) and extends to the end of the predict region,
+     which has a duration of roughly 3 months.
+
+
+  Associated frame kernels
+  ------------------------
+
+  The frame kernel having (original) file name
+
+     dss_69_prelim_itrf93_201215.tf
+
+  defines a topocentric reference frame associated with the station
+  covered by this file. That kernel supports computations such
+  as finding the azimuth and elevation of a target as seen from a
+  specified station.
+
+
+  Data sources
+  =====================================================================
+
+  Data used in this file were taken from an email message from
+  Dustin Buccino to Connie Dang, sent on December 6, 2020.
+  That message states
+
+       The coordinates in ITRF2008 are:
+
+         Reference Frame:  ITRF08
+         Position: X = 4865183.218, Y = 791922.442, Z = 4035136.181 (m)
+         Velocity: VX = -0.0147, VY = 0.0185, VZ = 0.0156 (m/y)
+         Epoch: December 2013
+         Reference point: Intersection between Elevation and Azimuth axes,
+         at 35 m from the base of the antenna at the ground level.
+         Not Invariant point
+
+  These inputs were translated to the ITRF93 frame by N. Bachman (JPL/NAIF).
+  Parameters used in the transformation were obtained from [1]. The
+  resulting station state at epoch 2013 Dec 1 were:
+
+     4865.1830944493478
+      791.92252600171813
+     4035.1362126478120
+          -2.1047837864086309E-002
+           2.2274286620987818E-002
+           1.7622377458614742E-002
+
+   Units are km and m/year.
+
+   [1] IERS Technical Note 36. 4 Terrestrial Reference Systems and Frames.
+
+\begindata
+
+   SITES                +=      'DSS-69'
+   DSS-69_FRAME         =       'ITRF93'
+   DSS-69_CENTER        =       399
+   DSS-69_IDCODE        =       399069
+   DSS-69_EPOCH         =       @2013-DEC-01/00:00
+   DSS-69_BOUNDS        =    (  @1950-JAN-01/00:00,  @2050-JAN-01/00:00  )
+   DSS-69_XYZ           =    ( 4865.1830944493478
+                                791.92252600171813
+                               4035.1362126478120 )
+   DSS-69_TOPO_EPOCH    =       @2020-DEC-14/00:00
+   DSS-69_UP            =       'Z'
+   DSS-69_NORTH         =       'X'
+   DSS-69_DXYZ          =    ( -0.02105  0.02227  0.01762 )
+
+\begintext

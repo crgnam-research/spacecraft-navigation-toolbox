@@ -1,0 +1,8 @@
+-rw-r--r-- 1 nbachman naif  26624 Oct 23 11:40 earthstns_fx_201023.bsp
+-rw-r--r-- 1 nbachman naif  25600 Oct 23 11:33 earthstns_itrf93_201023.bsp
+-rw-rw-r-- 1 nbachman naif  11264 Oct 17 10:16 dss_23_placeholder_itrf93_201017.bsp
+-rw-rw-r-- 1 bsemenov naif 241664 Nov 27  2019 ndosl_190716_v02.bsp
+-rw-rw-r-- 1 bsemenov naif 241664 Nov  4  2019 ndosl_190716_v01.bsp
+-rw-rw-r-- 1 bsemenov naif   7168 Aug 20  2019 dss_17_prelim_itrf93_190814.bsp
+-rw-rw-r-- 1 bsemenov naif   7168 Nov 15  2016 dss_17_prelim_itrf93_161110.bsp
+-rw-rw-r-- 1 bsemenov naif 228352 Nov  7  2014 ndosl_140530_v01.bsp

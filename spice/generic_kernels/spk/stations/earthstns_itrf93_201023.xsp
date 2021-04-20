@@ -1,0 +1,981 @@
+DAFETF NAIF DAF ENCODED TRANSFER FILE
+'NAIF/DAF'
+'2'
+'6'
+'LandmarksSPK                                                '
+BEGIN_ARRAY 1 16
+'DSS-13                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616A5'
+'18F'
+'32C8'
+'8'
+16
+'-92F1C98B31EB7^3'
+'-122F87EE567735^4'
+'E4CE9B5BDB1628^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-92F1D84A045518^3'
+'-122F8799246228^4'
+'E4CE983EF2EEC8^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 1 16
+BEGIN_ARRAY 2 16
+'DSS-14                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616A6'
+'18F'
+'32C8'
+'8'
+16
+'-9319ED6DC4F32^3'
+'-12215781492DA^4'
+'E5D0D71E9463C^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-9319FC2C975CC8^3'
+'-1221572C171893^4'
+'E5D0D401AC3C6^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 2 16
+BEGIN_ARRAY 3 16
+'DSS-15                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616A7'
+'18F'
+'32C8'
+'8'
+16
+'-93189BAA186088^3'
+'-1221A6578E4933^4'
+'E5CAB91452C16^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-9318AA68EACA3^3'
+'-1221A6025C3426^4'
+'E5CAB5F76A9A^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 3 16
+BEGIN_ARRAY 4 16
+'DSS-24                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616B0'
+'18F'
+'32C8'
+'8'
+16
+'-932E7DFB10A0A^3'
+'-1226D7270AF3A8^4'
+'E553E1635C13F^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-932E8CB9E30A48^3'
+'-1226D6D1D8DE9B^4'
+'E553DE4673EC9^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 4 16
+BEGIN_ARRAY 5 16
+'DSS-25                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616B1'
+'18F'
+'32C8'
+'8'
+16
+'-933056430602B8^3'
+'-1226F41BC1138B^4'
+'E550A6FCC358A^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-93306501D86C6^3'
+'-1226F3C68EFE7E^4'
+'E550A3DFDB314^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 5 16
+BEGIN_ARRAY 6 16
+'DSS-26                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616B2'
+'18F'
+'32C8'
+'8'
+16
+'-932E3CCC06C7D8^3'
+'-12272AAB0C7589^4'
+'E54DF3888D25E^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-932E4B8AD9318^3'
+'-12272A55DA607C^4'
+'E54DF06BA4FE8^3'
+'-A08C9CD462B718^-A'
+'39F9E34CB1DE8E^-A'
+'-21E4CBC66FDCB2^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 6 16
+BEGIN_ARRAY 7 16
+'DSS-34                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616BA'
+'18F'
+'32C8'
+'8'
+16
+'-116D2533877884^4'
+'A7A70803538778^3'
+'-E5A652C8526CB8^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-116D26EA9D4779^4'
+'A7A704A78177F^3'
+'-E5A632AB994258^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 7 16
+BEGIN_ARRAY 8 16
+'DSS-35                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616BB'
+'18F'
+'32C8'
+'8'
+16
+'-116D4574DE5AE9^4'
+'A7A91B34F41378^3'
+'-E5A2777B901C48^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-116D472BF429DE^4'
+'A7A917D92203F^3'
+'-E5A2575ED6F1E8^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 8 16
+BEGIN_ARRAY 9 16
+'DSS-36                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616BC'
+'18F'
+'32C8'
+'8'
+16
+'-116D2AA8E34534^4'
+'A7AD09B9A18CC^3'
+'-E5A1602B117EB^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-116D2C5FF91429^4'
+'A7AD065DCF7D38^3'
+'-E5A1400E58545^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 9 16
+BEGIN_ARRAY 10 16
+'DSS-43                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616C3'
+'18F'
+'32C8'
+'8'
+16
+'-116CE4A4EC3FAE^4'
+'A7A5C99F6AA9D8^3'
+'-E5AC00F0B9941^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-116CE65C020EA3^4'
+'A7A5C643989A5^3'
+'-E5ABE0D40069B^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 10 16
+BEGIN_ARRAY 11 16
+'DSS-45                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616C5'
+'18F'
+'32C8'
+'8'
+16
+'-116CEF0DAEA0E7^4'
+'A7AC410999F298^3'
+'-E5A621031332E8^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-116CF0C4C46FDC^4'
+'A7AC3DADC7E31^3'
+'-E5A600E65A0888^3'
+'-12ACCCE8B45F13^-9'
+'-2491CE6393A404^-A'
+'15DA40034EDBC4^-9'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 11 16
+BEGIN_ARRAY 12 16
+'DSS-53                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616CD'
+'18F'
+'32C8'
+'8'
+16
+'12F1572AAE0C0E^4'
+'-168A8D6DD80A29^3'
+'1012BF18368587^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F156A79C130D^4'
+'-168A799ACE37D5^3'
+'1012BFE4AEB80D^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 12 16
+BEGIN_ARRAY 13 16
+'DSS-54                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616CE'
+'18F'
+'32C8'
+'8'
+16
+'12F16F5D56D5C6^4'
+'-168B9A58F29FD6^3'
+'10129E35C93D85^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F16EDA44DCC5^4'
+'-168B8685E8CD82^3'
+'10129F0241700B^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 13 16
+BEGIN_ARRAY 14 16
+'DSS-55                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616CF'
+'18F'
+'32C8'
+'8'
+16
+'12F18699E92D4C^4'
+'-1689B7CFAB63D7^3'
+'10127E87A3FBAC^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F18616D7344B^4'
+'-1689A3FCA19183^3'
+'10127F541C2E32^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 14 16
+BEGIN_ARRAY 15 16
+'DSS-56                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616D0'
+'18F'
+'32C8'
+'8'
+16
+'12F16C15E379AE^4'
+'-1688D0A81F2DD4^3'
+'1012A56AC16CD6^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F16B92D180AD^4'
+'-1688BCD5155B8^3'
+'1012A637399F5C^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 15 16
+BEGIN_ARRAY 16 16
+'DSS-63                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616D7'
+'18F'
+'32C8'
+'8'
+16
+'12F117D1FE479^4'
+'-1682E7F5787CFA^3'
+'10131BC1B066F4^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F1174EEC4E8F^4'
+'-1682D4226EAAA6^3'
+'10131C8E28997A^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 16 16
+BEGIN_ARRAY 17 16
+'DSS-65                                  '
+'-5E0C89C^8'
+'11A244BC^9'
+'616D9'
+'18F'
+'32C8'
+'8'
+16
+'12F15714FCC9E1^4'
+'-1686DCF6C73193^3'
+'1012BFF9DA79ED^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'12F15691EAD0E^4'
+'-1686C923BD5F3F^3'
+'1012C0C652AC73^4'
+'-5931AC75FDF3F^-A'
+'D7D97D83F0CE5^-A'
+'8B2487EB447C88^-A'
+'-5E0C89C^8'
+'17830D58^9'
+'1^1'
+'2^1'
+END_ARRAY 17 16
+TOTAL_ARRAYS 17
+ ~NAIF/SPC BEGIN COMMENTS~
+
+   SPK for DSN Station Locations
+   =====================================================================
+
+   Original file name:                   earthstns_itrf93_201023.bsp
+   Creation date:                        2020 October 28 12:30
+   Created by:                           Nat Bachman  (NAIF/JPL)
+
+
+   Introduction
+   =====================================================================
+
+   This file provides geocentric states---locations and velocities---for the
+   set of DSN stations cited in the list below under "Position Data."  Station
+   position vectors point from the earth's barycenter to the stations. Station
+   velocities are estimates of the derivatives with respect to time of these
+   vectors; in this file, velocities are constant. Station velocities have
+   magnitudes on the order of a few cm/year.
+
+   The states in this file are given relative to the terrestrial reference
+   frame ITRF93.
+
+   This SPK file has a companion file
+
+      earthstns_fx_201023.bsp
+
+   which differs from this one only in that it uses the reference
+   frame alias 'EARTH_FIXED'. See the comment area of that file
+   and the Frames Required Reading for details.
+
+
+   Revision description
+   --------------------
+
+   This kernel contains data from a single, current source: [1].
+
+   This kernel supersedes the kernels
+
+      earthstns_itrf93_050714.bsp
+      dss_53_prelim_itrf93_201018.bsp (data in this kernel are identical)
+      dss_56_prelim_itrf93_201018.bsp (data in this kernel are improved)
+      dss_35_36_prelim_itrf93_140620.bsp (data in this kernel are improved)
+
+   The set of stations covered by this file has changed from that of the file
+
+      earthstns_itrf93_050714.bsp
+
+   as follows:
+
+      Deleted stations (not present in current file):
+
+         PARKES
+         DSS-12
+         DSS-16
+         DSS-17
+         DSS-23
+         DSS-27
+         DSS-28
+         DSS-33
+         DSS-42
+         DSS-46
+         DSS-49 (alternate name for PARKES)
+         DSS-61
+         DSS-64 (alternate name for DSS-65)
+         DSS-66
+
+      Other deleted data:
+
+         Position data for the old location of DSS-65 prior to 2005 July 3
+         TDB are no longer included. This file extrapolates current data
+         backward in time for the entire time period covered by this file.
+         The superseded file
+
+            earthstns_itrf93_050714.bsp
+
+         should be used to obtain the old location of DSS-65 for dates prior
+         to 2005 July 3 TDB.
+
+      Added stations:
+
+         DSS-35
+         DSS-36
+         DSS-56
+
+      Name transfers---name now refers to a new station:
+
+         DSS-53
+
+
+   Planned updates
+   ---------------
+
+   Updates will be be made to keep this file in sync with updates to the
+   source document [1].
+
+   Values for DSS-53 are expected to be updated. Values for DSS-23 will be
+   added. There is no schedule for these changes at this time.
+
+
+   Using this kernel
+   =====================================================================
+
+   Kernel loading
+   --------------
+
+   In order for a SPICE-based program to make use of this kernel, the
+   kernel must be loaded via the SPICE routine FURNSH.  If you are
+   running application software created by a third party, see the
+   documentation for that software for instructions on kernel
+   management.
+
+   See also "Associated frame kernels" and "Associated PCK files"
+   below.
+
+   Users requiring data from superseded SPK versions can load those files
+   in addition to this one. In the case of conflicting data, data from SPKs
+   loaded later take precedence over SPKs loaded earlier.
+
+
+   Associated PCK files
+   --------------------
+
+   For high-accuracy work, this kernel should be used together with a
+   high-precision, binary earth PCK file.
+
+      NAIF produces these kernels on a regular basis; they can be
+      obtained via anonymous ftp from the NAIF server
+
+         naif.jpl.nasa.gov
+
+      or downloaded from the URL
+
+         https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/
+
+      The PCK is located in the path
+
+         pub/naif/generic_kernels/pck
+
+      The file name is of the form
+
+         earth_000101_yymmdd_yymmdd.bpc
+
+      The first two dates are the file's start and stop times; the third
+      is the epoch of the last datum in the EOP file:  data from
+      this epoch forward are predicted.
+
+      The file's coverage starts at a fixed date (currently chosen to
+      be 2000 Jan. 1) and extends to the end of the predict region,
+      which has a duration of roughly 3 months.
+
+      The same location contains a file with identical contents and a fixed
+      name:
+
+         earth_latest_high_prec.bpc
+
+      This file may be convenient for automated downloads.
+
+      NAIF also provides a low-accuracy, long-term predict binary Earth PCK.
+      See the file
+
+          aareadme.txt
+
+      in the location cited above for details.
+
+
+   Associated frame kernels
+   ------------------------
+
+   The frame kernel having (original) file name
+
+      earth_topo_201023.tf
+
+   defines topocentric reference frames associated with each of
+   the stations covered by this file. That kernel supports
+   computations such as finding the azimuth and elevation of a target
+   as seen from a specified station.
+
+
+   Data sources
+   =====================================================================
+
+   All data presented here are from reference [1].
+
+
+   Reference Spheroid
+   ------------------
+
+   The reference bi-axial spheroid is defined by an equatorial and a
+   polar radius. Calling these Re and Rp respectively, the flattening
+   factor f is defined as
+
+      f = ( Re - Rp ) / Re
+
+   For the reference spheroid used by this file, the equatorial radius
+   Re and inverse flattening factor 1/f are
+
+      Re  = 6378137 m
+      1/f = 298.2572236
+
+   The reference spheroid is not used for the creation of this SPK file
+   but is used to create the associated frame kernel named above.
+
+
+   Epoch
+   -----
+
+   The epoch associated with these data is given by the source as
+   "2003.0."  The time variation of the data is slow enough so that
+   specification of the time system is unimportant. However, in the
+   creation of this file, the epoch is assumed to be
+
+      2003 Jan 1 00:00:00 TDB
+
+   At this epoch, the station positions are as given below.
+
+
+   Position data
+   -------------
+
+   Station locations in the ITRF93 frame at the specified epoch are:
+
+       Antenna  Diameter   x (m)            y (m)           z (m)
+
+       DSS 13   34m     -2351112.659    -4655530.636    +3660912.728
+       DSS 14   70m     -2353621.420    -4641341.472    +3677052.318
+       DSS 15   34m     -2353538.958    -4641649.429    +3676669.984 {3}
+       DSS 24   34m     -2354906.711    -4646840.095    +3669242.325
+       DSS 25   34m     -2355022.014    -4646953.204    +3669040.567
+       DSS 26   34m     -2354890.797    -4647166.328    +3668871.755
+       DSS 34   34m     -4461147.093    +2682439.239    -3674393.133 {1}
+       DSS 35   34m     -4461273.090    +2682568.925    -3674152.093 {1}
+       DSS 36   34m     -4461168.415    +2682814.657    -3674083.901 {1}
+       DSS 43   70m     -4460894.917    +2682361.507    -3674748.152
+       DSS 45   34m     -4460935.578    +2682765.661    -3674380.982 {3}
+       DSS 53   34m     +4849339.965     -360658.246    +4114747.290 {2}
+       DSS 54   34m     +4849434.488     -360723.8999   +4114618.835
+       DSS 55   34m     +4849525.256     -360606.0932   +4114495.084
+       DSS 56   34m     +4849421.679     -360549.659    +4114646.987
+       DSS 63   70m     +4849092.518     -360180.3480   +4115109.251
+       DSS 65   34m     +4849339.634     -360427.6637   +4114750.733
+
+       Notes from [1]:
+
+       {1} Position absolute accuracy estimated to be +/- 3cm (0.030m)
+           (1-sigma) for each coordinate.
+
+       {2} Position absolute accuracy estimated to be +/- 3m (3-sigma)
+           for each coordinate.
+
+       {3} Decommissioned. For historical reference only.
+
+
+   Velocity data
+   -------------
+
+   Station velocities in Cartesian coordinates, with respect to the
+   ITRF93 frame, are shown below.
+
+       Reference epoch for plate motion: 01-JAN-2003 00:00
+
+       Plate motion model, m/year
+
+                                         X         Y         Z
+       Goldstone:
+
+          Stations numbered 1X & 2X   -0.0180    0.0065    -0.0038
+
+       Canberra:
+
+          Stations numbered 3X & 4X   -0.0335   -0.0041     0.0392
+
+       Madrid:
+
+          Stations numbered 5X & 6X   -0.0100    0.0242     0.0156
+
+
+   Accuracy
+   --------
+
+   Location uncertainties at the 1 sigma level, for cylindrical coordinates,
+   are given by Table 7 of reference [1].
+
+
+   References
+   ----------
+
+   The data provided here are taken from the DSN document
+
+      [1] "301 Coverage and Geometry." DSN No. 810-005, 301, Rev. M
+          Issue Date: September 04, 2020. JPL D-19379; CL#20-3996.
+
+          URL: https://deepspace.jpl.nasa.gov/dsndocs/810-005/301/301M.pdf
+
+
+   Documentation for the SPICE Toolkit software is available here:
+
+       URL:  https://naif.jpl.nasa.gov
+
+
+   Kernel Data
+   =====================================================================
+
+\begintext
+
+   Station locations and velocities, along with topocentric reference frame
+   specification parameters:
+
+\begindata
+
+
+   SITES            +=      'DSS-13'
+   DSS-13_FRAME      =       'ITRF93'
+   DSS-13_CENTER     =       399
+   DSS-13_IDCODE     =       399013
+   DSS-13_EPOCH      =       @2003-JAN-01/00:00
+   DSS-13_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-13_XYZ        =    ( -2351.112659    -4655.530636    +3660.912728 )
+   DSS-13_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-13_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-13_UP         =       'Z'
+   DSS-13_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-14'
+   DSS-14_FRAME      =       'ITRF93'
+   DSS-14_CENTER     =       399
+   DSS-14_IDCODE     =       399014
+   DSS-14_EPOCH      =       @2003-JAN-01/00:00
+   DSS-14_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-14_XYZ        =    ( -2353.621420    -4641.341472    +3677.052318 )
+   DSS-14_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-14_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-14_UP         =       'Z'
+   DSS-14_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-15'
+   DSS-15_FRAME      =       'ITRF93'
+   DSS-15_CENTER     =       399
+   DSS-15_IDCODE     =       399015
+   DSS-15_EPOCH      =       @2003-JAN-01/00:00
+   DSS-15_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-15_XYZ        =    ( -2353.538958    -4641.649429    +3676.669984 )
+   DSS-15_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-15_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-15_UP         =       'Z'
+   DSS-15_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-24'
+   DSS-24_FRAME      =       'ITRF93'
+   DSS-24_CENTER     =       399
+   DSS-24_IDCODE     =       399024
+   DSS-24_EPOCH      =       @2003-JAN-01/00:00
+   DSS-24_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-24_XYZ        =    ( -2354.906711    -4646.840095    +3669.242325 )
+   DSS-24_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-24_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-24_UP         =       'Z'
+   DSS-24_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-25'
+   DSS-25_FRAME      =       'ITRF93'
+   DSS-25_CENTER     =       399
+   DSS-25_IDCODE     =       399025
+   DSS-25_EPOCH      =       @2003-JAN-01/00:00
+   DSS-25_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-25_XYZ        =    ( -2355.022014    -4646.953204    +3669.040567 )
+   DSS-25_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-25_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-25_UP         =       'Z'
+   DSS-25_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-26'
+   DSS-26_FRAME      =       'ITRF93'
+   DSS-26_CENTER     =       399
+   DSS-26_IDCODE     =       399026
+   DSS-26_EPOCH      =       @2003-JAN-01/00:00
+   DSS-26_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-26_XYZ        =    ( -2354.890797    -4647.166328    +3668.871755 )
+   DSS-26_DXYZ       =    (    -0.0180          0.0065         -0.0038   )
+   DSS-26_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-26_UP         =       'Z'
+   DSS-26_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-34'
+   DSS-34_FRAME      =       'ITRF93'
+   DSS-34_CENTER     =       399
+   DSS-34_IDCODE     =       399034
+   DSS-34_EPOCH      =       @2003-JAN-01/00:00
+   DSS-34_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-34_XYZ        =    ( -4461.147093    +2682.439239    -3674.393133 )
+   DSS-34_DXYZ       =    (    -0.0335         -0.0041          0.0392   )
+   DSS-34_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-34_UP         =       'Z'
+   DSS-34_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-35'
+   DSS-35_FRAME      =       'ITRF93'
+   DSS-35_CENTER     =       399
+   DSS-35_IDCODE     =       399035
+   DSS-35_EPOCH      =       @2003-JAN-01/00:00
+   DSS-35_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-35_XYZ        =    ( -4461.273090    +2682.568925    -3674.152093 )
+   DSS-35_DXYZ       =    (    -0.0335         -0.0041          0.0392   )
+   DSS-35_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-35_UP         =       'Z'
+   DSS-35_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-36'
+   DSS-36_FRAME      =       'ITRF93'
+   DSS-36_CENTER     =       399
+   DSS-36_IDCODE     =       399036
+   DSS-36_EPOCH      =       @2003-JAN-01/00:00
+   DSS-36_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-36_XYZ        =    ( -4461.168415    +2682.814657    -3674.083901 )
+   DSS-36_DXYZ       =    (    -0.0335         -0.0041          0.0392   )
+   DSS-36_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-36_UP         =       'Z'
+   DSS-36_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-43'
+   DSS-43_FRAME      =       'ITRF93'
+   DSS-43_CENTER     =       399
+   DSS-43_IDCODE     =       399043
+   DSS-43_EPOCH      =       @2003-JAN-01/00:00
+   DSS-43_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-43_XYZ        =    (   -4460.894917    +2682.361507    -3674.748152 )
+   DSS-43_DXYZ       =    (      -0.0335         -0.0041          0.0392   )
+   DSS-43_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-43_UP         =       'Z'
+   DSS-43_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-45'
+   DSS-45_FRAME      =       'ITRF93'
+   DSS-45_CENTER     =       399
+   DSS-45_IDCODE     =       399045
+   DSS-45_EPOCH      =       @2003-JAN-01/00:00
+   DSS-45_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-45_XYZ        =    (  -4460.935578    +2682.765661    -3674.380982 )
+   DSS-45_DXYZ       =    (     -0.0335         -0.0041          0.0392   )
+   DSS-45_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-45_UP         =       'Z'
+   DSS-45_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-53'
+   DSS-53_FRAME      =       'ITRF93'
+   DSS-53_CENTER     =       399
+   DSS-53_IDCODE     =       399053
+   DSS-53_EPOCH      =       @2003-JAN-01/00:00
+   DSS-53_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-53_XYZ        =    (  +4849.339965     -360.658246    +4114.747290  )
+   DSS-53_DXYZ       =    (       -0.0100          0.0242          0.0156 )
+   DSS-53_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-53_UP         =       'Z'
+   DSS-53_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-54'
+   DSS-54_FRAME      =       'ITRF93'
+   DSS-54_CENTER     =       399
+   DSS-54_IDCODE     =       399054
+   DSS-54_EPOCH      =       @2003-JAN-01/00:00
+   DSS-54_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-54_XYZ        =    ( +4849.434488     -360.7238999   +4114.618835 )
+   DSS-54_DXYZ       =    (    -0.0100          0.0242          0.0156 )
+   DSS-54_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-54_UP         =       'Z'
+   DSS-54_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-55'
+   DSS-55_FRAME      =       'ITRF93'
+   DSS-55_CENTER     =       399
+   DSS-55_IDCODE     =       399055
+   DSS-55_EPOCH      =       @2003-JAN-01/00:00
+   DSS-55_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-55_XYZ        =    ( +4849.525256     -360.6060932   +4114.495084 )
+   DSS-55_DXYZ       =    (    -0.0100          0.0242          0.0156   )
+   DSS-55_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-55_UP         =       'Z'
+   DSS-55_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-56'
+   DSS-56_FRAME      =       'ITRF93'
+   DSS-56_CENTER     =       399
+   DSS-56_IDCODE     =       399056
+   DSS-56_EPOCH      =       @2003-JAN-01/00:00
+   DSS-56_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-56_XYZ        =    ( +4849.421679     -360.549659    +4114.646987 )
+   DSS-56_DXYZ       =    (    -0.0100          0.0242          0.0156   )
+   DSS-56_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-56_UP         =       'Z'
+   DSS-56_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-63'
+   DSS-63_FRAME      =       'ITRF93'
+   DSS-63_CENTER     =       399
+   DSS-63_IDCODE     =       399063
+   DSS-63_EPOCH      =       @2003-JAN-01/00:00
+   DSS-63_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-63_XYZ        =    ( +4849.092518     -360.1803480   +4115.109251 )
+   DSS-63_DXYZ       =    (    -0.0100          0.0242          0.0156   )
+   DSS-63_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-63_UP         =       'Z'
+   DSS-63_NORTH      =       'X'
+
+
+   SITES            +=      'DSS-65'
+   DSS-65_FRAME      =       'ITRF93'
+   DSS-65_CENTER     =       399
+   DSS-65_IDCODE     =       399065
+   DSS-65_EPOCH      =       @2003-JAN-01/00:00
+   DSS-65_BOUNDS     =    (  @1950-JAN-01/00:00,  @2150-JAN-01/00:00  )
+   DSS-65_XYZ        =    ( +4849.339634     -360.4276637   +4114.750733 )
+   DSS-65_DXYZ       =    (    -0.0100          0.0242          0.0156   )
+   DSS-65_TOPO_EPOCH =       @2020-OCT-23/00:00
+   DSS-65_UP         =       'Z'
+   DSS-65_NORTH      =       'X'
+
+\begintext
+ ~NAIF/SPC END COMMENTS~

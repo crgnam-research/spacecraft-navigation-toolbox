@@ -1,0 +1,65 @@
+
+File:                         phobos_2014_09_22.bds
+
+Authors:                      Thomas Roatsch (DLR)
+                              Konrad Willner (DLR)
+
+File creation date:           2014-09-22T11:16:16
+
+Last revision date:           2015-04-14 00:12:00 (NJB)
+Change description:           The file's comments were
+                              updated.
+
+
+File description
+===========================================
+ 
+This file contains Phobos topography data.
+
+See the article "Phobos shape and topography models"
+by Willner, K., Shi, X., and Oberst, J.
+Planetary and Space Science 102 (2014) 51-59.
+
+This article is provided on the NAIF server at 
+
+   http://naif.jpl.nasa.gov/pub/naif/generic_kernels/dsk/phobos/willner_etal_phobos.pdf
+
+
+********************************************************************************
+MKDSK RUN DATE/TIME: 2014-09-22T11:16:16
+MKDSK SETUP FILE:    mkdsk_phobos_140922.cfg
+MKDSK INPUT FILE:    Willner_phobosv41.shp
+MKDSK OUTPUT FILE:   phobos_2014_09_22.bds
+OUTPUT FILE STATUS:    NEW FILE
+********************************************************************************
+
+\begindata
+
+   INPUT_SHAPE_FILE    = 'Willner_phobosv41.shp'
+   OUTPUT_DSK_FILE     = 'phobos_2014_09_22.bds'
+   LEAPSECONDS_FILE    = '/vicsys/common_kernel/naif0010.tls'
+   SURFACE_NAME        = 'PHOBOS'
+   CENTER_NAME         = 'PHOBOS'
+   REF_FRAME_NAME      = 'IAU_PHOBOS'
+   START_TIME          = '1900-01-01T00:00'
+   STOP_TIME           = '2099-01-01T00:00'
+   DATA_CLASS          = 2
+
+   INPUT_DATA_UNITS    = ( 'ANGLES = degrees' 'DISTANCES = kilometers' )
+
+   COORDINATE_SYSTEM   = 'LATITUDINAL'
+
+      MINIMUM_LATITUDE    = -90.0
+      MAXIMUM_LATITUDE    =  90.0
+      MINIMUM_LONGITUDE   =   0.0
+      MAXIMUM_LONGITUDE   = 360.0
+
+   DATA_TYPE              = 2
+
+      PLATE_TYPE          = 1
+      FINE_VOXEL_SCALE    = 3
+      COARSE_VOXEL_SCALE  = 3
+
+\begintext
+
+********************************************************************************

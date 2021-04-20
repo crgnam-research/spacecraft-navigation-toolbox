@@ -1,0 +1,47 @@
+                        Rock Element File Release
+
+
+Rock Elements: SAT363A
+
+Location: ssd.jpl.nasa.gov/pub/eph/satellites/rckin/rckin.sat363eq_a.txt
+
+Equinox Reference Julian Date: 2451545.00
+
+Bodies on the File:
+
+    Name      Number          GM                  AX        BX        CX
+    Pan        618     0.000000000000000E+00     0.500     0.000     0.000
+    Daphni     635     0.000000000000000E+00     0.000     0.000     0.000
+
+    Elements for Pan    at Julian Date: 2451545.000000000
+       Semi-major axis             133584.4767617734       km
+       h = esin(omega+node)        6.573230396213189E-07   
+       k = ecos(omega+node)       -3.834742374741285E-06   
+       mean longitude              146.5930214018767       deg
+       p = tan(i/2)sin(node)       2.874273755616854E-06   
+       q = tan(i/2)cos(node)       1.786179828249530E-06   
+       apsidal rate                3.711667877073790E-05   deg/sec
+       mean longitude rate         7.245737665179854E-03   deg/sec
+       nodal rate                 -3.692848989739440E-05   deg/sec
+       Reference plane pole RTA    40.58266021370071       deg
+       Reference plane pole DEC    83.53762557532015       deg
+
+    Elements for Daphni at Julian Date: 2453302.500000000
+       Semi-major axis             136504.2262353015       km
+       h = esin(omega+node)       -1.014579348951618E-05   
+       k = ecos(omega+node)       -5.170934419971399E-06   
+       mean longitude              281.9423699179307       deg
+       p = tan(i/2)sin(node)      -1.182221561406736E-05   
+       q = tan(i/2)cos(node)       1.363893098204005E-05   
+       apsidal rate                3.436668768688540E-05   deg/sec
+       mean longitude rate         7.013647607972264E-03   deg/sec
+       nodal rate                 -3.419991514627601E-05   deg/sec
+       Reference plane pole RTA    40.58266021370071       deg
+       Reference plane pole DEC    83.53762557532015       deg
+
+Release to: Horizons/NAIF                      Time: 31-Jan-2014 09:25:29
+Preparer: R. A. Jacobson
+
+Comments:
+Update of the precessing ellipse elements for Pan and Daphnis.
+These elements are valid only to 2010 January 1.

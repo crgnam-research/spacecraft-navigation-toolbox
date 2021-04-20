@@ -1,0 +1,13 @@
+ 
+LEAPSECONDS_FILE     = /kernels/gen/lsk/naif0009.tls
+
+SPK_FILE             = .bsp
+   INCLUDE_TEXT_FILE = 
+   BEGIN_TIME        = 
+   END_TIME          = 
+
+
+   SOURCE_NIO_FILE   = 
+
+   SOURCE_NIO_FILE   = /group/naif/kernels/gen/spk/de421.nio
+     BODIES          = 3, 399, 10, 

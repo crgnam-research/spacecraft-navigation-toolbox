@@ -1,0 +1,51 @@
+ 
+BRIEF -- Version 4.0.0, September 8, 2010 -- Toolkit Version N0066
+ 
+ 
+Summary for: C_G_1000012_2012_2017.bsp
+ 
+Body: CHURYUMOV-GERASIMENKO (1000012)
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      2012 JAN 01 00:00:00.000            2017 JAN 01 00:00:00.000
+ 
+ 
+Summary for: c2013a1_s105_merged.bsp
+ 
+Body: SIDING SPRING (1003228)
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      3002 B.C. NOV 26 00:00:00.000       2999 OCT 09 00:00:00.000
+ 
+ 
+Summary for: ison.bsp
+ 
+Body: 1003203
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      2012 JAN 01 00:00:00.000            2014 JAN 02 00:00:00.000
+ 
+ 
+Summary for: siding_spring_8-19-14.bsp
+ 
+Body: SIDING SPRING (1003228)
+      Start of Interval (ET)              End of Interval (ET)
+      -----------------------------       -----------------------------
+      2014 AUG 19 00:00:00.000            2014 DEC 30 00:00:00.000
+ 
+ 
+Summary for: siding_spring_s46.bsp
+ 
+Bodies: MERCURY BARYCENTER (1)   SUN (10)
+        VENUS BARYCENTER (2)     MERCURY (199)
+        EARTH BARYCENTER (3)     VENUS (299)
+        MARS BARYCENTER (4)      MOON (301)
+        JUPITER BARYCENTER (5)   EARTH (399)
+        SATURN BARYCENTER (6)    PHOBOS (401)
+        URANUS BARYCENTER (7)    DEIMOS (402)
+        NEPTUNE BARYCENTER (8)   MARS (499)
+        PLUTO BARYCENTER (9)     SIDING SPRING (1003228)
+        Start of Interval (ET)              End of Interval (ET)
+        -----------------------------       -----------------------------
+        2000 JAN 01 00:00:00.000            2016 JAN 01 00:00:00.000
+ 

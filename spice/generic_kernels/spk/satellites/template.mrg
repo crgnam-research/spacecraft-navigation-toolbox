@@ -1,0 +1,9 @@
+; This SPK file was made for 
+;
+LEAPSECONDS_KERNEL    = /kernels/gen/lsk/naif0009.tls
+SPK_KERNEL            =  .bsp
+
+  BEGIN_TIME          = 2003 DEC 01 
+  END_TIME            = 2004 MAR 01
+
+SOURCE_SPK_KERNEL     = 

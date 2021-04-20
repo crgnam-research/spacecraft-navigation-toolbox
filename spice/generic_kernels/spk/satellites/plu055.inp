@@ -1,0 +1,15 @@
+ 
+LEAPSECONDS_FILE     = /kernels/gen/lsk/naif0011.tls
+
+SPK_FILE             = plu055.bsp
+   INCLUDE_TEXT_FILE = plu055.cmt
+   
+   BEGIN_TIME        = 08-JAN-1900
+   END_TIME          = 01-JAN-2100
+
+
+   SOURCE_NIO_FILE   = plu055l.nio
+
+
+   SOURCE_NIO_FILE   = /group/naif/kernels/gen/spk/de430.nio
+     BODIES          = 3, 399, 10, 9
