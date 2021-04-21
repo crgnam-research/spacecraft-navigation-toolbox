@@ -1,0 +1,7 @@
+spice/generic_kernels/spk/asteroids/codes_300ast_20100725.bsp filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/spk/satellites/plu055.bsp filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/spk/satellites/sat319.bsp filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/dsk/satellites/phobos512.bds filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/spk/planets/de430.bsp filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/spk/satellites/mar097.bsp filter=lfs diff=lfs merge=lfs -text
+spice/generic_kernels/spk/satellites/jup344.bsp filter=lfs diff=lfs merge=lfs -text
